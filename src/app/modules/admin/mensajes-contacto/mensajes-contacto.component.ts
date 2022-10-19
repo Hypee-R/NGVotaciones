@@ -114,7 +114,25 @@ export class MensajesContactoComponent implements OnInit {
 
 
   openNew() {
-    this.ContactoModel={nombre:'',app:'',fechaNa:''};
+    this.ContactoModel={id: '',
+    date: '',
+    status: '',
+    nombre: '',
+    submission: '',
+    app: '',
+    fechaNa: '',
+    correo: '',
+    apm: '',
+    telefono: '',
+    adulto: '',
+    facebook: '',
+    instragram: '',
+    nombreTutor: '',
+  appTutor: '',
+  apmTutor: '',
+
+
+};
     this.submitted = false;
     this.ContactoModelDialog = true;
 }

@@ -13,10 +13,22 @@ import { ContactoService } from 'src/app/services/contacto.service';
 })
 export class InicioComponent {
   contactomodel = {
-    nombre: '',
-    app: '',
-    fechaNa: '',
-
+    id : '',
+    date : '',
+    status : '',
+    nombre : '',
+    submission : '',
+    app : '',
+    fechaNa : '',
+    correo : '',
+    apm : '',
+    telefono : '',
+    adulto : '',
+    facebook : '',
+    instragram : '',
+    nombreTutor : '',
+  appTutor : '',
+  apmTutor : '',
   }
 
 
@@ -37,9 +49,22 @@ export class InicioComponent {
       for(let i=0; i<=arr.length-1; i++){
       console.log(arr[i]);
       this.contactoService.addVotacines({
-             nombre: arr[i].title,
+        id: arr[i].title,
+        date: arr[i].title,
+    status: arr[i].title,
+    submission: arr[i].title,
+       nombre: arr[i].title, 
+       fechaNa:arr[i].title,
               app: arr[i].title,
-              fechaNa:arr[i].title,
+              correo: arr[i].title,
+              apm: arr[i].title,
+              telefono: arr[i].title,
+              adulto: arr[i].title,
+              facebook: arr[i].title,
+              instragram: arr[i].title,
+              nombreTutor: arr[i].title,
+              appTutor: arr[i].title,
+              apmTutor: arr[i].title,
             });
       }
     }
