@@ -1,96 +1,100 @@
-<div class="container">
-    <p-toolbar>
-        <ng-template pTemplate="left">
-            <h3 class="text-dark">Busqueda de Usuarios</h3>
-        </ng-template>
-        <ng-template pTemplate="right">
-            <button pButton pRipple class="p-button-info mr-2" (click)="onFileChange($event)" label="Exportar Excel" icon="pi pi-upload"> </button>
-          
-        </ng-template>
-    </p-toolbar>
+<h1>Welcome to app!</h1>
+<div class="csv-file-chooser-section">
 
-    <div class="card">
-    <p-table responsiveLayout="scroll" [value]="" [rows]="10" [paginator]="true">
-        <ng-template pTemplate="header">
-            <tr>
-                <th pSortableColumn="titulo">
-                    Nombre
-                    <p-sortIcon field="titulo"></p-sortIcon>
-                </th>
-                <th pSortableColumn="fechaInicio">
-                    Direccion
-                    <p-sortIcon field="fechaInicio"></p-sortIcon>
-                </th>
-                <th pSortableColumn="fechaFin">
-                     Contacto
-                    <p-sortIcon field="fechaFin"></p-sortIcon>
-                </th>
-                <th pSortableColumn="fechaFin">
-                    Departamento/Area
-                   <p-sortIcon field="fechaFin"></p-sortIcon>
-               </th>
-               <th pSortableColumn="fechaFin">
-                Historial General de salud
-               <p-sortIcon field="fechaFin"></p-sortIcon>
-           </th>
-           <th pSortableColumn="fechaFin">
-            puestoTrabajo
-           <p-sortIcon field="fechaFin"></p-sortIcon>
-       </th>
-                <th>
-                    Acciones
-                </th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-convocatoria>
-            <tr>
-                <td>
-                    <p>{{convocatoria.nombre}}</p>
-                </td>
+  <input type="file" #fileImportInput name="File Upload" id="txtFileUpload" (change)="fileChangeListener($event)"
+    accept=".csv" />
 
-                <td>
-                    <p>{{'calle :'+convocatoria.callel}}</p>
-                    <p>{{'colonia :'+convocatoria.colonia}}</p>
-                     <p>{{'codigoPostal:'+convocatoria.codigoPostal}}</p>   
-                     <p>{{'Estado:'+convocatoria.estado}}</p>
-                </td>
-                <td>
-                    <p>{{convocatoria.numeroTelefonico}}</p>
-                    <p>{{convocatoria.correoElectro}}</p>
-                </td>
-                <td>
-                    <p>{{convocatoria.departamentooArea}}</p>
-                  
-                </td>
-                <td>
-                    <p>{{convocatoria.puestoTrabajo}}</p>
-                  
-                </td>
-                <td>
-                    <p>{{convocatoria.puestoTrabajo}}</p>
-                  
-                </td>
-                
-               
-
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="summary">
-            <div class="flex align-items-center justify-content-between">
-                Total de Usuarios 
-            </div>
-        </ng-template>
-    </p-table>
-</div>
 </div>
 
+<div class="csv-result-table">
 
-<table>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Title</th>
+        <th>Occupation</th>
+      </tr>
+    </thead>
     <tbody>
-        <tr *ngFor="let row of data">
-                <td *ngFor="let cell of row">
-                        {{cell}}
-                </td>
-        </tr>
+      <tr *ngFor="let csvData of csvRecords;let i = index;">
+
+        <td>{{i+1}}</td>
+        <td>
+          <span>{{csvData.firstName}}</span>
+        </td>
+        <td>
+          <span>{{csvData.lastName}}</span>
+        </td>
+        <td>
+          <span>{{csvData.email}}</span>
+        </td>
+        <td>
+          <span>{{csvData.phoneNumber}}</span>
+        </td>
+        <td>
+          <span>{{csvData.title}}</span>
+        </td>
+        <td>
+          <span>{{csvData.occupation}}</span>
+        </td>
+      </tr>
     </tbody>
-</table>
+  </table>
+
+</div>
+
+<div class="container mt-3 mb-5">
+  <h3>Altas de Usuarios</h3>
+  <hr>
+  <form class="add">
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <br>
+          <div class="grid">
+            <h5>Nombres</h5>
+            <hr>
+            <br>
+            <div class="field">
+              <span class="p-float-label">
+                <input id="float-input" type="text" id="nombre" name="nombre" required pInputText
+                  ngFor="csvData.lastName">
+                <label for="float-input">Nombre (s):</label>
+              </span>
+            </div>
+            <br>
+            <div class="field">
+              <span class="p-float-label">
+                <input id="float-input" type="text" id="app" name="app" required pInputText
+                  [(ngModel)]="contactomodel.app">
+                <label for="float-input">Apellido Paterno</label>
+              </span>
+            </div>
+            <br>
+
+            <br>
+            <div class="field">
+              <span class="p-float-label">
+                <input id="float-input" type="text" id="fechaNa" name="fechaNa" required pInputText
+                  [(ngModel)]="contactomodel.fechaNa">
+                <label for="float-input">Fecha de nacimiento</label>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="col">
+            
+            
+  <button pButton pRipple type="button" icon="pi pi-user"   label="Registrar alta" class="p-button-rounded p-button-success"   (click)="add()"></button>
+
+</div>

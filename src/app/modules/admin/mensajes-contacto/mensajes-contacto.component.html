@@ -71,20 +71,7 @@
 <p-dialog [(visible)]="ContactoModelDialog" [style]="{width: '450px'}" header="Detalles del mensaje" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
 
-        <div class="field">
-            <label for="nombre">contacto</label>
-            <input type="text" pInputText id="correo" [(ngModel)]="ContactoModel.correo" required autofocus />
-            <small class="p-error" *ngIf="submitted && !ContactoModel.correo">correo is required.</small>
-        </div>
-        <div class="field">
-            <label for="nombre">Nombre</label>
-            <input type="text" pInputText id="nombre" [(ngModel)]="ContactoModel.nombre" required autofocus />
-            <small class="p-error" *ngIf="submitted && !ContactoModel.nombre">nombre is required.</small>
-        </div>
-        <div class="field">
-            <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" pInputTextarea [(ngModel)]="ContactoModel.mensaje" required rows="3" cols="20"></textarea>
-        </div>
+  
 
 
 

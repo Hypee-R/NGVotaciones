@@ -114,7 +114,7 @@ export class MensajesContactoComponent implements OnInit {
 
 
   openNew() {
-    this.ContactoModel={nombre:'',correo:'',telefono:'',mensaje:''};
+    this.ContactoModel={nombre:'',app:'',fechaNa:'',};
     this.submitted = false;
     this.ContactoModelDialog = true;
 }
@@ -159,26 +159,7 @@ hideDialog() {
 }
 
 saveContactoModel() {
-    this.submitted = true;
-
-    if (this.ContactoModel.nombre.trim()) {
-        if (this.ContactoModel.id) {
-            // this.ContactoModels[this.findIndexById(this.ContactoModel.id)] = this.ContactoModel;                
-            // this.messageService.add({severity:'success', summary: 'Successful', detail: 'Mensaje Actualizado', life: 3000});
-            this.firebaseService.updatecontacto(this.ContactoModel.id,this.ContactoModel.correo,this.ContactoModel.mensaje,this.ContactoModel.nombre);
-        }
-        else {
-           
-            // this.ContactoModels.push(this.ContactoModel);
-            // this.messageService.add({severity:'success', summary: 'Successful', detail: 'ContactoModel Created', life: 3000});
-            this.firebaseService.addcontacto(this.ContactoModel.correo,this.ContactoModel.mensaje,this.ContactoModel.nombre);
-        }
-
-        this.ContactoModels = [...this.ContactoModels];
-        this.ContactoModelDialog = false;
-        this.ContactoModel ;
-    }
-}
+    this.submitted = true;}
 
 findIndexById(id: string): number {
     let index = -1;
