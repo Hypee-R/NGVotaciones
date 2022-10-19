@@ -24,9 +24,23 @@ throw new Error('Method not implemented.');
   submitted: boolean;
 
   contactomodel = {
-   nombre:'',
-    app:'',
-    fechaNa:'',
+   
+    id : '',
+    date : '',
+    status : '',
+    nombre : '',
+    submission : '',
+    app : '',
+    fechaNa : '',
+    correo : '',
+    apm : '',
+    telefono : '',
+    adulto : '',
+    facebook : '',
+    instragram : '',
+    nombreTutor : '',
+  appTutor : '',
+  apmTutor : '',
     
   }
   exporExcel: any;
@@ -43,11 +57,30 @@ throw new Error('Method not implemented.');
 
 
   async add() {
-    const { nombre,  app,fechaNa, } = this.contactomodel;
+    const { id ,date , status,nombre ,submission ,app ,fechaNa ,correo ,apm ,telefono ,adulto ,facebook, instragram ,
+   nombreTutor,
+    appTutor ,
+    apmTutor , } = this.contactomodel;
     await   this.contactoService.addVotacines({
-      nombre:nombre,
-      app: app,
-      fechaNa:fechaNa,
+
+      id :id,
+      date :date,
+      status : status,
+      nombre : nombre,
+      submission :submission,
+      app : app,
+      fechaNa : fechaNa,
+      correo : correo,
+      apm : apm,
+      telefono : telefono,
+      adulto : adulto,
+      facebook : facebook,
+      instragram : instragram,
+      nombreTutor : nombreTutor,
+    appTutor : appTutor,
+    apmTutor : apmTutor,
+      
+     
     });
     this.toastr.success('Alguien Se pondra en contacto!', 'Success');
   }
