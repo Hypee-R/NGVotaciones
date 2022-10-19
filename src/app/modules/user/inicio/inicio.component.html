@@ -51,46 +51,81 @@
 <div class="container mt-3 mb-5">
   <h3>Altas de Usuarios</h3>
   <hr>
-  <form class="add">
-
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <br>
-          <div class="grid">
-            <h5>Nombres</h5>
-            <hr>
-            <br>
-            <div class="field">
-              <span class="p-float-label">
-                <input id="float-input" type="text" id="nombre" name="nombre" required pInputText
-                  ngFor="csvData.lastName">
-                <label for="float-input">Nombre (s):</label>
-              </span>
+  <div class="card">
+    <p-table responsiveLayout="scroll" [value]="" [rows]="10" [paginator]="true">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="ID">
+                    ID
+                    <p-sortIcon field="ID"></p-sortIcon>
+                </th>
+                <th pSortableColumn="Nombre">
+                    Nombre
+                    <p-sortIcon field="Nombre"></p-sortIcon>
+                </th>
+                <th pSortableColumn="Apellidos">
+                     Apellidos
+                    <p-sortIcon field="Apellidos"></p-sortIcon>
+                </th>
+                <th>
+                    Lugar
+                    <input pInputText type="text" placeholder="Ingresa el lugar" [style]="{ width: '100%' }"/>
+                    <input pInputText type="text" placeholder="Ingresa el lugar" [style]="{ width: '100%' }"/>
+                    <input pInputText type="text" placeholder="Ingresa el lugar" [style]="{ width: '100%' }"/>
+               </th>
+               <th>
+                    Personaje
+                    <input pInputText type="text" placeholder="Ingresa el personaje" [style]="{ width: '100%' }">
+                    <input pInputText type="text" placeholder="Ingresa el personaje" [style]="{ width: '100%' }"/>
+                    <input pInputText type="text" placeholder="Ingresa el personaje" [style]="{ width: '100%' }"/>
+                </th>
+                <th>
+                    <button pButton pRipple class="p-button-info mr-2" label="Actualizar" style="border-radius: 15px; margin-bottom: 5px; margin-top: 25px;"></button>          
+                    <button pButton pRipple class="p-button-info mr-2" label="Actualizar" style="border-radius: 15px; margin-bottom: 5px;"></button>          
+                    <button pButton pRipple class="p-button-info mr-2" label="Actualizar" style="border-radius: 15px;"></button>          
+                </th>
+            </tr>
+        </ng-template>
+  
+        <ng-template pTemplate="body" let-convocatoria>
+            <tr>
+                <td>
+                    <p>{{convocatoria.nombre}}</p>
+                </td>
+  
+                <td>
+                    <p>{{'calle :'+convocatoria.callel}}</p>
+                    <p>{{'colonia :'+convocatoria.colonia}}</p>
+                     <p>{{'codigoPostal:'+convocatoria.codigoPostal}}</p>   
+                     <p>{{'Estado:'+convocatoria.estado}}</p>
+                </td>
+                <td>
+                    <p>{{convocatoria.numeroTelefonico}}</p>
+                    <p>{{convocatoria.correoElectro}}</p>
+                </td>
+                <td>
+                    <p>{{convocatoria.departamentooArea}}</p>
+                  
+                </td>
+                <td>
+                    <p>{{convocatoria.puestoTrabajo}}</p>
+                  
+                </td>
+                <td>
+                    <p>{{convocatoria.puestoTrabajo}}</p>
+                  
+                </td>
+  
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="flex align-items-center justify-content-between">
+                Total de Usuarios 
             </div>
-            <br>
-            <div class="field">
-              <span class="p-float-label">
-                <input id="float-input" type="text" id="app" name="app" required pInputText
-                  [(ngModel)]="contactomodel.app">
-                <label for="float-input">Apellido Paterno</label>
-              </span>
-            </div>
-            <br>
-
-            <br>
-            <div class="field">
-              <span class="p-float-label">
-                <input id="float-input" type="text" id="fechaNa" name="fechaNa" required pInputText
-                  [(ngModel)]="contactomodel.fechaNa">
-                <label for="float-input">Fecha de nacimiento</label>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </form>
+        </ng-template>
+    </p-table>
+  
+  </div>
 </div>
 <div class="col">
             
