@@ -106,13 +106,24 @@ export class InicioComponent {
         let csvRecord: CSVRecord = new CSVRecord();
 
         console.log("===============Aqui agrega todas las columnas como te dije  con su nombre correcto y su data[0] posicion correcta =======================");
-        csvRecord.firstName = data[0].trim();
-        csvRecord.lastName = data[1].trim();
-        csvRecord.email = data[2].trim();
-        csvRecord.phoneNumber = data[3].trim();
-        csvRecord.title = data[4].trim();
-        csvRecord.occupation = data[5].trim();
-
+        csvRecord.id = data[0].trim();
+        csvRecord.name = data[4].trim();
+        csvRecord.firstName = data[8].trim();
+        csvRecord.lastName = data[6].trim();
+        csvRecord.email = data[7].trim();
+        csvRecord.phoneNumber = data[9].trim();
+        csvRecord.date = data[1].trim();
+        csvRecord.status = data[2].trim();
+        csvRecord.submissionId = data[3].trim();
+        csvRecord.adult = data[10].trim();
+        csvRecord.userFacebook = data[11].trim();
+        csvRecord.userInstagram = data[12].trim();
+        csvRecord.tutorName = data[13].trim();
+        csvRecord.tutorLastName = data[14].trim();
+        csvRecord.tutorFirstName = data[15].trim();
+        csvRecord.tutorRelationship = data[16].trim();
+        csvRecord.childish = data[17].trim();
+        csvRecord.youth = data[18].trim();
         dataArr.push(csvRecord);
       }
     }
@@ -148,12 +159,26 @@ export class InicioComponent {
 
 export class CSVRecord {
 
-  public firstName: any;
+  public id: any;
+  public name: any;
   public lastName: any;
+  public firstName: any;
   public email: any;
   public phoneNumber: any;
   public title: any;
   public occupation: any;
+  public date: any;
+  public status: any;
+  public submissionId: any;
+  public adult: any;
+  public userFacebook: any;
+  public userInstagram: any;
+  public tutorName: any;
+  public tutorLastName: any;
+  public tutorFirstName: any;
+  public tutorRelationship: any;
+  public childish: any;
+  public youth: any;
 
   constructor(
    
