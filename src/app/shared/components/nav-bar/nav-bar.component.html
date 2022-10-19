@@ -1,5 +1,5 @@
 <!-- Nav bar usuario -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf="type == 'user'">
+<nav class="navbar navbar-expand-lg navbar-light  " style="background-color: rgb(103	,78	,167);"  *ngIf="type == 'user'">
     <div class="container-fluid">
         <a class="navbar-brand" routerLink="/portal/inicio">
             <a class="navbar-brand" routerLink="/portal/inicio">
@@ -9,37 +9,37 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" routerLink="/portal/inicio" routerLinkActive="active">Inicio</a>
+                    <a class="nav-link text-white" aria-current="page" routerLink="/portal/inicio" routerLinkActive="active">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" routerLink="/portal/categorias" routerLinkActive="active">Categorías</a>
+                    <a class="nav-link text-white" aria-current="page" routerLink="/portal/categorias" routerLinkActive="active">Categorías</a>
                 </li>
                 <!-- <li class="nav-item">
                     <a class="nav-link" aria-current="page" routerLink="/nominaciones" routerLinkActive="active">Nominaciones</a>
                 </li> -->
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" routerLink="/portal/contacto" routerLinkActive="active">Contacto</a>
+                    <a class="nav-link text-white" aria-current="page" routerLink="/portal/contacto" routerLinkActive="active">Contacto</a>
                 </li>
                 <div >
                     <li *ngIf="currentUser == 'admin'" class="nav-item">
-                        <a class="nav-link" aria-current="page" routerLink="/admin" routerLinkActive="active">Dashboard</a>
+                        <a class="nav-link text-white" aria-current="page" routerLink="/admin" routerLinkActive="active">Dashboard</a>
                     </li>
                 </div>
             </ul>
-            <div class="d-flex">
-                <a class="nav-link" style="cursor: pointer;" routerLink="/portal/registro" *ngIf="!configService.Usuario">Registrate</a>
-                <a class="nav-link" style="cursor: pointer;" routerLink="/portal/login" *ngIf="!configService.Usuario">Iniciar Sesión</a>
+            <div class="d-flex" style="background-color: rgb(103	,78	,167);">
+                <a class="nav-link text-white" style="cursor: pointer;" routerLink="/portal/registro" *ngIf="!configService.Usuario">Registrate</a>
+                <a class="nav-link text-white" style="cursor: pointer;" routerLink="/portal/login" *ngIf="!configService.Usuario">Iniciar Sesión</a>
 
-                <div *ngIf="configService.Usuario">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <div *ngIf="configService.Usuario" style="background-color: rgb(103	,78	,167);">
+                    <a class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Mi Cuenta
                   </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="left: unset;">
-                        <li><a class="dropdown-item" routerLink="/portal/mi-informacion">Mi Informaci&oacute;n</a></li>
-                        <li><a class="dropdown-item" routerLink="/portal/mis-nominaciones">Mis Nominaciones</a></li>
+                    <ul style="background-color: rgb(103	,78	,167); left: unset;" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
+                        <li style="background-color: rgb(103	,78	,167);"><a class="text-white dropdown-item" routerLink="/portal/mi-informacion">Mi Informaci&oacute;n</a></li>
+                        <li style="background-color: rgb(103	,78	,167);"><a class="text-white dropdown-item" routerLink="/portal/mis-nominaciones">Mis Nominaciones</a></li>
                     </ul>
                 </div>
-                <a class="nav-link" style="cursor: pointer;" (click)="logout()" *ngIf="configService.Usuario">Cerrar Sesión</a>
+                <a class="nav-link text-white" style="cursor: pointer;" (click)="logout()" *ngIf="configService.Usuario">Cerrar Sesión</a>
             </div>
         </div>
     </div>
