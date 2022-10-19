@@ -1,10 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { Storage, ref, uploadBytes, listAll, getDownloadURL } from '@angular/fire/storage';
 import { FormGroup } from '@angular/forms';
+
 import { ToastrService } from 'ngx-toastr';
 
-import { Observable } from 'rxjs';
-import { finalize, tap } from 'rxjs/operators';
 import { ContactoService } from 'src/app/services/contacto.service';
 
 @Component({
@@ -21,64 +20,33 @@ export class InicioComponent {
   }
 
 
-  contactoForm: FormGroup;
-  submitted: boolean;
-
-
-  categories: any[] =
-    [
-      { name: 'Hepatitis.', key: 'Hepatitis.' },
-      { name: 'Anemia.', key: 'Anemia.' },
-      { name: 'arterial.', key: 'arterial.' },
-      { name: 'Celiaco.', key: 'Celiaco.' },
-      { name: 'Gastritis.', key: 'Gastritis.' },
-      { name: 'Diabetes.', key: 'Diabetes.' },
-      { name: 'Arterial.', key: 'Arterial.' },
-      { name: 'Epilepsia.', key: 'Epilepsia.' },
-      { name: 'Alergias.', key: 'Alergias.' },
-      { name: 'Asma.', key: 'Asma.' }];
-  date3: Date;
-
-  es: any;
-  checked2: boolean = true;
-  selectedCategories: any[] = [];
-
-
-
+ 
 
 
   constructor(
     private contactoService: ContactoService,
     private toastr: ToastrService,
-    private firebaseService: ContactoService,
+  
+  //  private firebaseService: ContactoService,
   ) { }
+  ngOnInit(): void { }
 
-  ngOnInit(): void {
-    this.es = {
-      firstDayOfWeek: 1,
-      dayNames: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
-      dayNamesShort: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
-      dayNamesMin: ["D", "L", "M", "X", "J", "V", "S"],
-      monthNames: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
-      monthNamesShort: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"],
-      today: 'Hoy',
-      clear: 'Borrar'
-    }
+
+  async add(data: any) {
+    const { nombre, app,fechaNa, } = this.contactomodel;
+    await   this.contactoService.addVotacines({
+      nombre: data.title,
+      app: app,
+      fechaNa:fechaNa,
+    });
+    this.toastr.success('Alguien Se pondra en contacto!', 'Success');
   }
 
 
-  async add() {
-    const {  nombre, app, fechaNa,
 
-    } = this.contactomodel;
-    await this.contactoService.addVotacines({
-      nombre: '',
-      app: '',
-      fechaNa: '',
-    } );
-    this.toastr.success('Se dio de alta correctamente!', 'Success');
-  }
-  title = 'app';
+ // title = 'app';
+
+
   public csvRecords: any[] = [];
 
   @ViewChild('fileImportInput') fileImportInput: any;
@@ -101,6 +69,17 @@ export class InicioComponent {
         let headersRow = this.getHeaderArray(csvRecordsArray);
 
         this.csvRecords = this.getDataRecordsArrayFromCSVFile(csvRecordsArray, headersRow.length);
+        console.log("===============Aqui recorremos el arreglo y extraemos uno por uno=======================");
+        this.csvRecords.forEach(function(registro, index) {
+          console.log("===============Registro 1 por 1=======================");
+          console.log(`${index} : ${registro}`);
+         // este regsitro es el que sustituye al model
+           console.log("title:"+registro.title);
+            this.add(registro.title);
+          // aqui llemas a la funcion add y va ir insertando uno por uno
+    
+      });
+        
       };
 
       reader.onerror = function () {
@@ -115,6 +94,7 @@ export class InicioComponent {
 
   getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {
     let dataArr = [];
+    
 
     for (let i = 1; i < csvRecordsArray.length; i++) {
       let data = (<string>csvRecordsArray[i]).split(',');
@@ -125,6 +105,7 @@ export class InicioComponent {
 
         let csvRecord: CSVRecord = new CSVRecord();
 
+        console.log("===============Aqui agrega todas las columnas como te dije  con su nombre correcto y su data[0] posicion correcta =======================");
         csvRecord.firstName = data[0].trim();
         csvRecord.lastName = data[1].trim();
         csvRecord.email = data[2].trim();
@@ -135,9 +116,14 @@ export class InicioComponent {
         dataArr.push(csvRecord);
       }
     }
+   
+   
+    
     return dataArr;
   }
 
+
+  
   // CHECK IF FILE IS A VALID CSV FILE
   isCSVFile(file: any) {
     return file.name.endsWith(".csv");
@@ -169,7 +155,13 @@ export class CSVRecord {
   public title: any;
   public occupation: any;
 
-  constructor() {
+  constructor(
+   
+  ) {
 
   }
+
+
+
+
 }
