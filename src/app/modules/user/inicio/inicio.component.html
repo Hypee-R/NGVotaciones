@@ -1,73 +1,180 @@
-
-
 <div class="container mt-3 mb-5">
-  <h3 style="text-align:center ;">Altas de Usuarios</h3>
-  <hr>
-  <p-toolbar>
-    <ng-template pTemplate="left">
-        <span class="p-input-icon-left ml-auto" style="width: 89%">
-            <input pInputText type="text" placeholder="Buscar usuarios" [style]="{ width: '100%' }"/>
-            <i class="pi pi-search"></i>
-        </span>
-    </ng-template>
-    <ng-template pTemplate="right">
-        <div class="csv-file-chooser-section">
-
-          <input label="Exportar Excel" icon="pi pi-upload" type="file" #fileImportInput 
-          name="File Upload" id="txtFileUpload" (change)="fileChangeListener($event)"
-          accept=".csv" />
-
-        </div>          
-    </ng-template>
-  </p-toolbar>
-  <div class="card">
-    <p-table responsiveLayout="scroll" [value]="" [rows]="10" [paginator]="true">
-        <ng-template pTemplate="header">
-            <tr *ngFor="let csvData of csvRecords;let i = index;">
-                <th>
-                    ID
-                    <p-sortIcon field="ID"></p-sortIcon>
-                    <br>
-                    <span>{{csvData.firstName}}</span>
-                </th>
-                <th>
-                    Nombre
-                    <p-sortIcon field="Nombre"></p-sortIcon>
-                    <br>
-                    <span>{{csvData.title}}</span>
-                </th>
-                <th>
-                     Apellidos
-                    <p-sortIcon field="Apellidos"></p-sortIcon>
-                    <br>
-                    <span>{{csvData.lastName}}</span>
-                </th>
-                <th>
-                    Lugar
-                    <input pInputText type="text" placeholder="Ingresa el lugar" [style]="{ width: '100%' }"/>
-               </th>
-               <th>
-                    Personaje
-                    <input pInputText type="text" placeholder="Ingresa el personaje" [style]="{ width: '100%' }"/>
-                </th>
-                <th>
-                    <button pButton pRipple class="p-button-info mr-2" label="Actualizar" style="border-radius: 15px; margin-bottom: 5px; margin-top: 25px;"></button>                  
-                </th>
-            </tr>
+    <h3 style="text-align:center ;">Altas de Usuarios</h3>
+    <hr>
+    <p-toolbar>
+        <ng-template pTemplate="left">
+            <span class="p-input-icon-left ml-auto" style="width: 300%">
+                <input pInputText type="text" placeholder="Buscar usuarios" [style]="{ width: '100%' }" />
+                <i class="pi pi-search"></i>
+            </span>
         </ng-template>
-  
-        <ng-template pTemplate="summary">
-            <div class="flex align-items-center justify-content-between">
-                Total de Usuarios 
+        <ng-template pTemplate="right">
+            <div class="csv-file-chooser-section">
+
+                <input label="Exportar Excel" icon="pi pi-upload" type="file" #fileImportInput name="File Upload"
+                    id="txtFileUpload" (change)="fileChangeListener($event)" accept=".csv" />
+
             </div>
         </ng-template>
-    </p-table>
-  
-  </div>
+    </p-toolbar>
+    <div class="card">
+        <p-table responsiveLayout="scroll" [value]="" [rows]="25" [paginator]="true">
+            <ng-template pTemplate="header">
+                <tr *ngFor="let csvData of csvRecords;let i = index;">
+
+                    <th>
+                        ID
+                        <p-sortIcon field="ID"></p-sortIcon>
+                        <br>
+                        <span>{{csvData.id}}</span>
+                    </th>
+                    <th>
+                        DATE
+                        <p-sortIcon field="DATE"></p-sortIcon>
+                        <br>
+                        <span>{{csvData.date}}</span>
+                    </th>
+                    <th>
+                        STATUS
+                        <p-sortIcon field="STATUS"></p-sortIcon>
+                        <br>
+                        <span>{{csvData.status}}</span>
+                    </th>
+                    <th>
+                        SUBMISISION
+                        <p-sortIcon field="SUBMISISION"></p-sortIcon>
+                        <br>
+                        <span>{{csvData.submission}}</span>
+                    </th>
+
+                    <th>
+                        NOMBRE
+                        <p-sortIcon field=" NOMBRE"></p-sortIcon>
+                        <br>
+                        <span>{{csvData.nombre}}</span>
+                    </th>
+
+                    <th>
+                        FECHA
+                        <p-sortIcon field="   FECHA"></p-sortIcon>
+                        <br>
+                        <span>{{csvData.fechaNa}}</span>
+                    </th>
+
+                    <th>
+                        APELLIDOPATERNO
+                        <p-sortIcon field=" APELLIDOPATERNO"></p-sortIcon>
+                        <br>
+                        <span>{{csvData.app}}</span>
+                    </th>
+                    <th>
+                        CORREO
+                        <p-sortIcon field=" CORREO"></p-sortIcon>
+                        <br>
+                        <span>{{csvData.correo}}</span>
+                    </th>
+                    <th>
+                        APELLIDOMATERNO
+                        <p-sortIcon field="  APELLIDOMATERNO"></p-sortIcon>
+                        <br>
+                        <span>{{csvData.apm}}</span>
+                    </th>
+                    <th>
+                        TELEFONO
+                        <p-sortIcon field="  TELEFONO"></p-sortIcon>
+                        <br>
+                        <span>{{csvData.telefono}}</span>
+                    </th>
+                    <th>
+                        ADULTO
+                        <p-sortIcon field="  ADULTO"></p-sortIcon>
+                        <br>
+                        <span>{{csvData.adulto}}</span>
+                    </th>
+
+                    <th>
+                        FACEBOOK
+                        <p-sortIcon field="  FACEBOOK"></p-sortIcon>
+                        <br>
+                        <span>{{csvData.facebook}}</span>
+                    </th>
+
+                    <th>
+                        INSTRAGRAM
+                        <p-sortIcon field="   INSTRAGRAM"></p-sortIcon>
+                        <br>
+                        <span>{{csvData. instragram}}</span>
+                    </th>
+                    <th>
+                        NOMBRE TUTOR
+                        <p-sortIcon field="  NOMBRE TUTOR"></p-sortIcon>
+                        <br>
+                        <span>{{csvData. nombreTutor}}</span>
+                    </th>
+
+                    <th>
+                        APELLIDO PATERNO
+                        <p-sortIcon field="  APELLIDO PATERNO"></p-sortIcon>
+                        <br>
+                        <span>{{csvData. appTutor}}</span>
+                    </th>
+                    <th>
+                        APELLIDO MATERNO
+                        <p-sortIcon field="  APELLIDO MATERNO"></p-sortIcon>
+                        <br>
+                        <span>{{csvData. apmTutor}}</span>
+                    </th>
+
+                    <th>
+                        RELACION
+                        <p-sortIcon field="  RELACION"></p-sortIcon>
+                        <br>
+                        <span>{{csvData. Relacion}}</span>
+                    </th>
+                    <th>
+                        INFANTIL
+                        <p-sortIcon field="  INFANTIL"></p-sortIcon>
+                        <br>
+                        <span>{{csvData. Infantil}}</span>
+                    </th>
+
+                    <th>
+                        JUVENIL
+                        <p-sortIcon field="  JUVENIL"></p-sortIcon>
+                        <br>
+                        <span>{{csvData. Juvenil}}</span>
+                    </th>
+
+                   
+                    <th>
+                        LUGAR
+                        <input pInputText type="text" placeholder="Ingresa el lugar" [style]="{ width: '100%' }" />
+                    </th>
+                    <th>
+                        PERSONAJE
+                        <input pInputText type="text" placeholder="Ingresa el personaje" [style]="{ width: '100%' }" />
+                    </th>
+                    <th>
+                        <button pButton pRipple class="p-button-info mr-2" label="Actualizar"
+                            style="border-radius: 15px; margin-bottom: 5px; margin-top: 25px;"></button>
+                    </th>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="summary">
+                <div class="flex align-items-center justify-content-between">
+                    Total de Usuarios
+                </div>
+            </ng-template>
+        </p-table>
+
+    </div>
+    
 </div>
 <div class="col">
-            
-            
-   <button pButton pRipple type="button" icon="pi pi-user"   label="Registrar alta" class="p-button-rounded p-button-success"   (click)="add()"></button> 
+
+
+    <button pButton pRipple type="button" icon="pi pi-user" label="Registrar alta"
+        class="p-button-rounded p-button-success" (click)="add()"></button>
 
 </div>

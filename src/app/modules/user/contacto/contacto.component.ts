@@ -36,6 +36,12 @@ export class ContactoComponent implements OnInit {
     nombreTutor : '',
   appTutor : '',
   apmTutor : '',
+
+  Relacion: '',
+  Infantil: '',
+  Juvenil: '',
+  Lugar: '',
+  Personaje: '',
     
   }
 
@@ -66,7 +72,12 @@ export class ContactoComponent implements OnInit {
       instragram ,
       nombreTutor,
     appTutor ,
-    apmTutor ,
+    apmTutor , Relacion,
+    Infantil,
+    Juvenil,
+    Lugar,
+    Personaje,
+
  } = this.contactomodel;
     await   this.contactoService.addVotacines({
       id :id,
@@ -85,6 +96,13 @@ export class ContactoComponent implements OnInit {
       nombreTutor : nombreTutor,
     appTutor : appTutor,
     apmTutor : apmTutor,
+    Relacion:  Relacion,
+    Infantil:Infantil,
+    Juvenil:Juvenil,
+    Lugar:Lugar,
+    Personaje:Personaje,
+
+
     });
     this.toastr.success('Alguien Se pondra en contacto!', 'Success');
   }

@@ -13,22 +13,29 @@ import { ContactoService } from 'src/app/services/contacto.service';
 })
 export class InicioComponent {
   contactomodel = {
-    id : '',
-    date : '',
-    status : '',
-    nombre : '',
-    submission : '',
-    app : '',
-    fechaNa : '',
-    correo : '',
-    apm : '',
-    telefono : '',
-    adulto : '',
-    facebook : '',
-    instragram : '',
-    nombreTutor : '',
-  appTutor : '',
-  apmTutor : '',
+    id: '',
+    date: '',
+    status: '',
+    nombre: '',
+    submission: '',
+    app: '',
+    fechaNa: '',
+    correo: '',
+    apm: '',
+    telefono: '',
+    adulto: '',
+    facebook: '',
+    instragram: '',
+    nombreTutor: '',
+    appTutor: '',
+    apmTutor: '',
+    Relacion: '',
+    Infantil: '',
+    Juvenil: '',
+    Lugar: '',
+    Personaje: '',
+
+
   }
 
 
@@ -38,43 +45,84 @@ export class InicioComponent {
   constructor(
     private contactoService: ContactoService,
     private toastr: ToastrService,
-  
-  //  private firebaseService: ContactoService,
+
+    //  private firebaseService: ContactoService,
   ) { }
   ngOnInit(): void { }
 
 
   async add() {
+
+
+
+
+
+
+
     const recorreArray = (arr) => {
-      for(let i=0; i<=arr.length-1; i++){
-      console.log(arr[i]);
-      this.contactoService.addVotacines({
-        id: arr[i].title,
-        date: arr[i].title,
-    status: arr[i].title,
-    submission: arr[i].title,
-       nombre: arr[i].title, 
-       fechaNa:arr[i].title,
-              app: arr[i].title,
-              correo: arr[i].title,
-              apm: arr[i].title,
-              telefono: arr[i].title,
-              adulto: arr[i].title,
-              facebook: arr[i].title,
-              instragram: arr[i].title,
-              nombreTutor: arr[i].title,
-              appTutor: arr[i].title,
-              apmTutor: arr[i].title,
-            });
+
+      for (let i = 0; i <= arr.length - 1; i++) {
+        console.log(arr[i]);
+        this.contactoService.addVotacines({
+          id: arr[i].id,
+          date: arr[i].date,
+          status: arr[i].status,
+          submission: arr[i].submission,
+          nombre: arr[i].nombre,
+          fechaNa: arr[i].fechaNa,
+          app: arr[i].app,
+          correo: arr[i].correo,
+          apm: arr[i].apm,
+          telefono: arr[i].telefono,
+          adulto: arr[i].adulto,
+          facebook: arr[i].facebook,
+          instragram: arr[i].instragram,
+          nombreTutor: arr[i].nombreTutor,
+          appTutor: arr[i].appTutor,
+          apmTutor: arr[i].apmTutor,
+          Relacion: arr[i].Relacion,
+          Infantil: arr[i].Infantil,
+          Juvenil: arr[i].Juvenil,
+          Lugar: arr[i].Lugar,
+          Personaje: arr[i].Personaje,
+
+
+        });
       }
     }
 
+
+    
+
     recorreArray(this.csvRecords);
 
+    
+      const { Lugar ,Personaje,} = this.contactomodel;
+      await   this.contactoService.addVotacines({
+        Lugar: Lugar,
+        Personaje: Personaje,
+        date: '',
+        status: '',
+        nombre: '',
+        submission: '',
+        app: '',
+        fechaNa: '',
+        correo: '',
+        apm: '',
+        telefono: '',
+        adulto: '',
+        facebook: '',
+        instragram: '',
+        nombreTutor: '',
+        appTutor: '',
+        apmTutor: '',
+        Relacion: '',
+        Infantil: '',
+        Juvenil: ''
+      });
+      
+      this.toastr.success('Se dio de alta correctamente!', 'Success');
 
-
-
-  
   }
 
 
@@ -103,8 +151,8 @@ export class InicioComponent {
 
         this.csvRecords = this.getDataRecordsArrayFromCSVFile(csvRecordsArray, headersRow.length);
         console.log("===============Aqui recorremos el arreglo y extraemos uno por uno=======================");
-  
-        
+
+
       };
 
       reader.onerror = function () {
@@ -119,7 +167,7 @@ export class InicioComponent {
 
   getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {
     let dataArr = [];
-    
+
 
     for (let i = 1; i < csvRecordsArray.length; i++) {
       let data = (<string>csvRecordsArray[i]).split(',');
@@ -131,24 +179,44 @@ export class InicioComponent {
         let csvRecord: CSVRecord = new CSVRecord();
 
         console.log("===============Aqui agrega todas las columnas como te dije  con su nombre correcto y su data[0] posicion correcta =======================");
-        csvRecord.firstName = data[0].trim();
-        csvRecord.lastName = data[1].trim();
-        csvRecord.email = data[2].trim();
-        csvRecord.phoneNumber = data[3].trim();
-        csvRecord.title = data[4].trim();
-        csvRecord.occupation = data[5].trim();
+
+        csvRecord.id = data[0].trim();
+        csvRecord.date = data[1].trim();
+        csvRecord.status = data[2].trim();
+        csvRecord.submission = data[3].trim();
+        csvRecord.nombre = data[4].trim();
+        csvRecord.fechaNa = data[5].trim();
+        csvRecord.app = data[6].trim();
+        csvRecord.correo = data[7].trim();
+        csvRecord.apm = data[8].trim();
+        csvRecord.telefono = data[9].trim();
+        csvRecord.adulto = data[10].trim();
+        csvRecord.facebook = data[11].trim();
+        csvRecord.instragram = data[12].trim();
+        csvRecord.nombreTutor = data[13].trim();
+        csvRecord.appTutor = data[14].trim();
+        csvRecord.apmTutor = data[15].trim();
+        csvRecord.Relacion = data[16].trim();
+        csvRecord.Infantil = data[17].trim();
+        csvRecord.Juvenil = data[18].trim();
+
+
+
+
+
+
 
         dataArr.push(csvRecord);
       }
     }
-   
-   
-    
+
+
+
     return dataArr;
   }
 
 
-  
+
   // CHECK IF FILE IS A VALID CSV FILE
   isCSVFile(file: any) {
     return file.name.endsWith(".csv");
@@ -173,15 +241,28 @@ export class InicioComponent {
 
 export class CSVRecord {
 
-  public firstName: any;
-  public lastName: any;
-  public email: any;
-  public phoneNumber: any;
-  public title: any;
-  public occupation: any;
+  public id: any;
+  public date: any;
+  public status: any;
+  public nombre: any;
+  public submission: any;
+  public app: any;
+  public fechaNa: any;
+  public correo: any;
+  public apm: any;
+  public telefono: any;
+  public adulto: any;
+  public facebook: any;
+  public instragram: any;
+  public nombreTutor: any;
+  public appTutor: any;
+  public apmTutor: any;
+  public Relacion: any;
+  public Infantil: any;
+  public Juvenil: any;
 
   constructor(
-   
+
   ) {
 
   }

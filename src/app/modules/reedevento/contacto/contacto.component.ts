@@ -41,6 +41,13 @@ throw new Error('Method not implemented.');
     nombreTutor : '',
   appTutor : '',
   apmTutor : '',
+
+  Relacion: '',
+  Infantil: '',
+  Juvenil: '',
+  Lugar: '',
+  Personaje: '',
+
     
   }
   exporExcel: any;
@@ -60,7 +67,14 @@ throw new Error('Method not implemented.');
     const { id ,date , status,nombre ,submission ,app ,fechaNa ,correo ,apm ,telefono ,adulto ,facebook, instragram ,
    nombreTutor,
     appTutor ,
-    apmTutor , } = this.contactomodel;
+    apmTutor , Relacion,
+    Infantil,
+    Juvenil,
+    Lugar,
+    Personaje,
+  
+  
+  } = this.contactomodel;
     await   this.contactoService.addVotacines({
 
       id :id,
@@ -79,6 +93,11 @@ throw new Error('Method not implemented.');
       nombreTutor : nombreTutor,
     appTutor : appTutor,
     apmTutor : apmTutor,
+  Relacion: Relacion,
+  Infantil: Infantil,
+  Juvenil: Juvenil,
+  Lugar: Lugar,
+  Personaje: Personaje,
       
      
     });
