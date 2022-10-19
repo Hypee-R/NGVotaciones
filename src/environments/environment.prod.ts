@@ -2,14 +2,22 @@ export const environment = {
   production: true,
   apiService: '',
   firebase: {
-    projectId: 'rewards-latino',
-    appId: '1:415683183727:web:626ceaf1a4b629376e399a',
-    storageBucket: 'rewards-latino.appspot.com',
-    locationId: 'us-central',
-    apiKey: 'AIzaSyCN-xRqybAkJJQjIcCCJoyvGJtc7sbjV7A',
-    authDomain: 'rewards-latino.firebaseapp.com',
-    messagingSenderId: '415683183727',
-    measurementId: 'G-82P6Z9PXH7',
+    
+    
+    
+    
+    
+    
+   
+    
+
+    apiKey: "AIzaSyBj4IIs-lwnYhJmaTfp4q_neHbpdtml4b0",
+    authDomain: "ngvotaciones.firebaseapp.com",
+    projectId: "ngvotaciones",
+    storageBucket: "ngvotaciones.appspot.com",
+    messagingSenderId: "777341657137",
+    appId: "1:777341657137:web:fbb5438d93db8bd7ad7510",
+    measurementId: "G-TP19JZKJQ3"
   }
 };
 // export const environment = {
