@@ -17,6 +17,8 @@ import { SidebarModule } from 'primeng/sidebar';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 
+import { ToolbarModule } from 'primeng/toolbar';
+
 import { CategoriasComponent } from './categorias/categorias.component';
 import { NominacionesComponent } from './nominaciones/nominaciones.component';
 import { ContactoComponent } from './contacto/contacto.component';
@@ -40,6 +42,7 @@ import { InputTextModule } from 'primeng/inputtext';
         DropdownModule,
         SidebarModule,
         TableModule,
+        ToolbarModule,
         ButtonModule,
         InputTextModule
     ],

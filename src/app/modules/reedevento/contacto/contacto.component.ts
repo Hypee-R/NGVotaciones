@@ -11,6 +11,12 @@ import { ContactoService } from 'src/app/services/contacto.service';
   styleUrls: ['./contacto.component.css']
 })
 export class ContactoComponent implements OnInit {
+editar() {
+throw new Error('Method not implemented.');
+}
+delete() {
+throw new Error('Method not implemented.');
+}
 
   @Output() fetchNominaciones: EventEmitter<boolean> = new EventEmitter<boolean>()
   @Input() accion: string;
@@ -23,6 +29,7 @@ export class ContactoComponent implements OnInit {
     mensaje:'',
     telefono:''
   }
+  exporExcel: any;
 
   constructor(
     private contactoService: ContactoService,
@@ -46,7 +53,10 @@ export class ContactoComponent implements OnInit {
     this.toastr.success('Alguien Se pondra en contacto!', 'Success');
   }
 
+  Excel() {
+    this.exporExcel.convoc()
 
+  }
 
 
   }
