@@ -20,7 +20,7 @@ export class InicioComponent {
   }
 
 
- 
+  public csvRecords: any[] = [];
 
 
   constructor(
@@ -32,22 +32,30 @@ export class InicioComponent {
   ngOnInit(): void { }
 
 
-  async add(data: any) {
-    const { nombre, app,fechaNa, } = this.contactomodel;
-    await   this.contactoService.addVotacines({
-      nombre: data.title,
-      app: app,
-      fechaNa:fechaNa,
-    });
-    this.toastr.success('Alguien Se pondra en contacto!', 'Success');
+  async add() {
+    const recorreArray = (arr) => {
+      for(let i=0; i<=arr.length-1; i++){
+      console.log(arr[i]);
+      this.contactoService.addVotacines({
+             nombre: arr[i].title,
+              app: arr[i].title,
+              fechaNa:arr[i].title,
+            });
+      }
+    }
+
+    recorreArray(this.csvRecords);
+
+
+
+
+  
   }
 
 
 
- // title = 'app';
 
 
-  public csvRecords: any[] = [];
 
   @ViewChild('fileImportInput') fileImportInput: any;
 
@@ -70,15 +78,7 @@ export class InicioComponent {
 
         this.csvRecords = this.getDataRecordsArrayFromCSVFile(csvRecordsArray, headersRow.length);
         console.log("===============Aqui recorremos el arreglo y extraemos uno por uno=======================");
-        this.csvRecords.forEach(function(registro, index) {
-          console.log("===============Registro 1 por 1=======================");
-          console.log(`${index} : ${registro}`);
-         // este regsitro es el que sustituye al model
-           console.log("title:"+registro.title);
-            this.add(registro.title);
-          // aqui llemas a la funcion add y va ir insertando uno por uno
-    
-      });
+  
         
       };
 
@@ -165,3 +165,4 @@ export class CSVRecord {
 
 
 }
+
