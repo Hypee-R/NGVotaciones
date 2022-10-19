@@ -16,7 +16,7 @@ export class ContactoService {
   private updatedSnapshot = new Subject<QuerySnapshot<DocumentData>>();
   obsr_UpdatedSnapshot = this.updatedSnapshot.asObservable();
 
-  listaNominaciones: ContactoModel[] = [];
+  listaNominaciones: [] = [];
 
   constructor(
     private toastr: ToastrService,
@@ -34,8 +34,8 @@ export class ContactoService {
   })
   }
 
-  async addNominacion(contacto: ContactoModel){
-    await addDoc(collection(this.afs,'mensajesContacto'), contacto)
+  async addVotacines(contacto: ContactoModel){
+    await addDoc(collection(this.afs,'regVotacines'), contacto)
     .then(docRef => {
       console.log('El CONTACTO se grabo con el ID: ', docRef.id);
       this.variablesGL.endProcessNominacion.next(docRef.id);

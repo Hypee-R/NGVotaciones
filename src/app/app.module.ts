@@ -45,6 +45,7 @@ import { CargaImagenesService } from './services/cargaImagenes.service';
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     AngularFireModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     StorageModule,
     AngularFireAuthModule,
