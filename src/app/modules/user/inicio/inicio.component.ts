@@ -1,9 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { Storage, ref, uploadBytes, listAll, getDownloadURL } from '@angular/fire/storage';
 import { FormGroup } from '@angular/forms';
-
+import { DocumentData, QuerySnapshot } from 'firebase/firestore';
 import { ToastrService } from 'ngx-toastr';
-
+import { ContactoModel } from 'src/app/models/contacto.model';
 import { ContactoService } from 'src/app/services/contacto.service';
 
 @Component({
@@ -12,31 +12,34 @@ import { ContactoService } from 'src/app/services/contacto.service';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent {
-  contactomodel = {
-    id: '',
-    date: '',
-    status: '',
-    nombre: '',
-    submission: '',
-    app: '',
-    fechaNa: '',
-    correo: '',
-    apm: '',
-    telefono: '',
-    adulto: '',
-    facebook: '',
-    instragram: '',
-    nombreTutor: '',
-    appTutor: '',
-    apmTutor: '',
-    Relacion: '',
-    Infantil: '',
-    Juvenil: '',
-    Lugar: '',
-    Personaje: '',
+  selectedContactoModels: ContactoModel[];
+  ContactoModel: ContactoModel;
+  ContactoModels: any[] = [];
+  // contactomodel = {
+  //   id: '',
+  //   date: '',
+  //   status: '',
+  //   nombre: '',
+  //   submission: '',
+  //   app: '',
+  //   fechaNa: '',
+  //   correo: '',
+  //   apm: '',
+  //   telefono: '',
+  //   adulto: '',
+  //   facebook: '',
+  //   instragram: '',
+  //   nombreTutor: '',
+  //   appTutor: '',
+  //   apmTutor: '',
+  //   Relacion: '',
+  //   Infantil: '',
+  //   Juvenil: '',
+  //   Lugar: '',
+  //   Personaje: '',
 
 
-  }
+  // }
 
 
   public csvRecords: any[] = [];
@@ -45,49 +48,54 @@ export class InicioComponent {
   constructor(
     private contactoService: ContactoService,
     private toastr: ToastrService,
-
-    //  private firebaseService: ContactoService,
+      private firebaseService: ContactoService,
   ) { }
-  ngOnInit(): void { }
+  ngOnInit(): void { 
 
+    this.get();
+  }
+
+  async get() {
+    const snapshot = await this.firebaseService.getContactos();
+    this.updateConvocatoriaCollection(snapshot);
+  }
+
+  updateConvocatoriaCollection(snapshot: QuerySnapshot<DocumentData>) {
+    this.ContactoModels = [];
+    snapshot.docs.forEach((mensaje) => {
+      this.ContactoModels.push({ ...mensaje.data(), id: mensaje.id });
+    })
+  }
 
   async add() {
-
-
-
-
-
-
-
     const recorreArray = (arr) => {
-
       for (let i = 0; i <= arr.length - 1; i++) {
         console.log(arr[i]);
-        this.contactoService.addVotacines({
-          id: arr[i].id,
-          date: arr[i].date,
-          status: arr[i].status,
-          submission: arr[i].submission,
-          nombre: arr[i].nombre,
-          fechaNa: arr[i].fechaNa,
-          app: arr[i].app,
-          correo: arr[i].correo,
-          apm: arr[i].apm,
-          telefono: arr[i].telefono,
-          adulto: arr[i].adulto,
-          facebook: arr[i].facebook,
-          instragram: arr[i].instragram,
-          nombreTutor: arr[i].nombreTutor,
-          appTutor: arr[i].appTutor,
-          apmTutor: arr[i].apmTutor,
-          Relacion: arr[i].Relacion,
-          Infantil: arr[i].Infantil,
-          Juvenil: arr[i].Juvenil,
-          Lugar: arr[i].Lugar,
-          Personaje: arr[i].Personaje,
+        // this.contactoService.addVotacines({
+        //   id: arr[i].id,
+        //   date: arr[i].date,
+        //   status: arr[i].status,
+        //   submission: arr[i].submission,
+        //   nombre: arr[i].nombre,
+        //   fechaNa: arr[i].fechaNa,
+        //   app: arr[i].app,
+        //   correo: arr[i].correo,
+        //   apm: arr[i].apm,
+        //   telefono: arr[i].telefono,
+        //   adulto: arr[i].adulto,
+        //   facebook: arr[i].facebook,
+        //   instragram: arr[i].instragram,
+        //   nombreTutor: arr[i].nombreTutor,
+        //   appTutor: arr[i].appTutor,
+        //   apmTutor: arr[i].apmTutor,
+        //   Relacion: arr[i].Relacion,
+        //   Infantil: arr[i].Infantil,
+        //   Juvenil: arr[i].Juvenil,
+        //   Lugar:"",
+        //   Personaje: "",
 
 
-        });
+        // });
       }
     }
 
@@ -96,30 +104,6 @@ export class InicioComponent {
 
     recorreArray(this.csvRecords);
 
-    
-      const { Lugar ,Personaje,} = this.contactomodel;
-      await   this.contactoService.addVotacines({
-        Lugar: Lugar,
-        Personaje: Personaje,
-        date: '',
-        status: '',
-        nombre: '',
-        submission: '',
-        app: '',
-        fechaNa: '',
-        correo: '',
-        apm: '',
-        telefono: '',
-        adulto: '',
-        facebook: '',
-        instragram: '',
-        nombreTutor: '',
-        appTutor: '',
-        apmTutor: '',
-        Relacion: '',
-        Infantil: '',
-        Juvenil: ''
-      });
       
       this.toastr.success('Se dio de alta correctamente!', 'Success');
 
@@ -133,11 +117,11 @@ export class InicioComponent {
   @ViewChild('fileImportInput') fileImportInput: any;
 
   fileChangeListener($event: any): void {
-
+console.log("==============LLegamos a cargar la data=============")
     let text = [];
     let files = $event.srcElement.files;
 
-    if (this.isCSVFile(files[0])) {
+    // if (this.isCSVFile(files[0])) {
 
       let input = $event.target;
       let reader = new FileReader();
@@ -159,10 +143,10 @@ export class InicioComponent {
         alert('Unable to read ' + input.files[0]);
       };
 
-    } else {
-      alert("Please import valid .csv file.");
-      this.fileReset();
-    }
+    // } else {
+    //   alert("Please import valid .csv file.");
+    //   this.fileReset();
+    // }
   }
 
   getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {
@@ -218,9 +202,9 @@ export class InicioComponent {
 
 
   // CHECK IF FILE IS A VALID CSV FILE
-  isCSVFile(file: any) {
-    return file.name.endsWith(".csv");
-  }
+  // isCSVFile(file: any) {
+  //   return file.name.endsWith(".csv");
+  // }
 
   // GET CSV FILE HEADER COLUMNS
   getHeaderArray(csvRecordsArr: any) {

@@ -1,4 +1,4 @@
-<div class="container mt-3 mb-5">
+<!-- <div class="container mt-3 mb-5">
     <h3 style="text-align:center ;">Altas de Usuarios</h3>
     <hr>
     <p-toolbar>
@@ -9,9 +9,10 @@
             </span>
         </ng-template>
         <ng-template pTemplate="right">
-            <div class="csv-file-chooser-section">
+            
+            <div  class="custom-file">
 
-                <input label="Exportar Excel" icon="pi pi-upload" type="file" #fileImportInput name="File Upload"
+                <input label="Exportar Excel" icon="pi pi-upload" type="file" class="custom-file-input" #fileImportInput name="File Upload"
                     id="txtFileUpload" (change)="fileChangeListener($event)" accept=".csv" />
 
             </div>
@@ -148,11 +149,11 @@
                    
                     <th>
                         LUGAR
-                        <input pInputText type="text" placeholder="Ingresa el lugar" [style]="{ width: '100%' }" />
+                        <input pInputText type="text" placeholder="Ingresa el lugar" [style]="{ width: '100%' }"  value="{{csvData.Lugar}}">
                     </th>
                     <th>
                         PERSONAJE
-                        <input pInputText type="text" placeholder="Ingresa el personaje" [style]="{ width: '100%' }" />
+                        <input pInputText type="text" placeholder="Ingresa el personaje" [style]="{ width: '100%' }" value="{{csvData.Personaje}}" />
                     </th>
                     <th>
                         <button pButton pRipple class="p-button-info mr-2" label="Actualizar"
@@ -177,4 +178,95 @@
     <button pButton pRipple type="button" icon="pi pi-user" label="Registrar alta"
         class="p-button-rounded p-button-success" (click)="add()"></button>
 
+</div> -->
+
+<p-toast></p-toast>
+
+<div class="card">
+    <p-toolbar styleClass="mb-4">
+        <ng-template pTemplate="left">
+            <h3 style="text-align:center ;">Registro  de Usuarios</h3>
+            <!-- <button pButton pRipple label="Nuevo" icon="pi pi-plus" class="p-button-success mr-2" ></button> -->
+
+        </ng-template>
+
+        <ng-template pTemplate="right">
+            <p-fileUpload mode="basic"id="txtFileUpload" #fileImportInput  (change)="fileChangeListener($event)" accept=".csv" [maxFileSize]="1000000" label="Import" chooseLabel="Importar" class="mr-2 inline-block"></p-fileUpload>
+            <!-- <button pButton pRipple label="Importar" icon="pi pi-upload" class="p-button-help" (click)="fileChangeListener($event)" accept=".csv"></button> -->
+            
+            <!-- <input label="Exportar Excel" icon="pi pi-upload" type="file" class="custom-file-input" #fileImportInput name="File Upload"
+            id="txtFileUpload" (change)="fileChangeListener($event)" accept=".csv" /> -->
+        </ng-template>
+    </p-toolbar>
+
+    <p-table #dt [value]="ContactoModels" [rows]="10" [paginator]="true" [globalFilterFields]="['nombre','country.nombre','representative.nombre','status']" responsiveLayout="scroll" [(selection)]="selectedContactoModels" [rowHover]="true" dataKey="id" currentPageReportTemplate="Mostrando   {first}hasta  {last} de {totalRecords} mensajes"
+        [showCurrentPageReport]="true">
+        <ng-template pTemplate="caption">
+            <div class="flex align-items-center justify-content-between">
+                <h5 class="m-0">Registros</h5>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')"
+                        placeholder="Search..." />
+                </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+              
+                <th pSortableColumn="nombre">nombre
+                    <p-sortIcon field="nombre"></p-sortIcon>
+                </th>
+                <th pSortableColumn="correo">correo
+                    <p-sortIcon field="correo"></p-sortIcon>
+                </th>
+                <th pSortableColumn="telefono">telefono
+                    <p-sortIcon field="telefono"></p-sortIcon>
+                </th>
+                <th pSortableColumn="mensaje">mensaje
+                    <p-sortIcon field="mensaje"></p-sortIcon>
+                </th>
+               
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-ContactoModel>
+            <tr>
+              
+                <td>{{ContactoModel.nombre}}</td>
+                <td>{{ContactoModel.correo}}</td>
+                <td>{{ContactoModel.telefono}}</td>
+                <td>{{ContactoModel.mensaje}}</td>
+                <td> </td>
+                <td><span [class]="'ContactoModel-badge status-' + (ContactoModel.inventoryStatus ? ContactoModel.inventoryStatus.toLowerCase() : '')">{{ContactoModel.inventoryStatus}}</span>
+                </td>
+                <td>
+                    <!-- <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editContactoModel(ContactoModel)"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteContactoModel(ContactoModel)"></button> -->
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="flex align-items-center justify-content-between">
+                En total son {{ContactoModels ? ContactoModels.length : 0 }} Registros.
+            </div>
+        </ng-template>
+    </p-table>
 </div>
+
+<!-- <p-dialog [(visible)]="ContactoModelDialog" [style]="{width: '450px'}" header="Detalles del mensaje" [modal]="true" styleClass="p-fluid"> -->
+    <ng-template pTemplate="content">
+
+  
+
+
+
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <!-- <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveContactoModel()"></button> -->
+    </ng-template>
+<!-- </p-dialog> -->
+
+<!-- <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog> -->

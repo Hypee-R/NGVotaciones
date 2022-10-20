@@ -27,7 +27,7 @@ import { MiInformacionComponent } from './mi-informacion/mi-informacion.componen
 import { MisNominacionesComponent } from './mis-nominaciones/mis-nominaciones.component';
 import { AddNominacionComponent } from './mis-nominaciones/add-nominacion/add-nominacion.component';
 import { InputTextModule } from 'primeng/inputtext';
-
+import { FileUploadModule } from 'primeng/fileupload';
 @NgModule({
     imports: [
         CommonModule,
@@ -44,7 +44,8 @@ import { InputTextModule } from 'primeng/inputtext';
         TableModule,
         ToolbarModule,
         ButtonModule,
-        InputTextModule
+        InputTextModule,
+        FileUploadModule
     ],
     declarations: [
         UserComponent,

@@ -25,7 +25,7 @@ export class ContactoService {
     private variablesGL: VariablesService,
   ){
     this.db = getFirestore();
-    this.contactoCol = collection(this.db, 'mensajesContacto');
+    this.contactoCol = collection(this.db, 'regVotacines');
    // Get Realtime Data
    onSnapshot(this.contactoCol, (snapshot) => {
     this.updatedSnapshot.next(snapshot);
@@ -73,6 +73,8 @@ export class ContactoService {
       const contactosCollection = collection(this.firestore, 'mensajesContacto');
       return collectionData(contactosCollection);
     }
+
+
 
     async getContactos() {
       const snapshot = await getDocs(this.contactoCol);
