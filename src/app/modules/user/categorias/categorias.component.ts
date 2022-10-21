@@ -37,6 +37,7 @@ export class CategoriasComponent implements OnInit {
     private variablesGL: VariablesService,
     private categoriasService: CategoriasService,
     private convocatoriasService: ConvocatoriasService,
+    private authService: ConfigService,
   ) {
     this.getCategorias();
     //this.getConvocatorias();
@@ -44,7 +45,13 @@ export class CategoriasComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategorias();
-
+    if (this.authService.Usuario){
+      console.log("Autenticado")
+      this.router.navigate(['/portal/categorias'], { replaceUrl: true });
+    }else{
+      console.log("no Autenticado")
+      this.router.navigate(['/portal/login'], { replaceUrl: true });
+    }
   }
 
   async getCategorias(){

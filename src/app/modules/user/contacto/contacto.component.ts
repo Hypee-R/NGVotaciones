@@ -5,7 +5,8 @@ import { VariablesService } from 'src/app/services/variablesGL.service';
 import { ContactoService } from 'src/app/services/contacto.service';
 import { DocumentData, QuerySnapshot } from 'firebase/firestore';
 import { ContactoModel } from 'src/app/models/contacto.model';
-
+import { ConfigService } from 'src/config/config.service';
+import { Router, CanLoad, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 
 @Component({
   selector: 'app-contacto',
@@ -52,10 +53,19 @@ export class ContactoComponent implements OnInit {
     private contactoService: ContactoService,
     private toastr: ToastrService,
       private firebaseService: ContactoService,
+      private authService: ConfigService,
+      private router: Router
   ) { }
   ngOnInit(): void { 
 
     this.get();
+    if (this.authService.Usuario){
+      console.log("Autenticado")
+      this.router.navigate(['/portal/categorias'], { replaceUrl: true });
+    }else{
+      console.log("no Autenticado")
+      this.router.navigate(['/portal/login'], { replaceUrl: true });
+    }
   }
 
   async get() {

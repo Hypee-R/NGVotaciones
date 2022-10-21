@@ -9,6 +9,8 @@ import { ContactoModel } from 'src/app/models/contacto.model';
 import { ContactoService } from 'src/app/services/contacto.service';
 import { saveAs } from 'file-saver';
 import { ConfirmationService } from 'primeng/api';
+import { Router, CanLoad, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ConfigService } from 'src/config/config.service';
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -66,12 +68,22 @@ export class InicioComponent {
     private fb: FormBuilder,
     private confirmationService: ConfirmationService,
       private firebaseService: ContactoService,
-   
+      private authService: ConfigService,
+      private router: Router
   ) { }
   ngOnInit(): void { 
     this.initForm();
     this.get();
+    if (this.authService.Usuario){
+      console.log("Autenticado")
+      this.router.navigate(['/portal/inicio'], { replaceUrl: true });
+    }else{
+      console.log("no Autenticado")
+      this.router.navigate(['/portal/login'], { replaceUrl: true });
+    }
   }
+
+  
   initForm() {
     this.convocatoriaForm = this.fb.group({
       id: ['', [Validators.required]],
