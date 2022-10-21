@@ -9,6 +9,7 @@ import { ContactoModel } from 'src/app/models/contacto.model';
 import { ContactoService } from 'src/app/services/contacto.service';
 import { saveAs } from 'file-saver';
 import { ConfirmationService } from 'primeng/api';
+import { ExcelService } from 'src/app/services/excel.service';
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -64,6 +65,7 @@ export class InicioComponent {
     private contactoService: ContactoService,
     private toastr: ToastrService,
     private fb: FormBuilder,
+    private exporExcel: ExcelService,
     private confirmationService: ConfirmationService,
       private firebaseService: ContactoService,
    
@@ -115,7 +117,7 @@ export class InicioComponent {
   
   async add() {
 
-        const { 
+        const { id,
           date,
           status,
        nombre,
@@ -139,7 +141,7 @@ export class InicioComponent {
  } = this.contactomodel;
   this.contactoService.addVotacines({
 
-       
+       id:id,
           date: date,
        status: status,
        nombre: nombre,
@@ -219,7 +221,10 @@ Lugar: '',
 }
 
 
+Excel() {
+  this.exporExcel.convoc(this.ContactoModels)
 
+}
   hideDialog() {
     this.visibleDe = false;
     this.visible = false;

@@ -53,10 +53,10 @@ ws['!cols'] = [
   convoc(convoc: any){
     console.log(convoc);
     
-    let ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(convoc, { header: ['ID', 'fechaInicio', 'fechaFin'] })
+    let ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(convoc, { header: ['id','date','status','submission','nombre','fechaNa','app','correo','apm','telefono','adulto','facebook','instragram','nombreTutor','appTutor','apmTutor','Relacion','Infantil','Juvenil','Lugar','Personaje'] })
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'convocatorias');
-    XLSX.writeFile(wb, 'convocatorias.xlsx')
+    XLSX.utils.book_append_sheet(wb, ws, 'regVotaciones');
+    XLSX.writeFile(wb, 'Partcipantes.xlsx')
     return this.toastr.success('Exportado con exito!!', 'Exito');
   }
   nomina(nomin:any){
