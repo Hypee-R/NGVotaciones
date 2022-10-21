@@ -13,10 +13,12 @@ import { UserComponent } from './user.component';
 import { ToastModule } from 'primeng/toast';
 import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+
 import { SidebarModule } from 'primeng/sidebar';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
-
+import { DialogModule } from 'primeng/dialog';
 import { ToolbarModule } from 'primeng/toolbar';
 
 import { CategoriasComponent } from './categorias/categorias.component';
@@ -36,11 +38,15 @@ import { FileUploadModule } from 'primeng/fileupload';
         AuthModule,
         UserRoutingModule,
         SharedModule,
+       
         //PrimeNG
         ToastModule,
+        ConfirmDialogModule,
+        
         CardModule,
         DropdownModule,
         SidebarModule,
+        DialogModule,
         TableModule,
         ToolbarModule,
         ButtonModule,

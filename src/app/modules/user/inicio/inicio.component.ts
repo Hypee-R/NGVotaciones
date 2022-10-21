@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
+import {DialogModule} from 'primeng/dialog';
+
 import { Storage, ref, uploadBytes, listAll, getDownloadURL } from '@angular/fire/storage';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DocumentData, QuerySnapshot } from 'firebase/firestore';
 import { ToastrService } from 'ngx-toastr';
 import { ConfirmationService, MessageService } from 'primeng/api';
@@ -14,27 +16,27 @@ import { ContactoService } from 'src/app/services/contacto.service';
 })
 export class InicioComponent {
 
-  
+  ContactoModelDialog: boolean;
   selectedContactoModels: ContactoModel[];
   ContactoModel: ContactoModel;
   ContactoModels: any[] = [];
   contactomodel = {
     id: '',
    date: '',
-  //   status: '',
-  //   nombre: '',
-  //   submission: '',
-  //   app: '',
-  //   fechaNa: '',
-  //   correo: '',
-  //   apm: '',
-  //   telefono: '',
-  //   adulto: '',
-  //   facebook: '',
-  //   instragram: '',
-  //   nombreTutor: '',
-  //   appTutor: '',
-  //   apmTutor: '',
+  status: '',
+     nombre: '',
+    submission: '',
+    app: '',
+   fechaNa: '',
+    correo: '',
+    apm: '',
+    telefono: '',
+    adulto: '',
+    facebook: '',
+   instragram: '',
+    nombreTutor: '',
+    appTutor: '',
+    apmTutor: '',
     Relacion: '',
     Infantil: '',
   Juvenil: '',
@@ -46,19 +48,35 @@ export class InicioComponent {
 
 
   public csvRecords: any[] = [];
-  visible: boolean;
 
+  convocatoriaForm: FormGroup;
+  submitted: boolean;
+
+  visible: boolean;
+  convocatoriaModelDialog: boolean;
+  convocatoriaModel: any;
+  visibleDe:boolean = false
+  
+ 
 
   constructor(
     private contactoService: ContactoService,
     private toastr: ToastrService,
+    private fb: FormBuilder,
       private firebaseService: ContactoService,
   ) { }
   ngOnInit(): void { 
-
+    this.initForm();
     this.get();
   }
+  initForm() {
+    this.convocatoriaForm = this.fb.group({
+      id: ['', [Validators.required]],
+     nombre: ['', [Validators.required]],
+      app: ['', [Validators.required]],
 
+    })
+  }
   async get() {
     const snapshot = await this.firebaseService.getContactos();
     this.updateConvocatoriaCollection(snapshot);
@@ -71,13 +89,86 @@ export class InicioComponent {
     })
   }
 
-  
+ 
 
   async add() {
+    this.submitted = true;
+    this.visible = false
+     if (this.convocatoriaForm.valid) {
+      if (this.ContactoModel.id.trim() && this.ContactoModel.date.trim() && this.ContactoModel.status.trim()) {
+        if (this.ContactoModel.id) {
+          this.firebaseService.updatecontacto(this.ContactoModel.id, this.ContactoModel.date,
+             this.ContactoModel.status, this.ContactoModel.id)
+          this.visible = false
+         
+          
+        } else {
+          
+          const { id, date, status,nombre } = this.ContactoModel;
+          await this.firebaseService.addcontacto(id, date, status,  );
+          this.convocatoriaForm.reset()
+this.visible = false
+this.submitted = false
+
+          
+        }
+      }
+
+
+    
     const recorreArray = (arr) => {
       for (let i = 0; i <= arr.length - 1; i++) {
         console.log(arr[i]);
-        // this.contactoService.addVotacines({
+
+        const { id ,
+          date,
+          status,
+       nombre,
+       submission,
+       app,
+       fechaNa,
+       correo,
+       apm,
+       telefono,
+       adulto,
+       facebook,
+       instragram,
+       nombreTutor,
+       appTutor,
+       apmTutor,
+       Relacion,
+       Infantil,
+       Juvenil,
+       Lugar,
+       Personaje,
+ } = this.contactomodel;
+  this.contactoService.addVotacines({
+
+          id:id,
+          date: date,
+       status: status,
+       nombre: nombre,
+       submission:  submission,
+       app: app,
+       fechaNa: fechaNa,
+       correo: correo,
+       apm:  apm,
+       telefono: telefono,
+       adulto: adulto,
+       facebook: facebook,
+       instragram: instragram,
+       nombreTutor: nombreTutor,
+       appTutor:  appTutor,
+       apmTutor: apmTutor,
+       Relacion: Relacion,
+       Infantil:  Infantil,
+       Juvenil:   Juvenil,
+       Lugar:  Lugar,
+       Personaje: Personaje,
+      });
+
+
+
         //   id: arr[i].id,
         //   date: arr[i].date,
         //   status: arr[i].status,
@@ -102,8 +193,8 @@ export class InicioComponent {
 
 
         // });
-      }
-    }
+      
+    
 
 
     
@@ -113,10 +204,76 @@ export class InicioComponent {
       
       this.toastr.success('Se dio de alta correctamente!', 'Success');
 
+  
+    }
+  }
+}
+}
+openNew() {
+  this.ContactoModel={date:'',status:'',  nombre: '',
+  submission: '',
+  app: '',
+ fechaNa: '',
+  correo: '',
+  apm: '',
+  telefono: '',
+  adulto: '',
+  facebook: '',
+ instragram: '',
+  nombreTutor: '',
+  appTutor: '',
+  apmTutor: '',
+  Relacion: '',
+  Infantil: '',
+Juvenil: '',
+Lugar: '',
+   Personaje: '',};
+  this.visible = true;
+  
+}
+
+
+
+  hideDialog() {
+    this.visibleDe = false;
+    this.visible = false;
+    this.submitted = false;
   }
 
 
+  saveContactoModel() {
+    this.submitted = true;
 
+    if (this.ContactoModel.id.trim()) {
+        if (this.ContactoModel.date) {
+            // this.ContactoModels[this.findIndexById(this.ContactoModel.id)] = this.ContactoModel;                
+            // this.messageService.add({severity:'success', summary: 'Successful', detail: 'Mensaje Actualizado', life: 3000});
+            this.firebaseService.updatecontacto(this.ContactoModel.id,this.ContactoModel.date,this.ContactoModel.status,this.ContactoModel.nombre);
+        }
+        else {
+           
+            // this.ContactoModels.push(this.ContactoModel);
+            // this.messageService.add({severity:'success', summary: 'Successful', detail: 'ContactoModel Created', life: 3000});
+            this.firebaseService.addcontacto(this.ContactoModel.id,this.ContactoModel.date,this.ContactoModel.status);
+        }
+
+        this.ContactoModels = [...this.ContactoModels];
+        this.ContactoModelDialog = false;
+        this.ContactoModel ;
+    }
+}
+
+findIndexById(id: string): number {
+    let index = -1;
+    for (let i = 0; i < this.ContactoModels.length; i++) {
+        if (this.ContactoModels[i].id === id) {
+            index = i;
+            break;
+        }
+    }
+
+    return index;
+}
 
 
 
@@ -206,7 +363,7 @@ console.log("==============LLegamos a cargar la data=============")
   }
 
 
-
+ 
   // CHECK IF FILE IS A VALID CSV FILE
   // isCSVFile(file: any) {
   //   return file.name.endsWith(".csv");
