@@ -92,35 +92,8 @@ export class InicioComponent {
  
 
   async add() {
-    this.submitted = true;
-    this.visible = false
-     if (this.convocatoriaForm.valid) {
-      if (this.ContactoModel.id.trim() && this.ContactoModel.date.trim() && this.ContactoModel.status.trim()) {
-        if (this.ContactoModel.id) {
-          this.firebaseService.updatecontacto(this.ContactoModel.id, this.ContactoModel.date,
-             this.ContactoModel.status, this.ContactoModel.id)
-          this.visible = false
-         
-          
-        } else {
-          
-          const { id, date, status,nombre } = this.ContactoModel;
-          await this.firebaseService.addcontacto(id, date, status,  );
-          this.convocatoriaForm.reset()
-this.visible = false
-this.submitted = false
 
-          
-        }
-      }
-
-
-    
-    const recorreArray = (arr) => {
-      for (let i = 0; i <= arr.length - 1; i++) {
-        console.log(arr[i]);
-
-        const { id ,
+        const { 
           date,
           status,
        nombre,
@@ -144,7 +117,7 @@ this.submitted = false
  } = this.contactomodel;
   this.contactoService.addVotacines({
 
-          id:id,
+       
           date: date,
        status: status,
        nombre: nombre,
@@ -166,6 +139,9 @@ this.submitted = false
        Lugar:  Lugar,
        Personaje: Personaje,
       });
+      this.toastr.success('Se dio de alta correctamente!', 'Success');
+    }
+     
 
 
 
@@ -193,22 +169,10 @@ this.submitted = false
 
 
         // });
-      
-    
-
-
-    
-
-    recorreArray(this.csvRecords);
 
       
-      this.toastr.success('Se dio de alta correctamente!', 'Success');
-
   
-    }
-  }
-}
-}
+
 openNew() {
   this.ContactoModel={date:'',status:'',  nombre: '',
   submission: '',
@@ -241,39 +205,7 @@ Lugar: '',
   }
 
 
-  saveContactoModel() {
-    this.submitted = true;
 
-    if (this.ContactoModel.id.trim()) {
-        if (this.ContactoModel.date) {
-            // this.ContactoModels[this.findIndexById(this.ContactoModel.id)] = this.ContactoModel;                
-            // this.messageService.add({severity:'success', summary: 'Successful', detail: 'Mensaje Actualizado', life: 3000});
-            this.firebaseService.updatecontacto(this.ContactoModel.id,this.ContactoModel.date,this.ContactoModel.status,this.ContactoModel.nombre);
-        }
-        else {
-           
-            // this.ContactoModels.push(this.ContactoModel);
-            // this.messageService.add({severity:'success', summary: 'Successful', detail: 'ContactoModel Created', life: 3000});
-            this.firebaseService.addcontacto(this.ContactoModel.id,this.ContactoModel.date,this.ContactoModel.status);
-        }
-
-        this.ContactoModels = [...this.ContactoModels];
-        this.ContactoModelDialog = false;
-        this.ContactoModel ;
-    }
-}
-
-findIndexById(id: string): number {
-    let index = -1;
-    for (let i = 0; i < this.ContactoModels.length; i++) {
-        if (this.ContactoModels[i].id === id) {
-            index = i;
-            break;
-        }
-    }
-
-    return index;
-}
 
 
 
