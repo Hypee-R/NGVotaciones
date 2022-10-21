@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ContactoModel } from 'src/app/models/contacto.model';
 import { ContactoService } from 'src/app/services/contacto.service';
-
+import { saveAs } from 'file-saver';
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
