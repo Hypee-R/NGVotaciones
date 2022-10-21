@@ -7,8 +7,8 @@ import { DocumentData, QuerySnapshot } from 'firebase/firestore';
 import { ToastrService } from 'ngx-toastr';
 import { ContactoModel } from 'src/app/models/contacto.model';
 import { ContactoService } from 'src/app/services/contacto.service';
+import { saveAs } from 'file-saver';
 import { ConfirmationService } from 'primeng/api';
-
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -114,32 +114,87 @@ export class InicioComponent {
   }
   
   async add() {
-    this.submitted = true;
-    this.visible = false
-     if (this.convocatoriaForm.valid) {
-      if (this.ContactoModel.id.trim() && this.ContactoModel.date.trim() && this.ContactoModel.status.trim()) {
-        if (this.ContactoModel.id) {
-          // this.firebaseService.updatecontacto(this.ContactoModel.id, this.ContactoModel.date,
-          //    this.ContactoModel.status, this.ContactoModel.id)
-          this.visible = false
-         
-          
-        } else {
-          
-          const { id, date, status,nombre } = this.ContactoModel;
-          // await this.firebaseService.addcontacto(id, date, status,  );
-          this.convocatoriaForm.reset()
-this.visible = false
-this.submitted = false
 
-          
-        }
-      }
+        const { 
+          date,
+          status,
+       nombre,
+       submission,
+       app,
+       fechaNa,
+       correo,
+       apm,
+       telefono,
+       adulto,
+       facebook,
+       instragram,
+       nombreTutor,
+       appTutor,
+       apmTutor,
+       Relacion,
+       Infantil,
+       Juvenil,
+       Lugar,
+       Personaje,
+ } = this.contactomodel;
+  this.contactoService.addVotacines({
+
+       
+          date: date,
+       status: status,
+       nombre: nombre,
+       submission:  submission,
+       app: app,
+       fechaNa: fechaNa,
+       correo: correo,
+       apm:  apm,
+       telefono: telefono,
+       adulto: adulto,
+       facebook: facebook,
+       instragram: instragram,
+       nombreTutor: nombreTutor,
+       appTutor:  appTutor,
+       apmTutor: apmTutor,
+       Relacion: Relacion,
+       Infantil:  Infantil,
+       Juvenil:   Juvenil,
+       Lugar:  Lugar,
+       Personaje: Personaje,
+      });
+      this.toastr.success('Se dio de alta correctamente!', 'Success');
+    }
+     
 
 
 
-}
-}
+        //   id: arr[i].id,
+        //   date: arr[i].date,
+        //   status: arr[i].status,
+        //   submission: arr[i].submission,
+        //   nombre: arr[i].nombre,
+        //   fechaNa: arr[i].fechaNa,
+        //   app: arr[i].app,
+        //   correo: arr[i].correo,
+        //   apm: arr[i].apm,
+        //   telefono: arr[i].telefono,
+        //   adulto: arr[i].adulto,
+        //   facebook: arr[i].facebook,
+        //   instragram: arr[i].instragram,
+        //   nombreTutor: arr[i].nombreTutor,
+        //   appTutor: arr[i].appTutor,
+        //   apmTutor: arr[i].apmTutor,
+        //   Relacion: arr[i].Relacion,
+        //   Infantil: arr[i].Infantil,
+        //   Juvenil: arr[i].Juvenil,
+        //   Lugar:"",
+        //   Personaje: "",
+
+
+        // });
+
+      
+  
+
 openNew() {
   this.ContactoModel={date:'',status:'',  nombre: '',
   submission: '',
@@ -172,39 +227,7 @@ Lugar: '',
   }
 
 
-  saveContactoModel() {
-    this.submitted = true;
 
-    if (this.ContactoModel.id.trim()) {
-        if (this.ContactoModel.date) {
-            // this.ContactoModels[this.findIndexById(this.ContactoModel.id)] = this.ContactoModel;                
-            // this.messageService.add({severity:'success', summary: 'Successful', detail: 'Mensaje Actualizado', life: 3000});
-          //  this.firebaseService.updatecontacto(this.ContactoModel.id,this.ContactoModel.date,this.ContactoModel.status,this.ContactoModel.nombre);
-        }
-        else {
-           
-            // this.ContactoModels.push(this.ContactoModel);
-            // this.messageService.add({severity:'success', summary: 'Successful', detail: 'ContactoModel Created', life: 3000});
-            // this.firebaseService.addcontacto(this.ContactoModel.id,this.ContactoModel.date,this.ContactoModel.status);
-        }
-
-        this.ContactoModels = [...this.ContactoModels];
-        this.ContactoModelDialog = false;
-        this.ContactoModel ;
-    }
-}
-
-findIndexById(id: string): number {
-    let index = -1;
-    for (let i = 0; i < this.ContactoModels.length; i++) {
-        if (this.ContactoModels[i].id === id) {
-            index = i;
-            break;
-        }
-    }
-
-    return index;
-}
 
 
 
