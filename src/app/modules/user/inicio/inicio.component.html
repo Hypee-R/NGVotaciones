@@ -124,28 +124,25 @@
                 <td>{{ContactoModel.telefono}}</td>
                 <td>{{ContactoModel.adulto}}</td>
                 <td>{{ContactoModel.facebook}}</td>
-
                 <td>{{ContactoModel.instragram}}</td>
                 <td>{{ContactoModel.nombreTutor}}</td>
                 <td>{{ContactoModel.appTutor}}</td>
                 <td>{{ContactoModel.apmTutor}}</td>
                 <td>{{ContactoModel.Relacion}}</td>
-
                 <td>{{ContactoModel.Infantil}}</td>
                 <td>{{ContactoModel.Juvenil}}</td>
 
 
                 <th>
                     <input pInputText type="text" placeholder="Ingresa el lugar" [style]="{  height:'10%' }"
-                        value="{{ContactoModel.Lugar}}">
+                     [(ngModel)]="ContactoModel.Lugar">
                 </th>
                 <th>
-                    <input pInputText type="text" placeholder="Ingresa el personaje" [style]="{ height:'80%' }"
-                        value="{{ContactoModel.Personaje}}">
+                    <input pInputText type="text" placeholder="Ingresa el personaje" [style]="{ height:'80%' }"   [(ngModel)]="ContactoModel.Personaje"/>
                 </th>
 
                 <td>
-                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editar(ContactoModel)"></button>
                     <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"></button>
                 </td>
 

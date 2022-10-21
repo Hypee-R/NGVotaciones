@@ -89,7 +89,12 @@ export class InicioComponent {
     })
   }
 
- 
+  editar(registro: any) {
+    this.ContactoModel = { ...registro }
+     this.firebaseService.updatecontacto( this.ContactoModel.id, this.ContactoModel.Lugar,
+     this.ContactoModel.Personaje
+     )
+  }
 
   async add() {
     this.submitted = true;
@@ -97,8 +102,8 @@ export class InicioComponent {
      if (this.convocatoriaForm.valid) {
       if (this.ContactoModel.id.trim() && this.ContactoModel.date.trim() && this.ContactoModel.status.trim()) {
         if (this.ContactoModel.id) {
-          this.firebaseService.updatecontacto(this.ContactoModel.id, this.ContactoModel.date,
-             this.ContactoModel.status, this.ContactoModel.id)
+          // this.firebaseService.updatecontacto(this.ContactoModel.id, this.ContactoModel.date,
+          //    this.ContactoModel.status, this.ContactoModel.id)
           this.visible = false
          
           
@@ -248,7 +253,7 @@ Lugar: '',
         if (this.ContactoModel.date) {
             // this.ContactoModels[this.findIndexById(this.ContactoModel.id)] = this.ContactoModel;                
             // this.messageService.add({severity:'success', summary: 'Successful', detail: 'Mensaje Actualizado', life: 3000});
-            this.firebaseService.updatecontacto(this.ContactoModel.id,this.ContactoModel.date,this.ContactoModel.status,this.ContactoModel.nombre);
+          //  this.firebaseService.updatecontacto(this.ContactoModel.id,this.ContactoModel.date,this.ContactoModel.status,this.ContactoModel.nombre);
         }
         else {
            

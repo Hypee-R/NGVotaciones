@@ -37,11 +37,11 @@ export class ContactoService {
   async addVotacines(contacto: ContactoModel){
     await addDoc(collection(this.afs,'regVotacines'), contacto)
     .then(docRef => {
-      console.log('El CONTACTO se grabo con el ID: ', docRef.id);
+      console.log('El Registro se grabo con el ID: ', docRef.id);
       this.variablesGL.endProcessNominacion.next(docRef.id);
     })
     .catch(error => {
-      console.log('EL CONTACTO no se grabo: ', error);
+      console.log('EL Registro no se grabo: ', error);
       this.variablesGL.endProcessNominacion.next('');
     });
   }
@@ -62,9 +62,9 @@ export class ContactoService {
    return    this.toastr.error('Registro Eliminado con exito!!','Advertencia');
   }
 
-  async updatecontacto(docId: string, correo: string,mensaje: string,nombre: string) {
-    const docRef = doc(this.db, 'mensajesContacto', docId);
-    await updateDoc(docRef, { correo,mensaje,nombre })
+  async updatecontacto(docId: string, Lugar: string,Personaje: string) {
+    const docRef = doc(this.db, 'regVotacines', docId);
+    await updateDoc(docRef, { Lugar,Personaje })
    return this.toastr.warning('Registro Actualizado con exito!!','Actualizacion');
   }
 
