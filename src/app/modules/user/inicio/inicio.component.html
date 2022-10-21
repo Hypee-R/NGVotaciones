@@ -8,17 +8,19 @@
 
         </ng-template>
         <ng-template pTemplate="left">
+
+            
             <button pButton pRipple label="Nuevo" icon="pi pi-plus" class="p-button-success mr-2"
                 (click)="openNew()"></button>
-
+                <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"></button>
         </ng-template>
         <ng-template pTemplate="right">
-            
-     
-         
             <input class="form-control" type="file" id="formFileDisabled"   #fileImportInput name="File Upload"  id="txtFileUpload" (change)="fileChangeListener($event)" accept=".csv"/>
-            
+           
+         
+        
         </ng-template>
+       
 
     </p-toolbar>
 
