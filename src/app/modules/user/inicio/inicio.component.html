@@ -143,7 +143,7 @@
 
                 <td>
                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editar(ContactoModel)"></button>
-                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="delete(ContactoModel)"></button>
                 </td>
 
                 <td><span
@@ -380,3 +380,7 @@
 
 
 </p-dialog>
+
+<p-confirmDialog [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}">
+    Content
+</p-confirmDialog>

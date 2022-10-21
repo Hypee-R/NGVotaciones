@@ -14,7 +14,7 @@ import { ToastModule } from 'primeng/toast';
 import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
-
+import {ConfirmationService} from 'primeng/api';
 import { SidebarModule } from 'primeng/sidebar';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
@@ -42,7 +42,7 @@ import { FileUploadModule } from 'primeng/fileupload';
         //PrimeNG
         ToastModule,
         ConfirmDialogModule,
-        
+      
         CardModule,
         DropdownModule,
         SidebarModule,
@@ -51,8 +51,10 @@ import { FileUploadModule } from 'primeng/fileupload';
         ToolbarModule,
         ButtonModule,
         InputTextModule,
-        FileUploadModule
+        FileUploadModule,
+        
     ],
+    providers: [ConfirmationService],
     declarations: [
         UserComponent,
         CategoriasComponent,

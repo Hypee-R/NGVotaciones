@@ -5,9 +5,9 @@ import { Storage, ref, uploadBytes, listAll, getDownloadURL } from '@angular/fir
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DocumentData, QuerySnapshot } from 'firebase/firestore';
 import { ToastrService } from 'ngx-toastr';
-import { ConfirmationService, MessageService } from 'primeng/api';
 import { ContactoModel } from 'src/app/models/contacto.model';
 import { ContactoService } from 'src/app/services/contacto.service';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-inicio',
@@ -56,6 +56,7 @@ export class InicioComponent {
   convocatoriaModelDialog: boolean;
   convocatoriaModel: any;
   visibleDe:boolean = false
+
   
  
 
@@ -63,7 +64,9 @@ export class InicioComponent {
     private contactoService: ContactoService,
     private toastr: ToastrService,
     private fb: FormBuilder,
+    private confirmationService: ConfirmationService,
       private firebaseService: ContactoService,
+   
   ) { }
   ngOnInit(): void { 
     this.initForm();
@@ -96,6 +99,20 @@ export class InicioComponent {
      )
   }
 
+
+   delete(docId: any) {
+
+
+   this.confirmationService.confirm({
+     message: '¿Está seguro de que desea eliminar el Registro  ?',
+      header: 'Confirmacion',
+      icon: 'pi pi-exclamation-triangle',
+    accept: () => {
+         this.firebaseService.deletecontacto(docId.id);
+    }
+  });
+  }
+  
   async add() {
     this.submitted = true;
     this.visible = false

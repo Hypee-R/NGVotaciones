@@ -57,7 +57,7 @@ export class ContactoService {
   }
 
   async deletecontacto(docId: string) {
-    const docRef = doc(this.db, 'mensajesContacto', docId)
+    const docRef = doc(this.db, 'regVotacines', docId)
    await deleteDoc(docRef);
    return    this.toastr.error('Registro Eliminado con exito!!','Advertencia');
   }
