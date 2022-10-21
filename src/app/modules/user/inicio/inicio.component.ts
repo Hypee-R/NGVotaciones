@@ -127,7 +127,7 @@ export class InicioComponent {
         } else {
           
           const { id, date, status,nombre } = this.ContactoModel;
-          await this.firebaseService.addcontacto(id, date, status,  );
+          // await this.firebaseService.addcontacto(id, date, status,  );
           this.convocatoriaForm.reset()
 this.visible = false
 this.submitted = false
@@ -137,98 +137,7 @@ this.submitted = false
       }
 
 
-    
-    const recorreArray = (arr) => {
-      for (let i = 0; i <= arr.length - 1; i++) {
-        console.log(arr[i]);
 
-        const { id ,
-          date,
-          status,
-       nombre,
-       submission,
-       app,
-       fechaNa,
-       correo,
-       apm,
-       telefono,
-       adulto,
-       facebook,
-       instragram,
-       nombreTutor,
-       appTutor,
-       apmTutor,
-       Relacion,
-       Infantil,
-       Juvenil,
-       Lugar,
-       Personaje,
- } = this.contactomodel;
-  this.contactoService.addVotacines({
-
-          id:id,
-          date: date,
-       status: status,
-       nombre: nombre,
-       submission:  submission,
-       app: app,
-       fechaNa: fechaNa,
-       correo: correo,
-       apm:  apm,
-       telefono: telefono,
-       adulto: adulto,
-       facebook: facebook,
-       instragram: instragram,
-       nombreTutor: nombreTutor,
-       appTutor:  appTutor,
-       apmTutor: apmTutor,
-       Relacion: Relacion,
-       Infantil:  Infantil,
-       Juvenil:   Juvenil,
-       Lugar:  Lugar,
-       Personaje: Personaje,
-      });
-
-
-
-        //   id: arr[i].id,
-        //   date: arr[i].date,
-        //   status: arr[i].status,
-        //   submission: arr[i].submission,
-        //   nombre: arr[i].nombre,
-        //   fechaNa: arr[i].fechaNa,
-        //   app: arr[i].app,
-        //   correo: arr[i].correo,
-        //   apm: arr[i].apm,
-        //   telefono: arr[i].telefono,
-        //   adulto: arr[i].adulto,
-        //   facebook: arr[i].facebook,
-        //   instragram: arr[i].instragram,
-        //   nombreTutor: arr[i].nombreTutor,
-        //   appTutor: arr[i].appTutor,
-        //   apmTutor: arr[i].apmTutor,
-        //   Relacion: arr[i].Relacion,
-        //   Infantil: arr[i].Infantil,
-        //   Juvenil: arr[i].Juvenil,
-        //   Lugar:"",
-        //   Personaje: "",
-
-
-        // });
-      
-    
-
-
-    
-
-    recorreArray(this.csvRecords);
-
-      
-      this.toastr.success('Se dio de alta correctamente!', 'Success');
-
-  
-    }
-  }
 }
 }
 openNew() {
@@ -276,7 +185,7 @@ Lugar: '',
            
             // this.ContactoModels.push(this.ContactoModel);
             // this.messageService.add({severity:'success', summary: 'Successful', detail: 'ContactoModel Created', life: 3000});
-            this.firebaseService.addcontacto(this.ContactoModel.id,this.ContactoModel.date,this.ContactoModel.status);
+            // this.firebaseService.addcontacto(this.ContactoModel.id,this.ContactoModel.date,this.ContactoModel.status);
         }
 
         this.ContactoModels = [...this.ContactoModels];
@@ -300,13 +209,12 @@ findIndexById(id: string): number {
 
 
   @ViewChild('fileImportInput') fileImportInput: any;
-
   fileChangeListener($event: any): void {
-console.log("==============LLegamos a cargar la data=============")
+    console.log("Recorremos el archivo")
     let text = [];
     let files = $event.srcElement.files;
 
-    // if (this.isCSVFile(files[0])) {
+     if (this.isCSVFile(files[0])) {
 
       let input = $event.target;
       let reader = new FileReader();
@@ -315,23 +223,25 @@ console.log("==============LLegamos a cargar la data=============")
       reader.onload = () => {
         let csvData = reader.result;
         let csvRecordsArray = (<string>csvData).split(/\r\n|\n/);
-
         let headersRow = this.getHeaderArray(csvRecordsArray);
-
         this.csvRecords = this.getDataRecordsArrayFromCSVFile(csvRecordsArray, headersRow.length);
-        console.log("===============Aqui recorremos el arreglo y extraemos uno por uno=======================");
+        this.savedatafile(this.csvRecords);
+            
 
 
       };
 
       reader.onerror = function () {
         alert('Unable to read ' + input.files[0]);
+       
       };
 
-    // } else {
-    //   alert("Please import valid .csv file.");
-    //   this.fileReset();
-    // }
+     } else {
+        
+      this.toastr.warning('Por favor importe un archivo .csv Valido!');
+    
+       this.fileReset();
+    }
   }
 
   getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {
@@ -340,14 +250,9 @@ console.log("==============LLegamos a cargar la data=============")
 
     for (let i = 1; i < csvRecordsArray.length; i++) {
       let data = (<string>csvRecordsArray[i]).split(',');
-
-      // FOR EACH ROW IN CSV FILE IF THE NUMBER OF COLUMNS
-      // ARE SAME AS NUMBER OF HEADER COLUMNS THEN PARSE THE DATA
       if (data.length == headerLength) {
 
         let csvRecord: CSVRecord = new CSVRecord();
-
-        console.log("===============Aqui agrega todas las columnas como te dije  con su nombre correcto y su data[0] posicion correcta =======================");
 
         csvRecord.id = data[0].trim();
         csvRecord.date = data[1].trim();
@@ -368,13 +273,6 @@ console.log("==============LLegamos a cargar la data=============")
         csvRecord.Relacion = data[16].trim();
         csvRecord.Infantil = data[17].trim();
         csvRecord.Juvenil = data[18].trim();
-
-
-
-
-
-
-
         dataArr.push(csvRecord);
       }
     }
@@ -387,9 +285,55 @@ console.log("==============LLegamos a cargar la data=============")
 
  
   // CHECK IF FILE IS A VALID CSV FILE
-  // isCSVFile(file: any) {
-  //   return file.name.endsWith(".csv");
-  // }
+   isCSVFile(file: any) {
+     return file.name.endsWith(".csv");
+   }
+
+   savedatafile(data) {
+    console.log("save data field")
+    console.log(data)
+    const recorreArray = (arr) => {
+      for (let i = 0; i <= arr.length - 1; i++) {
+        console.log(arr[i]);
+   this.contactoService.addVotacines({
+
+          id: arr[i].id,
+           date: arr[i].date,
+          status: arr[i].status,
+          submission: arr[i].submission,
+           nombre: arr[i].nombre,
+           fechaNa: arr[i].fechaNa,
+           app: arr[i].app,
+           correo: arr[i].correo,
+          apm: arr[i].apm,
+          telefono: arr[i].telefono,
+           adulto: arr[i].adulto,
+           facebook: arr[i].facebook,
+           instragram: arr[i].instragram,
+          nombreTutor: arr[i].nombreTutor,
+           appTutor: arr[i].appTutor,
+           apmTutor: arr[i].apmTutor,
+           Relacion: arr[i].Relacion,
+           Infantil: arr[i].Infantil,
+           Juvenil: arr[i].Juvenil,
+           Lugar:"",
+           Personaje: "",
+
+
+          } ) ;
+        }
+      }
+  
+      recorreArray (data);
+  
+      this.toastr.success('Registro Guardado  con exito!!', 'Exito');
+  
+      this.get();
+    
+    }
+  
+  
+
 
   // GET CSV FILE HEADER COLUMNS
   getHeaderArray(csvRecordsArr: any) {

@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Firestore, collectionData } from '@angular/fire/firestore';
-import {  collection, addDoc,  deleteDoc, doc, updateDoc, DocumentData, CollectionReference,  QuerySnapshot, getDocs, getFirestore, onSnapshot,  } from 'firebase/firestore';
+import {  collection, addDoc,  deleteDoc, doc, updateDoc, DocumentData, CollectionReference,  QuerySnapshot, getDocs, getFirestore, onSnapshot, setDoc,  } from 'firebase/firestore';
 import { ContactoModel } from '../models/contacto.model';
 import { VariablesService } from './variablesGL.service';
 import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +37,19 @@ export class ContactoService {
   }
 
   async addVotacines(contacto: ContactoModel){
-    await addDoc(collection(this.afs,'regVotacines'), contacto)
+    await setDoc(doc(this.afs, "regVotacines", contacto.id), contacto).then(docRef => {
+      console.log('El Registro se grabo con el ID: ', contacto.id);
+      this.variablesGL.endProcessNominacion.next(contacto.id);
+    })
+    .catch(error => {
+      console.log('EL Registro no se grabo: ', error);
+      this.variablesGL.endProcessNominacion.next('');
+    });
+    
+  }
+
+  async addVotacinesRegistro(contacto: ContactoModel){
+    await addDoc(collection(this.afs,'regVotacinesPrueba'), contacto)
     .then(docRef => {
       console.log('El Registro se grabo con el ID: ', docRef.id);
       this.variablesGL.endProcessNominacion.next(docRef.id);
@@ -45,14 +59,16 @@ export class ContactoService {
       this.variablesGL.endProcessNominacion.next('');
     });
   }
-
-  async addcontacto(correo: string,mensaje: string,nombre: string) {
-    await addDoc(this.contactoCol, {
-      correo,
-      mensaje,
-      nombre,
-
+  async addcontacto(contacto: ContactoModel) {
+    await setDoc(doc(this.afs, "regVotacinesPrueba", contacto.id), contacto).then(docRef => {
+      console.log('El Registro se grabo con el ID: ', contacto.id);
+      this.variablesGL.endProcessNominacion.next(contacto.id);
     })
+    .catch(error => {
+      console.log('EL Registro no se grabo: ', error);
+      this.variablesGL.endProcessNominacion.next('');
+    });
+    
     return this.toastr.success('Registro Guardado  con exito!!', 'Exito');
   }
 

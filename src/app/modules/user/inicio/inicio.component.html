@@ -12,6 +12,12 @@
                 (click)="openNew()"></button>
 
         </ng-template>
+        <ng-template pTemplate="right">
+            
+            <div  class="custom-file">
+                <input label="Exportar Excel" icon="pi pi-upload" type="file" class="custom-file-input" #fileImportInput name="File Upload"  id="txtFileUpload" (change)="fileChangeListener($event)" accept=".csv" />
+            </div>
+        </ng-template>
 
     </p-toolbar>
 
