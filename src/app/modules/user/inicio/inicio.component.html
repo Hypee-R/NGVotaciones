@@ -1,209 +1,24 @@
-<!-- <div class="container mt-3 mb-5">
-    <h3 style="text-align:center ;">Altas de Usuarios</h3>
-    <hr>
-    <p-toolbar>
-        <ng-template pTemplate="left">
-            <span class="p-input-icon-left ml-auto" style="width: 300%">
-                <input pInputText type="text" placeholder="Buscar usuarios" [style]="{ width: '100%' }" />
-                <i class="pi pi-search"></i>
-            </span>
-        </ng-template>
-        <ng-template pTemplate="right">
-            
-            <div  class="custom-file">
-
-                <input label="Exportar Excel" icon="pi pi-upload" type="file" class="custom-file-input" #fileImportInput name="File Upload"
-                    id="txtFileUpload" (change)="fileChangeListener($event)" accept=".csv" />
-
-            </div>
-        </ng-template>
-    </p-toolbar>
-    <div class="card">
-        <p-table responsiveLayout="scroll" [value]="" [rows]="25" [paginator]="true">
-            <ng-template pTemplate="header">
-                <tr *ngFor="let csvData of csvRecords;let i = index;">
-
-                    <th>
-                        ID
-                        <p-sortIcon field="ID"></p-sortIcon>
-                        <br>
-                        <span>{{csvData.id}}</span>
-                    </th>
-                    <th>
-                        DATE
-                        <p-sortIcon field="DATE"></p-sortIcon>
-                        <br>
-                        <span>{{csvData.date}}</span>
-                    </th>
-                    <th>
-                        STATUS
-                        <p-sortIcon field="STATUS"></p-sortIcon>
-                        <br>
-                        <span>{{csvData.status}}</span>
-                    </th>
-                    <th>
-                        SUBMISISION
-                        <p-sortIcon field="SUBMISISION"></p-sortIcon>
-                        <br>
-                        <span>{{csvData.submission}}</span>
-                    </th>
-
-                    <th>
-                        NOMBRE
-                        <p-sortIcon field=" NOMBRE"></p-sortIcon>
-                        <br>
-                        <span>{{csvData.nombre}}</span>
-                    </th>
-
-                    <th>
-                        FECHA
-                        <p-sortIcon field="   FECHA"></p-sortIcon>
-                        <br>
-                        <span>{{csvData.fechaNa}}</span>
-                    </th>
-
-                    <th>
-                        APELLIDOPATERNO
-                        <p-sortIcon field=" APELLIDOPATERNO"></p-sortIcon>
-                        <br>
-                        <span>{{csvData.app}}</span>
-                    </th>
-                    <th>
-                        CORREO
-                        <p-sortIcon field=" CORREO"></p-sortIcon>
-                        <br>
-                        <span>{{csvData.correo}}</span>
-                    </th>
-                    <th>
-                        APELLIDOMATERNO
-                        <p-sortIcon field="  APELLIDOMATERNO"></p-sortIcon>
-                        <br>
-                        <span>{{csvData.apm}}</span>
-                    </th>
-                    <th>
-                        TELEFONO
-                        <p-sortIcon field="  TELEFONO"></p-sortIcon>
-                        <br>
-                        <span>{{csvData.telefono}}</span>
-                    </th>
-                    <th>
-                        ADULTO
-                        <p-sortIcon field="  ADULTO"></p-sortIcon>
-                        <br>
-                        <span>{{csvData.adulto}}</span>
-                    </th>
-
-                    <th>
-                        FACEBOOK
-                        <p-sortIcon field="  FACEBOOK"></p-sortIcon>
-                        <br>
-                        <span>{{csvData.facebook}}</span>
-                    </th>
-
-                    <th>
-                        INSTRAGRAM
-                        <p-sortIcon field="   INSTRAGRAM"></p-sortIcon>
-                        <br>
-                        <span>{{csvData. instragram}}</span>
-                    </th>
-                    <th>
-                        NOMBRE TUTOR
-                        <p-sortIcon field="  NOMBRE TUTOR"></p-sortIcon>
-                        <br>
-                        <span>{{csvData. nombreTutor}}</span>
-                    </th>
-
-                    <th>
-                        APELLIDO PATERNO
-                        <p-sortIcon field="  APELLIDO PATERNO"></p-sortIcon>
-                        <br>
-                        <span>{{csvData. appTutor}}</span>
-                    </th>
-                    <th>
-                        APELLIDO MATERNO
-                        <p-sortIcon field="  APELLIDO MATERNO"></p-sortIcon>
-                        <br>
-                        <span>{{csvData. apmTutor}}</span>
-                    </th>
-
-                    <th>
-                        RELACION
-                        <p-sortIcon field="  RELACION"></p-sortIcon>
-                        <br>
-                        <span>{{csvData. Relacion}}</span>
-                    </th>
-                    <th>
-                        INFANTIL
-                        <p-sortIcon field="  INFANTIL"></p-sortIcon>
-                        <br>
-                        <span>{{csvData. Infantil}}</span>
-                    </th>
-
-                    <th>
-                        JUVENIL
-                        <p-sortIcon field="  JUVENIL"></p-sortIcon>
-                        <br>
-                        <span>{{csvData. Juvenil}}</span>
-                    </th>
-
-                   
-                    <th>
-                        LUGAR
-                        <input pInputText type="text" placeholder="Ingresa el lugar" [style]="{ width: '100%' }"  value="{{csvData.Lugar}}">
-                    </th>
-                    <th>
-                        PERSONAJE
-                        <input pInputText type="text" placeholder="Ingresa el personaje" [style]="{ width: '100%' }" value="{{csvData.Personaje}}" />
-                    </th>
-                    <th>
-                        <button pButton pRipple class="p-button-info mr-2" label="Actualizar"
-                            style="border-radius: 15px; margin-bottom: 5px; margin-top: 25px;"></button>
-                    </th>
-                </tr>
-            </ng-template>
-
-            <ng-template pTemplate="summary">
-                <div class="flex align-items-center justify-content-between">
-                    Total de Usuarios
-                </div>
-            </ng-template>
-        </p-table>
-
-    </div>
-    
-</div>
-<div class="col">
-
-
-    <button pButton pRipple type="button" icon="pi pi-user" label="Registrar alta"
-        class="p-button-rounded p-button-success" (click)="add()"></button>
-
-</div> -->
-
 <p-toast></p-toast>
 
 <div class="card">
     <p-toolbar styleClass="mb-4">
         <ng-template pTemplate="left">
-            <h3 style="text-align:center ;">Registro  de Usuarios</h3>
-            <!-- <button pButton pRipple label="Nuevo" icon="pi pi-plus" class="p-button-success mr-2" ></button> -->
+            <h3 style="text-align:center ;">Registro de Usuarios</h3>
+
 
         </ng-template>
         <ng-template pTemplate="left">
-            <button pButton pRipple label="Nuevo" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+            <button pButton pRipple label="Nuevo" icon="pi pi-plus" class="p-button-success mr-2"
+                (click)="openNew()"></button>
 
         </ng-template>
 
-        <ng-template pTemplate="right">
-            <!--<p-fileUpload mode="basic"id="txtFileUpload" #fileImportInput  (change)="fileChangeListener($event)" accept=".csv" [maxFileSize]="1000000" label="Import" chooseLabel="Importar" class="mr-2 inline-block"></p-fileUpload>-->
-            <!-- <button pButton pRipple label="Importar" icon="pi pi-upload" class="p-button-help" (click)="fileChangeListener($event)" accept=".csv"></button> -->
-            
-            <!-- <input label="Exportar Excel" icon="pi pi-upload" type="file" class="custom-file-input" #fileImportInput name="File Upload"
-            id="txtFileUpload" (change)="fileChangeListener($event)" accept=".csv" /> -->
-        </ng-template>
     </p-toolbar>
 
-    <p-table #dt [value]="ContactoModels" [rows]="10" [paginator]="true" [globalFilterFields]="['nombre','country.nombre','representative.nombre','status']" responsiveLayout="scroll" [(selection)]="selectedContactoModels" [rowHover]="true" dataKey="id" currentPageReportTemplate="Mostrando   {first}hasta  {last} de {totalRecords} mensajes"
+    <p-table #dt [value]="ContactoModels" [rows]="10" [paginator]="true"
+        [globalFilterFields]="['nombre','country.nombre','representative.nombre','status']" responsiveLayout="scroll"
+        [(selection)]="selectedContactoModels" [rowHover]="true" dataKey="id"
+        currentPageReportTemplate="Mostrando   {first}hasta  {last} de {totalRecords} mensajes"
         [showCurrentPageReport]="true">
         <ng-template pTemplate="caption">
             <div class="flex align-items-center justify-content-between">
@@ -217,10 +32,10 @@
         </ng-template>
         <ng-template pTemplate="header">
             <tr>
-              
+
                 <th pSortableColumn="ID">ID
                     <p-sortIcon field="ID"></p-sortIcon>
-                </th> 
+                </th>
                 <th pSortableColumn="DATE">DATE
                     <p-sortIcon field="DATE"></p-sortIcon>
                 </th>
@@ -251,7 +66,7 @@
                 <th pSortableColumn="ADULTO">ADULTO
                     <p-sortIcon field="ADULTO"></p-sortIcon>
                 </th>
-               
+
                 <th pSortableColumn="FACEBOOK">FACEBOOK
                     <p-sortIcon field="FACEBOOK"></p-sortIcon>
                 </th>
@@ -276,27 +91,27 @@
                 <th pSortableColumn="JUVENIL">JUVENIL
                     <p-sortIcon field="JUVENIL"></p-sortIcon>
                 </th>
-                
+
                 <th pSortableColumn="LUGAR">LUGAR
                     <p-sortIcon field="LUGAR"></p-sortIcon>
-                </th> 
-                
-                    <th pSortableColumn="PERSONAJE">PERSONAJE
-                        <p-sortIcon field="PERSONAJE"></p-sortIcon>
-                    </th>
-                    <th pSortableColumn="OPCIONES">OPCIONES
-                        <p-sortIcon field="OPCIONES"></p-sortIcon>
-                    </th>
+                </th>
+
+                <th pSortableColumn="PERSONAJE">PERSONAJE
+                    <p-sortIcon field="PERSONAJE"></p-sortIcon>
+                </th>
+                <th pSortableColumn="OPCIONES">OPCIONES
+                    <p-sortIcon field="OPCIONES"></p-sortIcon>
+                </th>
             </tr>
         </ng-template>
-       
-            
-      
+
+
+
 
 
         <ng-template pTemplate="body" let-ContactoModel>
             <tr>
-              
+
                 <td>{{ContactoModel.id}}</td>
                 <td>{{ContactoModel.date}}</td>
                 <td>{{ContactoModel.status}}</td>
@@ -315,31 +130,32 @@
                 <td>{{ContactoModel.appTutor}}</td>
                 <td>{{ContactoModel.apmTutor}}</td>
                 <td>{{ContactoModel.Relacion}}</td>
-                
+
                 <td>{{ContactoModel.Infantil}}</td>
                 <td>{{ContactoModel.Juvenil}}</td>
-               
+
 
                 <th>
-                <input pInputText type="text" placeholder="Ingresa el lugar" 
-                    [style]="{  height:'10%' }"  value="{{ContactoModel.Lugar}}">
+                    <input pInputText type="text" placeholder="Ingresa el lugar" [style]="{  height:'10%' }"
+                        value="{{ContactoModel.Lugar}}">
                 </th>
                 <th>
-                    <input pInputText type="text" placeholder="Ingresa el personaje" 
-                    [style]="{ height:'80%' }"  value="{{ContactoModel.Personaje}}">
+                    <input pInputText type="text" placeholder="Ingresa el personaje" [style]="{ height:'80%' }"
+                        value="{{ContactoModel.Personaje}}">
                 </th>
-            
+
                 <td>
                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
-                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" ></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"></button>
                 </td>
-                
-                <td><span [class]="'ContactoModel-badge status-' + (ContactoModel.inventoryStatus ? ContactoModel.inventoryStatus.toLowerCase() : '')">{{ContactoModel.inventoryStatus}}</span>
+
+                <td><span
+                        [class]="'ContactoModel-badge status-' + (ContactoModel.inventoryStatus ? ContactoModel.inventoryStatus.toLowerCase() : '')">{{ContactoModel.inventoryStatus}}</span>
                 </td>
-                
-                
-            
-                </tr>
+
+
+
+            </tr>
         </ng-template>
         <ng-template pTemplate="summary">
             <div class="flex align-items-center justify-content-between">
@@ -349,52 +165,43 @@
     </p-table>
 </div>
 
-<!-- <p-dialog [(visible)]="ContactoModelDialog" [style]="{width: '450px'}" header="Detalles del mensaje" [modal]="true" styleClass="p-fluid"> -->
-    <ng-template pTemplate="content">
-
-  
-
-
-
-    </ng-template>
-
-    <ng-template pTemplate="footer">
-        <!-- <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
-        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveContactoModel()"></button> -->
-    </ng-template>
-<!-- </p-dialog> -->
-
-<!-- <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog> -->
-
 
 <!-- Nuevo participante -->
-<p-dialog [(visible)]="visible" [style]="{width: '750px'}" header="Ingresar Nuevo Participante" [modal]="true" styleClass="p-fluid">
+<p-dialog [(visible)]="visible" [style]="{width: '750px'}" header="Ingresar Nuevo Participante" [modal]="true"
+    styleClass="p-fluid">
     <ng-template pTemplate="right">
 
         <form [formGroup]="convocatoriaForm">
 
             <div class="field">
                 <label for="ID">ID:</label>
-                <input type="text" pInputText name="ID" class="" [(ngModel)]="ContactoModel.id" formControlName="ID" [ngClass]="submitted && convocatoriaForm.controls['ID'].errors ? 'is-invalid' : !submitted && convocatoriaForm.controls['ID'].valid ? 'is-valid' : submitted && convocatoriaForm.controls['ID'].valid ? 'is-valid' : null">
+                <input type="text" pInputText name="ID" class="" [(ngModel)]="ContactoModel.id" formControlName="ID"
+                    [ngClass]="submitted && convocatoriaForm.controls['ID'].errors ? 'is-invalid' : !submitted && convocatoriaForm.controls['ID'].valid ? 'is-valid' : submitted && convocatoriaForm.controls['ID'].valid ? 'is-valid' : null">
                 <small class="p-error" *ngIf="submitted && !ContactoModel.id">ID is required.</small>
 
             </div>
             <div class="field">
                 <label for="DATE">DATE:</label>
-                <input type="text" pInputText name="DATE" class="" [(ngModel)]="ContactoModel.date" formControlName="DATE" [ngClass]="submitted && convocatoriaForm.controls['DATE'].errors ? 'is-invalid' : !submitted && convocatoriaForm.controls['DATE'].valid ? 'is-valid' : submitted && convocatoriaForm.controls['DATE'].valid ? 'is-valid' : null">
+                <input type="text" pInputText name="DATE" class="" [(ngModel)]="ContactoModel.date"
+                    formControlName="DATE"
+                    [ngClass]="submitted && convocatoriaForm.controls['DATE'].errors ? 'is-invalid' : !submitted && convocatoriaForm.controls['DATE'].valid ? 'is-valid' : submitted && convocatoriaForm.controls['DATE'].valid ? 'is-valid' : null">
                 <small class="p-error" *ngIf="submitted && !ContactoModel.date">DATE is required.</small>
 
             </div>
             <div class="field">
                 <label for="STATUS">STATUS:</label>
-                <input type="text" pInputText name="STATUS" class="" [(ngModel)]="ContactoModel.status" formControlName="STATUS" [ngClass]="submitted && convocatoriaForm.controls['STATUS'].errors ? 'is-invalid' : !submitted && convocatoriaForm.controls['STATUS'].valid ? 'is-valid' : submitted && convocatoriaForm.controls['STATUS'].valid ? 'is-valid' : null">
+                <input type="text" pInputText name="STATUS" class="" [(ngModel)]="ContactoModel.status"
+                    formControlName="STATUS"
+                    [ngClass]="submitted && convocatoriaForm.controls['STATUS'].errors ? 'is-invalid' : !submitted && convocatoriaForm.controls['STATUS'].valid ? 'is-valid' : submitted && convocatoriaForm.controls['STATUS'].valid ? 'is-valid' : null">
                 <small class="p-error" *ngIf="submitted && !ContactoModel.status">STATUS is required.</small>
 
             </div>
 
             <div class="field">
                 <label for="SUBMISISION">SUBMISISION:</label>
-                <input type="text" pInputText name="SUBMISISION" class="" [(ngModel)]="ContactoModel.submission" formControlName="SUBMISISION" [ngClass]="submitted && convocatoriaForm.controls['SUBMISISION'].errors ? 'is-invalid' : !submitted && convocatoriaForm.controls['SUBMISISION'].valid ? 'is-valid' : submitted && convocatoriaForm.controls['SUBMISISION'].valid ? 'is-valid' : null">
+                <input type="text" pInputText name="SUBMISISION" class="" [(ngModel)]="ContactoModel.submission"
+                    formControlName="SUBMISISION"
+                    [ngClass]="submitted && convocatoriaForm.controls['SUBMISISION'].errors ? 'is-invalid' : !submitted && convocatoriaForm.controls['SUBMISISION'].valid ? 'is-valid' : submitted && convocatoriaForm.controls['SUBMISISION'].valid ? 'is-valid' : null">
                 <small class="p-error" *ngIf="submitted && !ContactoModel.submission">SUBMISISION is required.</small>
 
             </div>
@@ -402,7 +209,9 @@
 
             <div class="field">
                 <label for="NOMBRE">NONBRE:</label>
-                <input type="text" pInputText name="NONBRE" class="" [(ngModel)]="ContactoModel.nombre" formControlName="NONBRE" [ngClass]="submitted && convocatoriaForm.controls['NONBRE'].errors ? 'is-invalid' : !submitted && convocatoriaForm.controls['NONBRE'].valid ? 'is-valid' : submitted && convocatoriaForm.controls['NONBRE'].valid ? 'is-valid' : null">
+                <input type="text" pInputText name="NONBRE" class="" [(ngModel)]="ContactoModel.nombre"
+                    formControlName="NONBRE"
+                    [ngClass]="submitted && convocatoriaForm.controls['NONBRE'].errors ? 'is-invalid' : !submitted && convocatoriaForm.controls['NONBRE'].valid ? 'is-valid' : submitted && convocatoriaForm.controls['NONBRE'].valid ? 'is-valid' : null">
                 <small class="p-error" *ngIf="submitted && !ContactoModel.nombre">Nombre is required.</small>
 
             </div>
@@ -410,15 +219,17 @@
 
             <div class="field">
                 <label for="FECHA">FECHA:</label>
-                <input type="text" pInputText name="FECHA" class="" [(ngModel)]="ContactoModel.fechaNa" formControlName="FECHA" [ngClass]="submitted && convocatoriaForm.controls['FECHA'].errors ? 'is-invalid' : !submitted && convocatoriaForm.controls['FECHA'].valid ? 'is-valid' : submitted && convocatoriaForm.controls['FECHA'].valid ? 'is-valid' : null">
+                <input type="text" pInputText name="FECHA" class="" [(ngModel)]="ContactoModel.fechaNa"
+                    formControlName="FECHA"
+                    [ngClass]="submitted && convocatoriaForm.controls['FECHA'].errors ? 'is-invalid' : !submitted && convocatoriaForm.controls['FECHA'].valid ? 'is-valid' : submitted && convocatoriaForm.controls['FECHA'].valid ? 'is-valid' : null">
                 <small class="p-error" *ngIf="submitted && !ContactoModel.fechaNa">FECHA is required.</small>
 
             </div>
 
             <div class="field">
                 <label for="APELLIDO PATERNO">APELLIDO PATERNO:</label>
-                <input type="text" pInputText name="APELLIDO PATERNO" class="" [(ngModel)]="ContactoModel.app" formControlName="APELLIDO PATERNO" 
-                [ngClass]="submitted && convocatoriaForm.controls['APELLIDO PATERNO'].errors ? 'is-invalid' : !submitted 
+                <input type="text" pInputText name="APELLIDO PATERNO" class="" [(ngModel)]="ContactoModel.app"
+                    formControlName="APELLIDO PATERNO" [ngClass]="submitted && convocatoriaForm.controls['APELLIDO PATERNO'].errors ? 'is-invalid' : !submitted 
                 && convocatoriaForm.controls['APELLIDO PATERNO'].valid ? 'is-valid' : submitted &&
                  convocatoriaForm.controls['APELLIDO PATERNO'].valid ? 'is-valid' : null">
                 <small class="p-error" *ngIf="submitted && !ContactoModel.app">APELLIDO PATERNO is required.</small>
@@ -427,8 +238,8 @@
 
             <div class="field">
                 <label for="CORREO">CORREO:</label>
-                <input type="text" pInputText name="CORREO" class="" [(ngModel)]="ContactoModel.correo" formControlName="CORREO" 
-                [ngClass]="submitted && convocatoriaForm.controls['CORREO'].errors ? 'is-invalid' : !submitted 
+                <input type="text" pInputText name="CORREO" class="" [(ngModel)]="ContactoModel.correo"
+                    formControlName="CORREO" [ngClass]="submitted && convocatoriaForm.controls['CORREO'].errors ? 'is-invalid' : !submitted 
                 && convocatoriaForm.controls['CORREO'].valid ? 'is-valid' : submitted &&
                  convocatoriaForm.controls['CORREO'].valid ? 'is-valid' : null">
                 <small class="p-error" *ngIf="submitted && !ContactoModel.correo">CORREO is required.</small>
@@ -436,9 +247,8 @@
             </div>
             <div class="field">
                 <label for="APELLIDO MATERNO">APELLIDO MATERNO:</label>
-                <input type="text" pInputText name="APELLIDO MATERNO" class="" [(ngModel)]="ContactoModel.apm" 
-                formControlName="APELLIDO MATERNO" 
-                [ngClass]="submitted && convocatoriaForm.controls['APELLIDO MATERNO'].errors ? 'is-invalid' : !submitted 
+                <input type="text" pInputText name="APELLIDO MATERNO" class="" [(ngModel)]="ContactoModel.apm"
+                    formControlName="APELLIDO MATERNO" [ngClass]="submitted && convocatoriaForm.controls['APELLIDO MATERNO'].errors ? 'is-invalid' : !submitted 
                 && convocatoriaForm.controls['APELLIDO MATERNO'].valid ? 'is-valid' : submitted &&
                  convocatoriaForm.controls['APELLIDO MATERNO'].valid ? 'is-valid' : null">
                 <small class="p-error" *ngIf="submitted && !ContactoModel.apm">APELLIDO MATERNO is required.</small>
@@ -447,9 +257,8 @@
 
             <div class="field">
                 <label for="TELEFONO">TELEFONO:</label>
-                <input type="text" pInputText name="TELEFONO" class="" [(ngModel)]="ContactoModel.telefono" 
-                formControlName="TELEFONO" 
-                [ngClass]="submitted && convocatoriaForm.controls['TELEFONO'].errors ? 'is-invalid' : !submitted 
+                <input type="text" pInputText name="TELEFONO" class="" [(ngModel)]="ContactoModel.telefono"
+                    formControlName="TELEFONO" [ngClass]="submitted && convocatoriaForm.controls['TELEFONO'].errors ? 'is-invalid' : !submitted 
                 && convocatoriaForm.controls['TELEFONO'].valid ? 'is-valid' : submitted &&
                  convocatoriaForm.controls['TELEFONO'].valid ? 'is-valid' : null">
                 <small class="p-error" *ngIf="submitted && !ContactoModel.telefono">TELEFONO is required.</small>
@@ -457,9 +266,8 @@
             </div>
             <div class="field">
                 <label for="ADULTO">ADULTO:</label>
-                <input type="text" pInputText name="ADULTO" class="" [(ngModel)]="ContactoModel.adulto" 
-                formControlName="ADULTO" 
-                [ngClass]="submitted && convocatoriaForm.controls['ADULTO'].errors ? 'is-invalid' : !submitted 
+                <input type="text" pInputText name="ADULTO" class="" [(ngModel)]="ContactoModel.adulto"
+                    formControlName="ADULTO" [ngClass]="submitted && convocatoriaForm.controls['ADULTO'].errors ? 'is-invalid' : !submitted 
                 && convocatoriaForm.controls['ADULTO'].valid ? 'is-valid' : submitted &&
                  convocatoriaForm.controls['ADULTO'].valid ? 'is-valid' : null">
                 <small class="p-error" *ngIf="submitted && !ContactoModel.adulto">ADULTO is required.</small>
@@ -467,9 +275,8 @@
             </div>
             <div class="field">
                 <label for="FACEBOOK">FACEBOOK:</label>
-                <input type="text" pInputText name="FACEBOOK" class="" [(ngModel)]="ContactoModel.facebook" 
-                formControlName="FACEBOOK" 
-                [ngClass]="submitted && convocatoriaForm.controls['FACEBOOK'].errors ? 'is-invalid' : !submitted 
+                <input type="text" pInputText name="FACEBOOK" class="" [(ngModel)]="ContactoModel.facebook"
+                    formControlName="FACEBOOK" [ngClass]="submitted && convocatoriaForm.controls['FACEBOOK'].errors ? 'is-invalid' : !submitted 
                 && convocatoriaForm.controls['FACEBOOK'].valid ? 'is-valid' : submitted &&
                  convocatoriaForm.controls['FACEBOOK'].valid ? 'is-valid' : null">
                 <small class="p-error" *ngIf="submitted && !ContactoModel.facebook">FACEBOOK is required.</small>
@@ -477,9 +284,8 @@
             </div>
             <div class="field">
                 <label for="INSTRAGRAM">INSTRAGRAM:</label>
-                <input type="text" pInputText name="INSTRAGRAM" class="" [(ngModel)]="ContactoModel.instragram" 
-                formControlName="INSTRAGRAM" 
-                [ngClass]="submitted && convocatoriaForm.controls['INSTRAGRAM'].errors ? 'is-invalid' : !submitted 
+                <input type="text" pInputText name="INSTRAGRAM" class="" [(ngModel)]="ContactoModel.instragram"
+                    formControlName="INSTRAGRAM" [ngClass]="submitted && convocatoriaForm.controls['INSTRAGRAM'].errors ? 'is-invalid' : !submitted 
                 && convocatoriaForm.controls['INSTRAGRAM'].valid ? 'is-valid' : submitted &&
                  convocatoriaForm.controls['INSTRAGRAM'].valid ? 'is-valid' : null">
                 <small class="p-error" *ngIf="submitted && !ContactoModel.instragram">INSTRAGRAMis required.</small>
@@ -487,9 +293,8 @@
             </div>
             <div class="field">
                 <label for="NOMBRE TUTOR">NOMBRE TUTOR:</label>
-                <input type="text" pInputText name="NOMBRE TUTOR" class="" [(ngModel)]="ContactoModel.nombreTutor" 
-                formControlName="NOMBRE TUTOR" 
-                [ngClass]="submitted && convocatoriaForm.controls['NOMBRE TUTOR'].errors ? 'is-invalid' : !submitted 
+                <input type="text" pInputText name="NOMBRE TUTOR" class="" [(ngModel)]="ContactoModel.nombreTutor"
+                    formControlName="NOMBRE TUTOR" [ngClass]="submitted && convocatoriaForm.controls['NOMBRE TUTOR'].errors ? 'is-invalid' : !submitted 
                 && convocatoriaForm.controls['NOMBRE TUTOR'].valid ? 'is-valid' : submitted &&
                  convocatoriaForm.controls['NOMBRE TUTOR'].valid ? 'is-valid' : null">
                 <small class="p-error" *ngIf="submitted && !ContactoModel.nombreTutor">NOMBRE TUTOR is required.</small>
@@ -497,51 +302,48 @@
             </div>
             <div class="field">
                 <label for="APELLIDO PATERNO">APELLIDO PATERNO:</label>
-                <input type="text" pInputText name="APELLIDO PATERNO" class="" [(ngModel)]="ContactoModel.appTutor" 
-                formControlName="APELLIDO PATERNO" 
-                [ngClass]="submitted && convocatoriaForm.controls['APELLIDO PATERNO'].errors ? 'is-invalid' : !submitted 
+                <input type="text" pInputText name="APELLIDO PATERNO" class="" [(ngModel)]="ContactoModel.appTutor"
+                    formControlName="APELLIDO PATERNO" [ngClass]="submitted && convocatoriaForm.controls['APELLIDO PATERNO'].errors ? 'is-invalid' : !submitted 
                 && convocatoriaForm.controls['APELLIDO PATERNO'].valid ? 'is-valid' : submitted &&
                  convocatoriaForm.controls['APELLIDO PATERNO'].valid ? 'is-valid' : null">
-                <small class="p-error" *ngIf="submitted && !ContactoModel.appTutor">APELLIDO PATERNO is required.</small>
+                <small class="p-error" *ngIf="submitted && !ContactoModel.appTutor">APELLIDO PATERNO is
+                    required.</small>
 
             </div>
             <div class="field">
                 <label for="APELLIDO MATERNO">APELLIDO MATERNO:</label>
-                <input type="text" pInputText name="APELLIDO MATERNO" class="" [(ngModel)]="ContactoModel.apmTutor" 
-                formControlName="APELLIDO MATERNO" 
-                [ngClass]="submitted && convocatoriaForm.controls['APELLIDO MATERNO'].errors ? 'is-invalid' : !submitted 
+                <input type="text" pInputText name="APELLIDO MATERNO" class="" [(ngModel)]="ContactoModel.apmTutor"
+                    formControlName="APELLIDO MATERNO" [ngClass]="submitted && convocatoriaForm.controls['APELLIDO MATERNO'].errors ? 'is-invalid' : !submitted 
                 && convocatoriaForm.controls['APELLIDO MATERNO'].valid ? 'is-valid' : submitted &&
                  convocatoriaForm.controls['APELLIDO MATERNO'].valid ? 'is-valid' : null">
-                <small class="p-error" *ngIf="submitted && !ContactoModel.apmTutor">APELLIDO MATERNO is required.</small>
+                <small class="p-error" *ngIf="submitted && !ContactoModel.apmTutor">APELLIDO MATERNO is
+                    required.</small>
 
             </div>
             <div class="field">
                 <label for="RELACION">RELACION:</label>
-                <input type="text" pInputText name="RELACION" class="" [(ngModel)]="ContactoModel.Relacion" 
-                formControlName="RELACION" 
-                [ngClass]="submitted && convocatoriaForm.controls['RELACION'].errors ? 'is-invalid' : !submitted 
+                <input type="text" pInputText name="RELACION" class="" [(ngModel)]="ContactoModel.Relacion"
+                    formControlName="RELACION" [ngClass]="submitted && convocatoriaForm.controls['RELACION'].errors ? 'is-invalid' : !submitted 
                 && convocatoriaForm.controls['RELACION'].valid ? 'is-valid' : submitted &&
                  convocatoriaForm.controls['RELACION'].valid ? 'is-valid' : null">
                 <small class="p-error" *ngIf="submitted && !ContactoModel.Relacion">RELACION is required.</small>
 
             </div>
-           
+
             <div class="field">
                 <label for="INFANTIL">INFANTIL:</label>
-                <input type="text" pInputText name="INFANTIL" class="" [(ngModel)]="ContactoModel.Infantil" 
-                formControlName="INFANTIL" 
-                [ngClass]="submitted && convocatoriaForm.controls['INFANTIL'].errors ? 'is-invalid' : !submitted 
+                <input type="text" pInputText name="INFANTIL" class="" [(ngModel)]="ContactoModel.Infantil"
+                    formControlName="INFANTIL" [ngClass]="submitted && convocatoriaForm.controls['INFANTIL'].errors ? 'is-invalid' : !submitted 
                 && convocatoriaForm.controls['INFANTIL'].valid ? 'is-valid' : submitted &&
                  convocatoriaForm.controls['INFANTIL'].valid ? 'is-valid' : null">
                 <small class="p-error" *ngIf="submitted && !ContactoModel.Infantil">INFANTIL is required.</small>
 
             </div>
-        
+
             <div class="field">
                 <label for="JUVENIL">JUVENIL:</label>
-                <input type="text" pInputText name="JUVENIL" class="" [(ngModel)]="ContactoModel.Juvenil" 
-                formControlName="JUVENIL" 
-                [ngClass]="submitted && convocatoriaForm.controls['JUVENIL'].errors ? 'is-invalid' : !submitted 
+                <input type="text" pInputText name="JUVENIL" class="" [(ngModel)]="ContactoModel.Juvenil"
+                    formControlName="JUVENIL" [ngClass]="submitted && convocatoriaForm.controls['JUVENIL'].errors ? 'is-invalid' : !submitted 
                 && convocatoriaForm.controls['JUVENIL'].valid ? 'is-valid' : submitted &&
                  convocatoriaForm.controls['JUVENIL'].valid ? 'is-valid' : null">
                 <small class="p-error" *ngIf="submitted && !ContactoModel.Juvenil">JUVENIL is required.</small>
@@ -549,9 +351,8 @@
             </div>
             <div class="field">
                 <label for="LUGAR">LUGAR:</label>
-                <input type="text" pInputText name="LUGAR" class="" [(ngModel)]="ContactoModel.Lugar" 
-                formControlName="LUGAR" 
-                [ngClass]="submitted && convocatoriaForm.controls['LUGAR'].errors ? 'is-invalid' : !submitted 
+                <input type="text" pInputText name="LUGAR" class="" [(ngModel)]="ContactoModel.Lugar"
+                    formControlName="LUGAR" [ngClass]="submitted && convocatoriaForm.controls['LUGAR'].errors ? 'is-invalid' : !submitted 
                 && convocatoriaForm.controls['LUGAR'].valid ? 'is-valid' : submitted &&
                  convocatoriaForm.controls['LUGAR'].valid ? 'is-valid' : null">
                 <small class="p-error" *ngIf="submitted && !ContactoModel.Lugar">LUGAR is required.</small>
@@ -559,28 +360,26 @@
             </div>
             <div class="field">
                 <label for="PERSONAJE">PERSONAJE:</label>
-                <input type="text" pInputText name="PERSONAJE" class="" [(ngModel)]="ContactoModel.Personaje" 
-                formControlName="PERSONAJE" 
-                [ngClass]="submitted && convocatoriaForm.controls['PERSONAJE'].errors ? 'is-invalid' : !submitted 
+                <input type="text" pInputText name="PERSONAJE" class="" [(ngModel)]="ContactoModel.Personaje"
+                    formControlName="PERSONAJE" [ngClass]="submitted && convocatoriaForm.controls['PERSONAJE'].errors ? 'is-invalid' : !submitted 
                 && convocatoriaForm.controls['PERSONAJE'].valid ? 'is-valid' : submitted &&
                  convocatoriaForm.controls['PERSONAJE'].valid ? 'is-valid' : null">
                 <small class="p-error" *ngIf="submitted && !ContactoModel.Personaje">PERSONAJE is required.</small>
 
             </div>
-          
 
-        
-           
+
+
+
         </form>
     </ng-template>
-        <ng-template pTemplate="footer">
-            <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
-            <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="add()"></button>
-        </ng-template>
-        
-    
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="add()"></button>
+    </ng-template>
 
-   
 
-    </p-dialog>
 
+
+
+</p-dialog>
