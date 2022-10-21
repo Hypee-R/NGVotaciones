@@ -131,6 +131,12 @@ export class MensajesContactoComponent implements OnInit {
   appTutor: '',
   apmTutor: '',
 
+  Relacion: '',
+  Infantil: '',
+  Juvenil: '',
+  Lugar: '',
+  Personaje: '',
+
 
 };
     this.submitted = false;

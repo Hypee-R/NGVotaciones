@@ -15,5 +15,9 @@ export interface ContactoModel{
   nombreTutor:string;
 appTutor:string;
 apmTutor:string;
-
+Relacion:string;
+Infantil:string;
+Juvenil:string;
+Lugar:string;
+Personaje:string;
 }

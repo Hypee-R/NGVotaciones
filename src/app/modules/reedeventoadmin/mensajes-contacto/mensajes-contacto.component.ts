@@ -129,7 +129,13 @@ export class MensajesContactoComponent implements OnInit {
     instragram : '',
     nombreTutor : '',
   appTutor : '',
-  apmTutor : '',};
+  apmTutor : '',
+  Relacion: '',
+  Infantil: '',
+  Juvenil: '',
+  Lugar: '',
+  Personaje: '',
+};
     this.submitted = false;
     this.ContactoModelDialog = true;
 }

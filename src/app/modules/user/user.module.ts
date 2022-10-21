@@ -13,10 +13,12 @@ import { UserComponent } from './user.component';
 import { ToastModule } from 'primeng/toast';
 import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+
 import { SidebarModule } from 'primeng/sidebar';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
-
+import { DialogModule } from 'primeng/dialog';
 import { ToolbarModule } from 'primeng/toolbar';
 
 import { CategoriasComponent } from './categorias/categorias.component';
@@ -27,7 +29,7 @@ import { MiInformacionComponent } from './mi-informacion/mi-informacion.componen
 import { MisNominacionesComponent } from './mis-nominaciones/mis-nominaciones.component';
 import { AddNominacionComponent } from './mis-nominaciones/add-nominacion/add-nominacion.component';
 import { InputTextModule } from 'primeng/inputtext';
-
+import { FileUploadModule } from 'primeng/fileupload';
 @NgModule({
     imports: [
         CommonModule,
@@ -36,15 +38,20 @@ import { InputTextModule } from 'primeng/inputtext';
         AuthModule,
         UserRoutingModule,
         SharedModule,
+       
         //PrimeNG
         ToastModule,
+        ConfirmDialogModule,
+        
         CardModule,
         DropdownModule,
         SidebarModule,
+        DialogModule,
         TableModule,
         ToolbarModule,
         ButtonModule,
-        InputTextModule
+        InputTextModule,
+        FileUploadModule
     ],
     declarations: [
         UserComponent,
