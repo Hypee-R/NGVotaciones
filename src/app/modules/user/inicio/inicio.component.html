@@ -191,7 +191,7 @@
         </ng-template>
 
         <ng-template pTemplate="right">
-            <p-fileUpload mode="basic"id="txtFileUpload" #fileImportInput  (change)="fileChangeListener($event)" accept=".csv" [maxFileSize]="1000000" label="Import" chooseLabel="Importar" class="mr-2 inline-block"></p-fileUpload>
+            <!--<p-fileUpload mode="basic"id="txtFileUpload" #fileImportInput  (change)="fileChangeListener($event)" accept=".csv" [maxFileSize]="1000000" label="Import" chooseLabel="Importar" class="mr-2 inline-block"></p-fileUpload>-->
             <!-- <button pButton pRipple label="Importar" icon="pi pi-upload" class="p-button-help" (click)="fileChangeListener($event)" accept=".csv"></button> -->
             
             <!-- <input label="Exportar Excel" icon="pi pi-upload" type="file" class="custom-file-input" #fileImportInput name="File Upload"
@@ -214,37 +214,128 @@
         <ng-template pTemplate="header">
             <tr>
               
-                <th pSortableColumn="nombre">nombre
-                    <p-sortIcon field="nombre"></p-sortIcon>
+                <th pSortableColumn="ID">ID
+                    <p-sortIcon field="ID"></p-sortIcon>
+                </th> 
+                <th pSortableColumn="DATE">DATE
+                    <p-sortIcon field="DATE"></p-sortIcon>
                 </th>
-                <th pSortableColumn="correo">correo
-                    <p-sortIcon field="correo"></p-sortIcon>
+                <th pSortableColumn="STATUS">STATUS
+                    <p-sortIcon field="STATUS"></p-sortIcon>
                 </th>
-                <th pSortableColumn="telefono">telefono
-                    <p-sortIcon field="telefono"></p-sortIcon>
+                <th pSortableColumn="SUBMISISION">SUBMISISION
+                    <p-sortIcon field="SUBMISISION"></p-sortIcon>
                 </th>
-                <th pSortableColumn="mensaje">mensaje
-                    <p-sortIcon field="mensaje"></p-sortIcon>
+                <th pSortableColumn="NOMBRE">NOMBRE
+                    <p-sortIcon field="NOMBRE"></p-sortIcon>
+                </th>
+                <th pSortableColumn="FECHA">FECHA
+                    <p-sortIcon field="FECHA"></p-sortIcon>
+                </th>
+                <th pSortableColumn="APELLIDO PATERNO">APELLIDO PATERNO
+                    <p-sortIcon field="APELLIDO PATERNO"></p-sortIcon>
+                </th>
+                <th pSortableColumn="CORREO">CORREO
+                    <p-sortIcon field="CORREO"></p-sortIcon>
+                </th>
+                <th pSortableColumn="APELLIDO MATERNO">APELLIDO MATERNO
+                    <p-sortIcon field="APELLIDO MATERNO"></p-sortIcon>
+                </th>
+                <th pSortableColumn="TELEFONO">TELEFONO
+                    <p-sortIcon field="TELEFONO"></p-sortIcon>
+                </th>
+                <th pSortableColumn="ADULTO">ADULTO
+                    <p-sortIcon field="ADULTO"></p-sortIcon>
                 </th>
                
-                <th></th>
+                <th pSortableColumn="FACEBOOK">FACEBOOK
+                    <p-sortIcon field="FACEBOOK"></p-sortIcon>
+                </th>
+                <th pSortableColumn="INSTRAGRAM">INSTRAGRAM
+                    <p-sortIcon field="INSTRAGRAM"></p-sortIcon>
+                </th>
+                <th pSortableColumn="NOMBRE TUTOR">NOMBRE TUTOR
+                    <p-sortIcon field="NOMBRE TUTOR"></p-sortIcon>
+                </th>
+                <th pSortableColumn="APELLIDO PATERNO">APELLIDO PATERNO
+                    <p-sortIcon field="APELLIDO PATERNO"></p-sortIcon>
+                </th>
+                <th pSortableColumn="APELLIDO MATERNO">APELLIDO PATERNO
+                    <p-sortIcon field="APELLIDO MATERNO"></p-sortIcon>
+                </th>
+                <th pSortableColumn="RELACION">RELACION
+                    <p-sortIcon field="RELACION"></p-sortIcon>
+                </th>
+                <th pSortableColumn="INFANTIL">INFANTIL
+                    <p-sortIcon field="INFANTIL"></p-sortIcon>
+                </th>
+                <th pSortableColumn="JUVENIL">JUVENIL
+                    <p-sortIcon field="JUVENIL"></p-sortIcon>
+                </th>
+                
+                <th pSortableColumn="LUGAR">LUGAR
+                    <p-sortIcon field="LUGAR"></p-sortIcon>
+                </th> 
+                
+                    <th pSortableColumn="PERSONAJE">PERSONAJE
+                        <p-sortIcon field="PERSONAJE"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="OPCIONES">OPCIONES
+                        <p-sortIcon field="OPCIONES"></p-sortIcon>
+                    </th>
             </tr>
         </ng-template>
+       
+            
+      
+
+
         <ng-template pTemplate="body" let-ContactoModel>
             <tr>
               
+                <td>{{ContactoModel.id}}</td>
+                <td>{{ContactoModel.date}}</td>
+                <td>{{ContactoModel.status}}</td>
+                <td>{{ContactoModel.submission}}</td>
                 <td>{{ContactoModel.nombre}}</td>
+                <td>{{ContactoModel.fechaNa}}</td>
+                <td>{{ContactoModel.app}}</td>
                 <td>{{ContactoModel.correo}}</td>
+                <td>{{ContactoModel.apm}}</td>
                 <td>{{ContactoModel.telefono}}</td>
-                <td>{{ContactoModel.mensaje}}</td>
-                <td> </td>
+                <td>{{ContactoModel.adulto}}</td>
+                <td>{{ContactoModel.facebook}}</td>
+
+                <td>{{ContactoModel.instragram}}</td>
+                <td>{{ContactoModel.nombreTutor}}</td>
+                <td>{{ContactoModel.appTutor}}</td>
+                <td>{{ContactoModel.apmTutor}}</td>
+                <td>{{ContactoModel.Relacion}}</td>
+                
+                <td>{{ContactoModel.Infantil}}</td>
+                <td>{{ContactoModel.Juvenil}}</td>
+               
+
+                <th>
+                <input pInputText type="text" placeholder="Ingresa el lugar" 
+                    [style]="{  height:'10%' }"  value="{{ContactoModel.Lugar}}">
+                </th>
+                <th>
+                    <input pInputText type="text" placeholder="Ingresa el personaje" 
+                    [style]="{ height:'80%' }"  value="{{ContactoModel.Personaje}}">
+                </th>
+            
+                <td>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" ></button>
+                </td>
+                
                 <td><span [class]="'ContactoModel-badge status-' + (ContactoModel.inventoryStatus ? ContactoModel.inventoryStatus.toLowerCase() : '')">{{ContactoModel.inventoryStatus}}</span>
                 </td>
-                <td>
-                    <!-- <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editContactoModel(ContactoModel)"></button>
-                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteContactoModel(ContactoModel)"></button> -->
-                </td>
-            </tr>
+                
+                
+            
+                </tr>
         </ng-template>
         <ng-template pTemplate="summary">
             <div class="flex align-items-center justify-content-between">

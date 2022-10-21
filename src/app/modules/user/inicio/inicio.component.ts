@@ -3,6 +3,7 @@ import { Storage, ref, uploadBytes, listAll, getDownloadURL } from '@angular/fir
 import { FormGroup } from '@angular/forms';
 import { DocumentData, QuerySnapshot } from 'firebase/firestore';
 import { ToastrService } from 'ngx-toastr';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { ContactoModel } from 'src/app/models/contacto.model';
 import { ContactoService } from 'src/app/services/contacto.service';
 
@@ -12,12 +13,14 @@ import { ContactoService } from 'src/app/services/contacto.service';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent {
+
+  
   selectedContactoModels: ContactoModel[];
   ContactoModel: ContactoModel;
   ContactoModels: any[] = [];
-  // contactomodel = {
-  //   id: '',
-  //   date: '',
+  contactomodel = {
+    id: '',
+   date: '',
   //   status: '',
   //   nombre: '',
   //   submission: '',
@@ -32,17 +35,18 @@ export class InicioComponent {
   //   nombreTutor: '',
   //   appTutor: '',
   //   apmTutor: '',
-  //   Relacion: '',
-  //   Infantil: '',
-  //   Juvenil: '',
-  //   Lugar: '',
-  //   Personaje: '',
+    Relacion: '',
+    Infantil: '',
+  Juvenil: '',
+  Lugar: '',
+     Personaje: '',
 
 
-  // }
+   }
 
 
   public csvRecords: any[] = [];
+  visible: boolean;
 
 
   constructor(
@@ -66,6 +70,8 @@ export class InicioComponent {
       this.ContactoModels.push({ ...mensaje.data(), id: mensaje.id });
     })
   }
+
+  
 
   async add() {
     const recorreArray = (arr) => {
@@ -253,6 +259,6 @@ export class CSVRecord {
 
 
 
-
 }
+
 

@@ -1,0 +1,176 @@
+
+<p-toast></p-toast>
+
+<div class="card">
+    <p-toolbar styleClass="mb-4">
+        <ng-template pTemplate="left">
+            <h3 style="text-align:center ;">RESULTADOS</h3>
+            <!-- <button pButton pRipple label="Nuevo" icon="pi pi-plus" class="p-button-success mr-2" ></button> -->
+
+        </ng-template>
+
+        <ng-template pTemplate="right">
+            <!--<p-fileUpload mode="basic"id="txtFileUpload" #fileImportInput  (change)="fileChangeListener($event)" accept=".csv" [maxFileSize]="1000000" label="Import" chooseLabel="Importar" class="mr-2 inline-block"></p-fileUpload>-->
+            <!-- <button pButton pRipple label="Importar" icon="pi pi-upload" class="p-button-help" (click)="fileChangeListener($event)" accept=".csv"></button> -->
+            
+            <!-- <input label="Exportar Excel" icon="pi pi-upload" type="file" class="custom-file-input" #fileImportInput name="File Upload"
+            id="txtFileUpload" (change)="fileChangeListener($event)" accept=".csv" /> -->
+        </ng-template>
+    </p-toolbar>
+
+    <p-table #dt [value]="ContactoModels" [rows]="10" [paginator]="true" [globalFilterFields]="['nombre','country.nombre','representative.nombre','status']" responsiveLayout="scroll" [(selection)]="selectedContactoModels" [rowHover]="true" dataKey="id" currentPageReportTemplate="Mostrando   {first}hasta  {last} de {totalRecords} mensajes"
+        [showCurrentPageReport]="true">
+        <ng-template pTemplate="caption">
+            <div class="flex align-items-center justify-content-between">
+                <h5 class="m-0">Registros</h5>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')"
+                        placeholder="Search..." />
+                </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+              
+                <th pSortableColumn="ID">ID
+                    <p-sortIcon field="ID"></p-sortIcon>
+                </th> 
+                <th pSortableColumn="DATE">DATE
+                    <p-sortIcon field="DATE"></p-sortIcon>
+                </th>
+                <th pSortableColumn="STATUS">STATUS
+                    <p-sortIcon field="STATUS"></p-sortIcon>
+                </th>
+                <th pSortableColumn="SUBMISISION">SUBMISISION
+                    <p-sortIcon field="SUBMISISION"></p-sortIcon>
+                </th>
+                <th pSortableColumn="NOMBRE">NOMBRE
+                    <p-sortIcon field="NOMBRE"></p-sortIcon>
+                </th>
+                <th pSortableColumn="FECHA">FECHA
+                    <p-sortIcon field="FECHA"></p-sortIcon>
+                </th>
+                <th pSortableColumn="APELLIDO PATERNO">APELLIDO PATERNO
+                    <p-sortIcon field="APELLIDO PATERNO"></p-sortIcon>
+                </th>
+                <th pSortableColumn="CORREO">CORREO
+                    <p-sortIcon field="CORREO"></p-sortIcon>
+                </th>
+                <th pSortableColumn="APELLIDO MATERNO">APELLIDO MATERNO
+                    <p-sortIcon field="APELLIDO MATERNO"></p-sortIcon>
+                </th>
+                <th pSortableColumn="TELEFONO">TELEFONO
+                    <p-sortIcon field="TELEFONO"></p-sortIcon>
+                </th>
+                <th pSortableColumn="ADULTO">ADULTO
+                    <p-sortIcon field="ADULTO"></p-sortIcon>
+                </th>
+               
+                <th pSortableColumn="FACEBOOK">FACEBOOK
+                    <p-sortIcon field="FACEBOOK"></p-sortIcon>
+                </th>
+                <th pSortableColumn="INSTRAGRAM">INSTRAGRAM
+                    <p-sortIcon field="INSTRAGRAM"></p-sortIcon>
+                </th>
+                <th pSortableColumn="NOMBRE TUTOR">NOMBRE TUTOR
+                    <p-sortIcon field="NOMBRE TUTOR"></p-sortIcon>
+                </th>
+                <th pSortableColumn="APELLIDO PATERNO">APELLIDO PATERNO
+                    <p-sortIcon field="APELLIDO PATERNO"></p-sortIcon>
+                </th>
+                <th pSortableColumn="APELLIDO MATERNO">APELLIDO PATERNO
+                    <p-sortIcon field="APELLIDO MATERNO"></p-sortIcon>
+                </th>
+                <th pSortableColumn="RELACION">RELACION
+                    <p-sortIcon field="RELACION"></p-sortIcon>
+                </th>
+                <th pSortableColumn="INFANTIL">INFANTIL
+                    <p-sortIcon field="INFANTIL"></p-sortIcon>
+                </th>
+                <th pSortableColumn="JUVENIL">JUVENIL
+                    <p-sortIcon field="JUVENIL"></p-sortIcon>
+                </th>
+                
+                <th pSortableColumn="LUGAR">LUGAR
+                    <p-sortIcon field="LUGAR"></p-sortIcon>
+                </th> 
+                
+                    <th pSortableColumn="PERSONAJE">PERSONAJE
+                        <p-sortIcon field="PERSONAJE"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="PUNTAJE">PUNTAJE
+                        <p-sortIcon field="PUNTAJE"></p-sortIcon>
+                    </th>
+                    
+                    
+            </tr>
+        </ng-template>
+       
+            
+      
+
+
+        <ng-template pTemplate="body" let-ContactoModel>
+            <tr>
+              
+                <td>{{ContactoModel.id}}</td>
+                <td>{{ContactoModel.date}}</td>
+                <td>{{ContactoModel.status}}</td>
+                <td>{{ContactoModel.submission}}</td>
+                <td>{{ContactoModel.nombre}}</td>
+                <td>{{ContactoModel.fechaNa}}</td>
+                <td>{{ContactoModel.app}}</td>
+                <td>{{ContactoModel.correo}}</td>
+                <td>{{ContactoModel.apm}}</td>
+                <td>{{ContactoModel.telefono}}</td>
+                <td>{{ContactoModel.adulto}}</td>
+                <td>{{ContactoModel.facebook}}</td>
+
+                <td>{{ContactoModel.instragram}}</td>
+                <td>{{ContactoModel.nombreTutor}}</td>
+                <td>{{ContactoModel.appTutor}}</td>
+                <td>{{ContactoModel.apmTutor}}</td>
+                <td>{{ContactoModel.Relacion}}</td>
+                
+                <td>{{ContactoModel.Infantil}}</td>
+                <td>{{ContactoModel.Juvenil}}</td>
+                <td>{{ContactoModel.Lugar}}</td>
+                <td>{{ContactoModel.Personaje}}</td>
+               
+                <td>
+                    
+                </td>
+               
+                
+                <td><span [class]="'ContactoModel-badge status-' + (ContactoModel.inventoryStatus ? ContactoModel.inventoryStatus.toLowerCase() : '')">{{ContactoModel.inventoryStatus}}</span>
+                </td>
+                
+                
+            
+                </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="flex align-items-center justify-content-between">
+                En total son {{ContactoModels ? ContactoModels.length : 0 }} Registros.
+            </div>
+        </ng-template>
+    </p-table>
+</div>
+
+<!-- <p-dialog [(visible)]="ContactoModelDialog" [style]="{width: '450px'}" header="Detalles del mensaje" [modal]="true" styleClass="p-fluid"> -->
+    <ng-template pTemplate="content">
+
+  
+
+
+
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <!-- <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveContactoModel()"></button> -->
+    </ng-template>
+<!-- </p-dialog> -->
+
+<!-- <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog> -->
