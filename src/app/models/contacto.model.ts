@@ -1,4 +1,4 @@
-export interface ContactoModel{
+export interface ContactoModel {
   id?: string;
   date: string;
   status: string;
@@ -12,12 +12,17 @@ export interface ContactoModel{
   adulto: string;
   facebook: string;
   instragram: string;
-  nombreTutor:string;
-appTutor:string;
-apmTutor:string;
-Relacion:string;
-Infantil:string;
-Juvenil:string;
-Lugar:string;
-Personaje:string;
+  nombreTutor: string;
+  appTutor: string;
+  apmTutor: string;
+  Relacion: string;
+  Infantil: string;
+  Juvenil: string;
+  Lugar: string;
+  Personaje: string;
+  RubroA: string;
+  RubroB: string;
+  RubroC: string;
+  RubroD: string;
+  Folio: string;
 }

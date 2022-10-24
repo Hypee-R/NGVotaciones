@@ -1,69 +1,123 @@
-<div class="container mt-3 mb-5" style="width: 40%;">
-    <h3 style="text-align: center;">Rubros</h3>
-    <!-- <div class="row g-3">
-        <div class="col-sm">
-            <label for="categoria" class="form-label">Convocatoria</label>
-            <p-dropdown [options]="convocatorias" placeholder="Selecciona una Convocatoria" optionLabel="titulo" [style]="{'width':'100%'}"></p-dropdown>
+
+
+<div class="container"  *ngIf="this.ContactoModels.length==0">
+    <div class="row">
+      <div class="col-sm">
+    
+      </div>
+      <div class="col-sm"  style="text-align: center;">
+        <p-progressSpinner [style]="{width: '50px', height: '50px'}" styleClass="custom-spinner" strokeWidth="8"
+        fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
+      </div>
+      <div class="col-sm">
+       
+      </div>
+    </div>
+  </div>
+
+
+<div class="container" *ngIf="this.ContactoModels.length!=0">
+    <div class="row">
+        <div class="col">
+            <h3 style="text-align: center;">Rubros</h3>
         </div>
-    </div> -->
-    <hr>
-    <p-table #tableRubros [value]="categorias" selectionMode="single" [(selection)]="selectedCategoria" (onRowSelect)="addNominacion($event)" dataKey="nombre" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
-        styleClass="p-datatable-striped" [globalFilterFields]="['nombre','categoria.nombre']">
-        <ng-template pTemplate="header">
-            <tr>
-                <th>
-                    Nombre:
-                    <input pInputText type="text" placeholder="Ingresa el nombre" [style]="{ width:'70%' }"/>
-                </th>
-                <th>
-                    Lugar:
-                    <input pInputText type="text" placeholder="Ingresa el lugar" [style]="{ width:'70%' }"/>
-                </th>
-            </tr>
-            <tr>
-                <th>
-                    Personaje:
-                    <input pInputText type="text" placeholder="Ingresa el personaje" [style]="{ width:'70%' }"/>
-                </th>
-                <th>
-                    Folio:
-                    <input pInputText type="text" placeholder="Ingresa el folio" [style]="{ width:'70%' }"/>
-                </th>
-            </tr>
-            <tr>
-                <th colspan="2" style="text-align: center;">
-                    Rubro A:
-                    <input pInputText type="text" [style]="{ width:'20%' }"/>
-                </th>
-            </tr>
-            <tr>
-                <th colspan="2" style="text-align: center;">
-                    Rubro B:
-                    <input pInputText type="text" [style]="{ width:'20%' }"/>
-                </th>
-            </tr>
-            <tr>
-                <th colspan="2" style="text-align: center;">
-                    Rubro C:
-                    <input pInputText type="text" [style]="{ width:'20%' }"/>
-                </th>
-            </tr>
-            <tr>
-                <th colspan="2" style="text-align: center;">
-                    Rubro D:
-                    <input pInputText type="text" [style]="{ width:'20%' }"/>
-                </th>
-            </tr>
-            <tr>
-                <th colspan="2">
-                    <div style="text-align: center;">
-                        <button pButton pRipple label="Aceptar" class="p-button-success mr-2"></button>
-                    </div>
-                    <div style="text-align: right;">
-                        <button pButton pRipple icon="pi pi-angle-right" class="p-button-success mr-2"></button>
-                    </div>
-                </th>
-            </tr>
-        </ng-template>
-    </p-table>
+        <hr>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <label>Nombre:</label>
+            <input pInputText type="text" placeholder="Ingresa el nombre" [(ngModel)]="ContactoModels[first].nombre" />
+            <hr>
+        </div>
+        <div class="col">
+            <label> Lugar:</label>
+            <input pInputText type="text" placeholder="Ingresa el lugar" [(ngModel)]="ContactoModels[first].Lugar" />
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label>Personaje:</label>
+            <input pInputText type="text" placeholder="Ingresa el personaje"
+                [(ngModel)]="ContactoModels[first].Personaje" />
+                <hr>
+        </div>
+        <div class="col">
+            <label>Folio:</label>
+            <input pInputText type="text" placeholder="Ingresa el folio" [(ngModel)]="ContactoModels[first].Folio" />
+            <hr>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col">
+           <label>Rubro A:</label> 
+            <input pInputText type="text" [style]="{ width:'20%' }"
+                [(ngModel)]="ContactoModels[first].RubroA" />
+                <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label>Rubro B:</label>
+            <input pInputText type="text" [style]="{ width:'20%' }"
+                [(ngModel)]="ContactoModels[first].RubroB" />
+                <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+          <label>Rubro C:</label>  
+            <input pInputText type="text" [style]="{ width:'20%' }"
+                [(ngModel)]="ContactoModels[first].RubroC" />
+                <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+           <label> Rubro D:</label>  
+            <input pInputText type="text" [style]="{ width:'20%' }"
+                [(ngModel)]="ContactoModels[first].RubroD" />
+            <br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+          
+        </div>
+        <div class="col">
+            <div style="text-align: center;">
+                <button pButton pRipple label="Aceptar" class="p-button-success mr-2"  (click)="editar(ContactoModels[first])"></button>
+            </div>
+        </div>
+        <div class="col">
+          
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+           
+        </div>
+        <div class="col">
+            <div style="text-align: right;">
+                <!-- <button pButton pRipple icon="pi pi-angle-right" class="p-button-success mr-2"></button> -->
+    
+                <p-paginator [first]="first" [rows]="1" [totalRecords]=" this.ContactoModels.length"
+                    (onPageChange)="onPageChange($event)" [showJumpToPageDropdown]="true"
+                    [showPageLinks]="false" icon="pi pi-angle-right" class="p-button-success mr-2">
+                </p-paginator>
+            </div>
+        </div>
+        <div class="col">
+           
+        </div>
+       
+    </div>
 </div>
+
+
+   
+ 
+    

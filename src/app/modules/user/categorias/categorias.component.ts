@@ -1,16 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { getFirestore, provideFirestore, orderBy } from '@angular/fire/firestore';
-import { Firestore, collectionData, collection } from '@angular/fire/firestore';
-import { query } from 'firebase/firestore';
-import { Table } from 'primeng/table';
-import { ConvocatoriasService } from 'src/app/services/convocatoria.service';
-// import { CategoriasService } from "./shared/categorias.service";
-import { CategoriasService } from '../../../services/categorias.service';
+import { DocumentData, query, QuerySnapshot } from 'firebase/firestore';
+import { ContactoService } from 'src/app/services/contacto.service';
 import { CategoriaModel } from '../../../models/categoria.model';
 import { Router } from '@angular/router';
-import { VariablesService } from '../../../services/variablesGL.service';
 import { ConfigService } from 'src/config/config.service';
-// providers: [CategoriasService]
+import {PaginatorModule} from 'primeng/paginator';
+import { ContactoModel } from 'src/app/models/contacto.model';
 
 @Component({
   selector: 'app-categorias',
@@ -18,12 +13,35 @@ import { ConfigService } from 'src/config/config.service';
   styleUrls: ['./categorias.component.css']
 })
 export class CategoriasComponent implements OnInit {
-
-  categoria = {
+  ContactoModels: any[] = [];
+  ContactoModel: ContactoModel;
+  contactomodel = {
     id: '',
-    nombre: ''
+    date: '',
+    status: '',
+    nombre: '',
+    submission: '',
+    app: '',
+    fechaNa: '',
+    correo: '',
+    apm: '',
+    telefono: '',
+    adulto: '',
+    facebook: '',
+    instragram: '',
+    nombreTutor: '',
+    appTutor: '',
+    apmTutor: '',
+    Relacion: '',
+    Infantil: '',
+    Juvenil: '',
+    Lugar: '',
+    Personaje: '',
+    RubroA: '',
+    RubroB: '',
+    Rubroc: '',
+    RubroD: '',
   }
-
 
   categorias: any;
   convocatorias: any;
@@ -34,17 +52,16 @@ export class CategoriasComponent implements OnInit {
   constructor(
     private router: Router,
     public configService: ConfigService,
-    private variablesGL: VariablesService,
-    private categoriasService: CategoriasService,
-    private convocatoriasService: ConvocatoriasService,
     private authService: ConfigService,
+    private firebaseService: ContactoService,
   ) {
-    this.getCategorias();
-    //this.getConvocatorias();
+ 
    }
 
   ngOnInit(): void {
-    this.getCategorias();
+
+      this.get();
+
     if (this.authService.Usuario){
       console.log("Autenticado")
       this.router.navigate(['/portal/categorias'], { replaceUrl: true });
@@ -52,46 +69,57 @@ export class CategoriasComponent implements OnInit {
       console.log("no Autenticado")
       this.router.navigate(['/portal/login'], { replaceUrl: true });
     }
+
   }
 
-  async getCategorias(){
-    this.categoriasService.getCategorias().subscribe( (data) => {
-      this.categorias = data;
-      console.log('data categorias ', this.categorias);
-      this.loading = false;
-    }, err => {
-      this.categorias = [];
-      this.loading = false;
-    });
+  async get() {
+    const snapshot = await this.firebaseService.getContactos();
+    this.updateConvocatoriaCollection(snapshot);
   }
 
-  async getConvocatorias(){
-    this.convocatoriasService.getConvocatorias().subscribe( (data) => {
-      this.convocatorias = data;
-      console.log('data convocatorias ', this.categorias);
-    });
+  updateConvocatoriaCollection(snapshot: QuerySnapshot<DocumentData>) {
+    this.ContactoModels = [];
+
+    
+    snapshot.docs.forEach((mensaje) => {
+      this.ContactoModels.push({ ...mensaje.data(), id: mensaje.id });
+    })
   }
 
-  clear(table: Table) {
-    table.clear();
-  }
 
-  addNominacion(event){
-    //console.log('add nominacion event ', event, this.selectedCategoria);
-    if(this.configService.Usuario){
-      this.variablesGL.preloadCategoria.next(this.selectedCategoria);
-      this.accion = 'agregar';
-      this.visibleSide = true;
-    }else{
-      this.router.navigate(["/portal/login"])
-    }
-  }
+  paginate(event) {
+    //event.first = Index of the first record
+    //event.rows = Number of rows to display in new page
+    //event.page = Index of the new page
+    //event.pageCount = Total number of pages
+}
 
-  fetchNominacion(){
-    this.visibleSide = false;
-    this.accion = '';
-    this.router.navigate(["/portal/mis-nominaciones"]);
-  }
+//Aqui tenemos el primer registro para ir actualizandolo y agregarle el rubro etc
+first: number = 0;
+
+
+
+onPageChange(event) {
+  console.log(event);
+
+    this.first = event.first;
+}
+
+//Refrescamos los registros para volver al primero 
+refresh() {
+    this.first = 0;
+
+}
+
+editar(registro: any) {
+// Registro del usuario calificado
+  console.log(registro)
+   this.ContactoModel = { ...registro }
+   this.firebaseService.updatecontacto(this.ContactoModel.id, this.ContactoModel.Lugar, this.ContactoModel.Personaje, this.ContactoModel.RubroA,this.ContactoModel.RubroB,this.ContactoModel.RubroC,
+    this.ContactoModel.RubroD, this.ContactoModel.Folio
+    
+   )
+}
 
 
 }

@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Firestore, collectionData } from '@angular/fire/firestore';
-import {  collection, addDoc,  deleteDoc, doc, updateDoc, DocumentData, CollectionReference,  QuerySnapshot, getDocs, getFirestore, onSnapshot, setDoc,  } from 'firebase/firestore';
+import {  collection, addDoc,  deleteDoc, doc, updateDoc, DocumentData, CollectionReference,  QuerySnapshot, getDocs, getFirestore, onSnapshot, setDoc, orderBy,query  } from 'firebase/firestore';
 import { ContactoModel } from '../models/contacto.model';
 import { VariablesService } from './variablesGL.service';
 import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
-
-
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +32,11 @@ export class ContactoService {
   }, (err) => {
     console.log(err);
   })
+  }
+
+  getVotaciones(){
+    const contactosCollection = collection(this.firestore, 'regVotacines');
+    return collectionData(query(contactosCollection, orderBy("id", "asc")));
   }
 
   async addVotacines(contacto: ContactoModel){
@@ -78,16 +81,16 @@ export class ContactoService {
    return    this.toastr.error('Registro Eliminado con exito!!','Advertencia');
   }
 
-  async updatecontacto(docId: string, Lugar: string,Personaje: string) {
+  async updatecontacto(docId: string, Lugar: string,Personaje:string,RubroA:string,RubroB:string ,RubroC:string ,RubroD:string ,Folio:string  ) {
     const docRef = doc(this.db, 'regVotacines', docId);
-    await updateDoc(docRef, { Lugar,Personaje })
+    await updateDoc(docRef, { Lugar,Personaje,RubroA,RubroB,RubroC,RubroD,Folio})
    return this.toastr.warning('Registro Actualizado con exito!!','Actualizacion');
   }
 
 
     getcontactos(){
       const contactosCollection = collection(this.firestore, 'mensajesContacto');
-      return collectionData(contactosCollection);
+      return collectionData(query(contactosCollection, orderBy("id", "asc")));
     }
 
 
@@ -97,5 +100,6 @@ export class ContactoService {
       return snapshot;
     }
     
+
 
   }

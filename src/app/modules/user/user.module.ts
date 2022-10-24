@@ -30,6 +30,8 @@ import { MisNominacionesComponent } from './mis-nominaciones/mis-nominaciones.co
 import { AddNominacionComponent } from './mis-nominaciones/add-nominacion/add-nominacion.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { FileUploadModule } from 'primeng/fileupload';
+import {PaginatorModule} from 'primeng/paginator';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 @NgModule({
     imports: [
         CommonModule,
@@ -52,6 +54,8 @@ import { FileUploadModule } from 'primeng/fileupload';
         ButtonModule,
         InputTextModule,
         FileUploadModule,
+        PaginatorModule,
+        ProgressSpinnerModule
         
     ],
     providers: [ConfirmationService],

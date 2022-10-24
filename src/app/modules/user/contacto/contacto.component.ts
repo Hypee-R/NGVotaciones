@@ -61,7 +61,7 @@ export class ContactoComponent implements OnInit {
     this.get();
     if (this.authService.Usuario){
       console.log("Autenticado")
-      this.router.navigate(['/portal/categorias'], { replaceUrl: true });
+      this.router.navigate(['/portal/contacto'], { replaceUrl: true });
     }else{
       console.log("no Autenticado")
       this.router.navigate(['/portal/login'], { replaceUrl: true });
