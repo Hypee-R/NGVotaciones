@@ -41,8 +41,8 @@
                 <th pSortableColumn="APELLIDO MATERNO">APELLIDO MATERNO
                     <p-sortIcon field="APELLIDO MATERNO"></p-sortIcon>
                 </th>
-                <th pSortableColumn="ADULTO">CATEGORIA
-                    <p-sortIcon field="ADULTO"></p-sortIcon>
+                <th pSortableColumn="CATEGORIA">CATEGORIA
+                    <p-sortIcon field="CATEGORIA"></p-sortIcon>
                 </th>
                 <th pSortableColumn="LUGAR">LUGAR
                     <p-sortIcon field="LUGAR"></p-sortIcon>
@@ -52,9 +52,6 @@
                 </th>
                 <th pSortableColumn="PUNTAJE">PUNTAJE
                     <p-sortIcon field="PUNTAJE"></p-sortIcon>
-                </th>
-                <th pSortableColumn="ACCIONES">ACCIONES
-                    <p-sortIcon field="ACCIONES"></p-sortIcon>
                 </th>
             </tr>
         </ng-template>
@@ -69,21 +66,14 @@
                 <td>{{ContactoModel.nombre}}</td>
                 <td>{{ContactoModel.app}}</td>
                 <td>{{ContactoModel.apm}}</td>
+                <td>{{ContactoModel.Categoria}}</td>
                 <td>{{ContactoModel.Lugar}}</td>
                 <td>{{ContactoModel.Personaje}}</td>
-                <td>{{ContactoModel.Categoria}}</td>
-               
-                <td>
-                    
-                </td>
-               
                 
                 <td><span [class]="'ContactoModel-badge status-' + (ContactoModel.inventoryStatus ? ContactoModel.inventoryStatus.toLowerCase() : '')">{{ContactoModel.inventoryStatus}}</span>
                 </td>
-                
-                
             
-                </tr>
+            </tr>
         </ng-template>
         <ng-template pTemplate="summary">
             <div class="flex align-items-center justify-content-between">
