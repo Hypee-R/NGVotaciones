@@ -41,75 +41,29 @@
         </ng-template>
         <ng-template pTemplate="header">
             <tr>
-
-                <th pSortableColumn="ID">ID
-                    <p-sortIcon field="ID"></p-sortIcon>
-                </th>
-                <th pSortableColumn="DATE">DATE
-                    <p-sortIcon field="DATE"></p-sortIcon>
-                </th>
-                <th pSortableColumn="STATUS">STATUS
-                    <p-sortIcon field="STATUS"></p-sortIcon>
-                </th>
-                <th pSortableColumn="SUBMISISION">SUBMISISION
-                    <p-sortIcon field="SUBMISISION"></p-sortIcon>
-                </th>
                 <th pSortableColumn="NOMBRE">NOMBRE
                     <p-sortIcon field="NOMBRE"></p-sortIcon>
                 </th>
-                <th pSortableColumn="FECHA">FECHA
-                    <p-sortIcon field="FECHA"></p-sortIcon>
-                </th>
                 <th pSortableColumn="APELLIDO PATERNO">APELLIDO PATERNO
                     <p-sortIcon field="APELLIDO PATERNO"></p-sortIcon>
-                </th>
-                <th pSortableColumn="CORREO">CORREO
-                    <p-sortIcon field="CORREO"></p-sortIcon>
                 </th>
                 <th pSortableColumn="APELLIDO MATERNO">APELLIDO MATERNO
                     <p-sortIcon field="APELLIDO MATERNO"></p-sortIcon>
                 </th>
-                <th pSortableColumn="TELEFONO">TELEFONO
-                    <p-sortIcon field="TELEFONO"></p-sortIcon>
-                </th>
-                <th pSortableColumn="ADULTO">ADULTO
+                <th pSortableColumn="ADULTO">CATEGORIA
                     <p-sortIcon field="ADULTO"></p-sortIcon>
                 </th>
-
-                <th pSortableColumn="FACEBOOK">FACEBOOK
-                    <p-sortIcon field="FACEBOOK"></p-sortIcon>
-                </th>
-                <th pSortableColumn="INSTRAGRAM">INSTRAGRAM
-                    <p-sortIcon field="INSTRAGRAM"></p-sortIcon>
-                </th>
-                <th pSortableColumn="NOMBRE TUTOR">NOMBRE TUTOR
-                    <p-sortIcon field="NOMBRE TUTOR"></p-sortIcon>
-                </th>
-                <th pSortableColumn="APELLIDO PATERNO">APELLIDO PATERNO
-                    <p-sortIcon field="APELLIDO PATERNO"></p-sortIcon>
-                </th>
-                <th pSortableColumn="APELLIDO MATERNO">APELLIDO PATERNO
-                    <p-sortIcon field="APELLIDO MATERNO"></p-sortIcon>
-                </th>
-                <th pSortableColumn="RELACION">RELACION
-                    <p-sortIcon field="RELACION"></p-sortIcon>
-                </th>
-                <th pSortableColumn="INFANTIL">INFANTIL
-                    <p-sortIcon field="INFANTIL"></p-sortIcon>
-                </th>
-                <th pSortableColumn="JUVENIL">JUVENIL
-                    <p-sortIcon field="JUVENIL"></p-sortIcon>
-                </th>
-
                 <th pSortableColumn="LUGAR">LUGAR
                     <p-sortIcon field="LUGAR"></p-sortIcon>
                 </th>
-
                 <th pSortableColumn="PERSONAJE">PERSONAJE
                     <p-sortIcon field="PERSONAJE"></p-sortIcon>
                 </th>
-                <th pSortableColumn="OPCIONES">OPCIONES
-                    <p-sortIcon field="OPCIONES"></p-sortIcon>
+                <th pSortableColumn="PUNTAJE">PUNTAJE
+                    <p-sortIcon field="PUNTAJE"></p-sortIcon>
+                </th>
+                <th pSortableColumn="ACCIONES">ACCIONES
+                    <p-sortIcon field="ACCIONES"></p-sortIcon>
                 </th>
             </tr>
         </ng-template>
@@ -121,35 +75,21 @@
         <ng-template pTemplate="body" let-ContactoModel>
             <tr>
 
-                <td>{{ContactoModel.id}}</td>
-                <td>{{ContactoModel.date}}</td>
-                <td>{{ContactoModel.status}}</td>
-                <td>{{ContactoModel.submission}}</td>
                 <td>{{ContactoModel.nombre}}</td>
-                <td>{{ContactoModel.fechaNa}}</td>
                 <td>{{ContactoModel.app}}</td>
-                <td>{{ContactoModel.correo}}</td>
                 <td>{{ContactoModel.apm}}</td>
-                <td>{{ContactoModel.telefono}}</td>
-                <td>{{ContactoModel.adulto}}</td>
-                <td>{{ContactoModel.facebook}}</td>
-                <td>{{ContactoModel.instragram}}</td>
-                <td>{{ContactoModel.nombreTutor}}</td>
-                <td>{{ContactoModel.appTutor}}</td>
-                <td>{{ContactoModel.apmTutor}}</td>
-                <td>{{ContactoModel.Relacion}}</td>
-                <td>{{ContactoModel.Infantil}}</td>
-                <td>{{ContactoModel.Juvenil}}</td>
-
+                <td>{{ContactoModel.categoria}}</td>
 
                 <th>
                     <input pInputText type="text" placeholder="Ingresa el lugar" [style]="{  height:'10%' }"
                      [(ngModel)]="ContactoModel.Lugar">
                 </th>
                 <th>
-                    <input pInputText type="text" placeholder="Ingresa el personaje" [style]="{ height:'80%' }"   [(ngModel)]="ContactoModel.Personaje"/>
+                    <input pInputText type="text" placeholder="Ingresa el personaje" [style]="{ height:'80%' }" [(ngModel)]="ContactoModel.Personaje"/>
                 </th>
-
+                <th>
+                    <input pInputText type="text" placeholder="Ingresa el puntaje" [style]="{ height:'80%' }" [(ngModel)]="ContactoModel.puntaje"/>
+                </th>
                 <td>
                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editar(ContactoModel)"></button>
                     <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="delete(ContactoModel)"></button>
@@ -158,8 +98,6 @@
                 <td><span
                         [class]="'ContactoModel-badge status-' + (ContactoModel.inventoryStatus ? ContactoModel.inventoryStatus.toLowerCase() : '')">{{ContactoModel.inventoryStatus}}</span>
                 </td>
-
-
 
             </tr>
         </ng-template>
@@ -179,45 +117,6 @@
             <div class="col">
                 <br>
                 <div class="grid">
-                    <h5>ID</h5>
-                    <div class="field">
-                        <span class="p-float-label">
-                            <input id="float-input" type="text" id="ID" name="ID" required pInputText
-                                [(ngModel)]="contactomodel.id">
-                            <label for="float-input">ID:</label>
-                        </span>
-                    </div>
-                    <br>
-                    <h5>DATE</h5>
-
-                    <div class="field">
-                        <span class="p-float-label">
-                            <input id="float-input" type="text" id="DATE" name="DATE" required pInputText
-                                [(ngModel)]="contactomodel.date">
-                            <label for="float-input">DATE</label>
-                        </span>
-                    </div>
-
-                    <br>
-                    <h5>STATUS</h5>
-                    <div class="field">
-                        <span class="p-float-label">
-                            <input id="float-input" type="text" id="STATUS" name="STATUS" required pInputText
-                                [(ngModel)]="contactomodel.status">
-                            <label for="float-input">STATUS</label>
-                        </span>
-                    </div>
-                    <br>
-                    <h5>SUBMISSION</h5>
-
-                    <div class="field">
-                        <span class="p-float-label">
-                            <input id="float-input" type="text" id="SUBMISSION" name="SUBMISSION" required pInputText
-                                [(ngModel)]="contactomodel.submission">
-                            <label for="float-input">SUBMISSION</label>
-                        </span>
-                    </div>
-                    <br>
                     <h5>NOMBRE</h5>
 
                     <div class="field">
@@ -228,17 +127,7 @@
                         </span>
                     </div>
                     <br>
-                    <h5>FECHA</h5>
 
-                    <div class="field">
-                        <span class="p-float-label">
-                            <input id="float-input" type="text" id="FECHA" name="FECHA" required pInputText
-                                [(ngModel)]="contactomodel.fechaNa">
-                            <label for="float-input">FECHA</label>
-                        </span>
-                    </div>
-
-                    <br>
                     <h5>APELLIDO PATERNO</h5>
 
                     <div class="field">
@@ -248,17 +137,6 @@
                             <label for="float-input">APELLIDO PATERNO</label>
                         </span>
                     </div>
-                    <br>
-                    <h5>CORREO</h5>
-
-                    <div class="field">
-                        <span class="p-float-label">
-                            <input id="float-input" type="text" id="CORREO " name="CORREO" required pInputText
-                                [(ngModel)]="contactomodel.correo">
-                            <label for="float-input">CORREO</label>
-                        </span>
-                    </div>
-
                     <br>
                     <h5>APELLIDO MATERNO</h5>
 
@@ -271,114 +149,18 @@
                     </div>
 
                     <br>
-                    <h5>TELEFONO</h5>
+
+                    <h5>CATEGORIA</h5>
 
                     <div class="field">
                         <span class="p-float-label">
-                            <input id="float-input" type="text" id="TELEFONO " name="TELEFONO" required pInputText
-                                [(ngModel)]="contactomodel.telefono">
-                            <label for="float-input">TELEFONO</label>
+                            <input id="float-input" type="text" id="CATEGORIA" name="CATEGORIA" required pInputText
+                                [(ngModel)]="contactomodel.Categoria">
+                            <label for="float-input">CATEGORIA</label>
                         </span>
                     </div>
 
                     <br>
-                    <h5>ADULTO</h5>
-
-                    <div class="field">
-                        <span class="p-float-label">
-                            <input id="float-input" type="text" id="ADULTO " name="ADULTO" required pInputText
-                                [(ngModel)]="contactomodel.adulto">
-                            <label for="float-input">ADULTO</label>
-                        </span>
-                    </div>
-
-                    <br>
-                    <h5>FACEBOOK</h5>
-
-                    <div class="field">
-                        <span class="p-float-label">
-                            <input id="float-input" type="text" id="FACEBOOK " name="FACEBOOK" required pInputText
-                                [(ngModel)]="contactomodel.facebook">
-                            <label for="float-input">FACEBOOK</label>
-                        </span>
-                    </div>
-
-                    <br>
-                    <h5>INSTRAGRAM</h5>
-
-                    <div class="field">
-                        <span class="p-float-label">
-                            <input id="float-input" type="text" id="INSTRAGRAM " name="INSTRAGRAM" required pInputText
-                                [(ngModel)]="contactomodel.instragram">
-                            <label for="float-input">INSTRAGRAM</label>
-                        </span>
-                    </div>
-
-
-                    <br>
-                    <h5>NOMBRE TUTOR</h5>
-
-                    <div class="field">
-                        <span class="p-float-label">
-                            <input id="float-input" type="text" id="NOMBRE TUTOR " name="NOMBRE TUTOR" required
-                                pInputText [(ngModel)]="contactomodel.nombreTutor">
-                            <label for="float-input">NOMBRE TUTOR</label>
-                        </span>
-                    </div>
-
-
-                    <br>
-                    <h5>APELLIDO PATERNO TUTOR</h5>
-
-                    <div class="field">
-                        <span class="p-float-label">
-                            <input id="float-input" type="text" id="APELLIDO PATERNO TUTOR "
-                                name="APELLIDO PATERNO TUTOR" required pInputText [(ngModel)]="contactomodel.appTutor">
-                            <label for="float-input">APELLIDO PATERNO TUTOR</label>
-                        </span>
-                    </div>
-
-                    <br>
-                    <h5>APELLIDO MATERNO TUTOR</h5>
-
-                    <div class="field">
-                        <span class="p-float-label">
-                            <input id="float-input" type="text" id="APELLIDO MATERNO TUTOR "
-                                name="APELLIDO MATERNO TUTOR" required pInputText [(ngModel)]="contactomodel.apmTutor">
-                            <label for="float-input">APELLIDO MATERNO TUTOR</label>
-                        </span>
-                    </div>
-
-                    <br>
-                    <h5>RELACION</h5>
-
-                    <div class="field">
-                        <span class="p-float-label">
-                            <input id="float-input" type="text" id="RELACION " name="RELACION" required pInputText
-                                [(ngModel)]="contactomodel.Relacion">
-                            <label for="float-input">RELACION</label>
-                        </span>
-                    </div>
-
-                    <br>
-                    <h5>INFANTIL</h5>
-
-                    <div class="field">
-                        <span class="p-float-label">
-                            <input id="float-input" type="text" id="INFANTIL " name="INFANTIL" required pInputText
-                                [(ngModel)]="contactomodel.Infantil">
-                            <label for="float-input">INFANTIL</label>
-                        </span>
-                    </div>
-                    <h5>JUVENIL</h5>
-
-                    <div class="field">
-                        <span class="p-float-label">
-                            <input id="float-input" type="text" id="JUVENIL " name="JUVENIL" required pInputText
-                                [(ngModel)]="contactomodel.Juvenil">
-                            <label for="float-input">JUVENIL</label>
-                        </span>
-                    </div>
 
                 </div>
                 <h5>LUGAR</h5>
@@ -392,6 +174,7 @@
 
                 </div>
 
+                <br>
 
                 <h5>PERSONAJE</h5>
 
@@ -400,6 +183,19 @@
                         <input id="float-input" type="text" id="PERSONAJE " name="PERSONAJE" required pInputText
                             [(ngModel)]="contactomodel.Personaje">
                         <label for="float-input">PERSONAJE</label>
+                    </span>
+
+                </div>
+
+                <br>
+
+                <h5>PUNTAJE</h5>
+
+                <div class="field">
+                    <span class="p-float-label">
+                        <input id="float-input" type="text" id="PUNTAJE " name="PUNTAJE" required pInputText
+                            [(ngModel)]="contactomodel.Puntaje">
+                        <label for="float-input">PUNTAJE</label>
                     </span>
 
                 </div>

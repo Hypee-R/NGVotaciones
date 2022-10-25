@@ -45,8 +45,9 @@ export class InicioComponent {
     Juvenil: '',
     Lugar: '',
     Personaje: '',
-    Folio:''
-
+    Folio:'',
+    Puntaje:'',
+    Categoria: '',
   }
 
 

@@ -32,78 +32,30 @@
         </ng-template>
         <ng-template pTemplate="header">
             <tr>
-              
-                <th pSortableColumn="ID">ID
-                    <p-sortIcon field="ID"></p-sortIcon>
-                </th> 
-                <th pSortableColumn="DATE">DATE
-                    <p-sortIcon field="DATE"></p-sortIcon>
-                </th>
-                <th pSortableColumn="STATUS">STATUS
-                    <p-sortIcon field="STATUS"></p-sortIcon>
-                </th>
-                <th pSortableColumn="SUBMISISION">SUBMISISION
-                    <p-sortIcon field="SUBMISISION"></p-sortIcon>
-                </th>
                 <th pSortableColumn="NOMBRE">NOMBRE
                     <p-sortIcon field="NOMBRE"></p-sortIcon>
                 </th>
-                <th pSortableColumn="FECHA">FECHA
-                    <p-sortIcon field="FECHA"></p-sortIcon>
-                </th>
                 <th pSortableColumn="APELLIDO PATERNO">APELLIDO PATERNO
                     <p-sortIcon field="APELLIDO PATERNO"></p-sortIcon>
-                </th>
-                <th pSortableColumn="CORREO">CORREO
-                    <p-sortIcon field="CORREO"></p-sortIcon>
                 </th>
                 <th pSortableColumn="APELLIDO MATERNO">APELLIDO MATERNO
                     <p-sortIcon field="APELLIDO MATERNO"></p-sortIcon>
                 </th>
-                <th pSortableColumn="TELEFONO">TELEFONO
-                    <p-sortIcon field="TELEFONO"></p-sortIcon>
-                </th>
-                <th pSortableColumn="ADULTO">ADULTO
+                <th pSortableColumn="ADULTO">CATEGORIA
                     <p-sortIcon field="ADULTO"></p-sortIcon>
                 </th>
-               
-                <th pSortableColumn="FACEBOOK">FACEBOOK
-                    <p-sortIcon field="FACEBOOK"></p-sortIcon>
-                </th>
-                <th pSortableColumn="INSTRAGRAM">INSTRAGRAM
-                    <p-sortIcon field="INSTRAGRAM"></p-sortIcon>
-                </th>
-                <th pSortableColumn="NOMBRE TUTOR">NOMBRE TUTOR
-                    <p-sortIcon field="NOMBRE TUTOR"></p-sortIcon>
-                </th>
-                <th pSortableColumn="APELLIDO PATERNO">APELLIDO PATERNO
-                    <p-sortIcon field="APELLIDO PATERNO"></p-sortIcon>
-                </th>
-                <th pSortableColumn="APELLIDO MATERNO">APELLIDO PATERNO
-                    <p-sortIcon field="APELLIDO MATERNO"></p-sortIcon>
-                </th>
-                <th pSortableColumn="RELACION">RELACION
-                    <p-sortIcon field="RELACION"></p-sortIcon>
-                </th>
-                <th pSortableColumn="INFANTIL">INFANTIL
-                    <p-sortIcon field="INFANTIL"></p-sortIcon>
-                </th>
-                <th pSortableColumn="JUVENIL">JUVENIL
-                    <p-sortIcon field="JUVENIL"></p-sortIcon>
-                </th>
-                
                 <th pSortableColumn="LUGAR">LUGAR
                     <p-sortIcon field="LUGAR"></p-sortIcon>
-                </th> 
-                
-                    <th pSortableColumn="PERSONAJE">PERSONAJE
-                        <p-sortIcon field="PERSONAJE"></p-sortIcon>
-                    </th>
-                    <th pSortableColumn="PUNTAJE">PUNTAJE
-                        <p-sortIcon field="PUNTAJE"></p-sortIcon>
-                    </th>
-                    
-                    
+                </th>
+                <th pSortableColumn="PERSONAJE">PERSONAJE
+                    <p-sortIcon field="PERSONAJE"></p-sortIcon>
+                </th>
+                <th pSortableColumn="PUNTAJE">PUNTAJE
+                    <p-sortIcon field="PUNTAJE"></p-sortIcon>
+                </th>
+                <th pSortableColumn="ACCIONES">ACCIONES
+                    <p-sortIcon field="ACCIONES"></p-sortIcon>
+                </th>
             </tr>
         </ng-template>
        
@@ -114,29 +66,12 @@
         <ng-template pTemplate="body" let-ContactoModel>
             <tr>
               
-                <td>{{ContactoModel.id}}</td>
-                <td>{{ContactoModel.date}}</td>
-                <td>{{ContactoModel.status}}</td>
-                <td>{{ContactoModel.submission}}</td>
                 <td>{{ContactoModel.nombre}}</td>
-                <td>{{ContactoModel.fechaNa}}</td>
                 <td>{{ContactoModel.app}}</td>
-                <td>{{ContactoModel.correo}}</td>
                 <td>{{ContactoModel.apm}}</td>
-                <td>{{ContactoModel.telefono}}</td>
-                <td>{{ContactoModel.adulto}}</td>
-                <td>{{ContactoModel.facebook}}</td>
-
-                <td>{{ContactoModel.instragram}}</td>
-                <td>{{ContactoModel.nombreTutor}}</td>
-                <td>{{ContactoModel.appTutor}}</td>
-                <td>{{ContactoModel.apmTutor}}</td>
-                <td>{{ContactoModel.Relacion}}</td>
-                
-                <td>{{ContactoModel.Infantil}}</td>
-                <td>{{ContactoModel.Juvenil}}</td>
                 <td>{{ContactoModel.Lugar}}</td>
                 <td>{{ContactoModel.Personaje}}</td>
+                <td>{{ContactoModel.Categoria}}</td>
                
                 <td>
                     

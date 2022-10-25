@@ -41,6 +41,7 @@ export class CategoriasComponent implements OnInit {
     RubroB: '',
     Rubroc: '',
     RubroD: '',
+    Puntaje:'',
   }
 
   categorias: any;
