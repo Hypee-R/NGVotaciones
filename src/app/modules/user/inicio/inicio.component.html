@@ -35,6 +35,7 @@
         </ng-template>
         <ng-template pTemplate="header">
             <tr>
+                
                 <th pSortableColumn="NOMBRE">NOMBRE
                     <p-sortIcon field="NOMBRE"></p-sortIcon>
                 </th>
@@ -64,7 +65,7 @@
                 <td>{{ContactoModel.nombre}}</td>
                 <td>{{ContactoModel.app}}</td>
                 <td>{{ContactoModel.apm}}</td>
-                <td>{{ContactoModel.categoria}}</td>
+                <td>{{ContactoModel.Categoria}}</td>
 
                 <th>
                     <input pInputText type="text" placeholder="Ingresa el lugar" [style]="{  height:'10%' }" [(ngModel)]="ContactoModel.Lugar">
@@ -98,6 +99,18 @@
         <div class="row">
             <div class="col">
                 <br>
+               
+                <div class="grid">
+                    <h5>ID</h5>
+                    <div class="field">
+                        <span class="p-float-label">
+                            <input id="float-input" type="text" id="ID" name="ID" required pInputText
+                                [(ngModel)]="contactomodel.id">
+                            <label for="float-input">ID:</label>
+                        </span>
+                    </div>
+                    <br>
+                </div>
                 <div class="grid">
                     <h5>NOMBRE</h5>
 

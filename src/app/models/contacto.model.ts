@@ -25,4 +25,5 @@ export interface ContactoModel {
   RubroC: string;
   RubroD: string;
   Folio: string;
+  Categoria: string;
 }

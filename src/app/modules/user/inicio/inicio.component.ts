@@ -48,6 +48,14 @@ export class InicioComponent {
     Folio:'',
     Puntaje:'',
     Categoria: '',
+    RubroA:'' ,
+    RubroB: '' ,
+    RubroC:  '' ,
+    RubroD:  '' ,
+  
+
+
+
   }
 
 
@@ -153,6 +161,12 @@ export class InicioComponent {
       Juvenil,
       Lugar,
       Personaje,
+      RubroA,
+       RubroB,
+        RubroC,
+     RubroD,
+     Folio,
+     Categoria,
     } = this.contactomodel;
     this.contactoService.addVotacines({
 
@@ -177,11 +191,12 @@ export class InicioComponent {
       Juvenil: Juvenil,
       Lugar: Lugar,
       Personaje: Personaje,
-      RubroA: "",
-      RubroB: "",
-      RubroC: "",
-      RubroD: "",
-      Folio: "",
+      RubroA: RubroA,
+      RubroB: RubroB,
+      RubroC:  RubroC,
+      RubroD:  RubroD,
+      Folio:Folio,
+      Categoria:  Categoria,
     });
     this.toastr.success('Se dio de alta correctamente!', 'Success');
   }
@@ -192,32 +207,34 @@ export class InicioComponent {
 
 
   openNew() {
-    // this.ContactoModel = {
-    //   date: '', status: '', nombre: '',
-    //   submission: '',
-    //   app: '',
-    //   fechaNa: '',
-    //   correo: '',
-    //   apm: '',
-    //   telefono: '',
-    //   adulto: '',
-    //   facebook: '',
-    //   instragram: '',
-    //   nombreTutor: '',
-    //   appTutor: '',
-    //   apmTutor: '',
-    //   Relacion: '',
-    //   Infantil: '',
-    //   Juvenil: '',
-    //   Lugar: '',
-    //   Personaje: '',
-    //   RubroA: '',
-    //   RubroB: '',
-    //   Folio:'',
-    
+  /*   this.ContactoModel = {id:'',
+       date: '', status: '', nombre: '',
+      submission: '',
+      app: '',
+      fechaNa: '',
+     correo: '',
+       apm: '',
+      telefono: '',
+       adulto: '',
+      facebook: '',
+      instragram: '',
+       nombreTutor: '',
+       appTutor: '',
+       apmTutor: '',
+      Relacion: '',
+       Infantil: '',
+      Juvenil: '',
+       Lugar: '',
+       Personaje: '',
+       RubroA: '',
+     RubroB: '',
+     RubroC: '',
+     RubroD: '',
+      Folio:'',
+     
  
-    // };
-    this.visible = true;
+     };
+     */this.visible = true;
 
   }
 
@@ -352,6 +369,7 @@ export class InicioComponent {
           RubroC: "",
           RubroD: "",
           Folio: "",
+          Categoria:"",
           
         });
       }
