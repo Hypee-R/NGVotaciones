@@ -84,9 +84,8 @@ export class ContactoService {
   async updatecontacto(docId: string, Lugar: string,Personaje:string,RubroA:string,RubroB:string ,RubroC:string ,RubroD:string ,Folio:string  ) {
     const docRef = doc(this.db, 'regVotacines', docId);
     await updateDoc(docRef, { Lugar,Personaje,RubroA,RubroB,RubroC,RubroD,Folio})
-   return this.toastr.warning('Registro Actualizado con exito!!','Actualizacion');
+    return this.toastr.success('Registro Guardado con exito!!','Exito');
   }
-
 
     getcontactos(){
       const contactosCollection = collection(this.firestore, 'mensajesContacto');

@@ -19,7 +19,7 @@
 <div class="container" *ngIf="this.ContactoModels.length!=0">
     <div class="row">
         <div class="col">
-            <h3 style="text-align: center;">Rubros</h3>
+            <h3 style="text-align: center;">Votación</h3>
         </div>
         <hr>
     </div>
@@ -27,25 +27,24 @@
     <div class="row">
         <div class="col">
             <label>Nombre:</label>
-            <input pInputText type="text" placeholder="Ingresa el nombre" [(ngModel)]="ContactoModels[first].nombre" />
+            <input pInputText type="text" placeholder="Ingresa el nombre" disabled="true" [(ngModel)]="ContactoModels[first].nombre" />
             <hr>
         </div>
         <div class="col">
             <label> Lugar:</label>
-            <input pInputText type="text" placeholder="Ingresa el lugar" [(ngModel)]="ContactoModels[first].Lugar" />
+            <input pInputText type="text" placeholder="Ingresa el lugar" disabled="true" [(ngModel)]="ContactoModels[first].Lugar" />
             <hr>
         </div>
     </div>
     <div class="row">
         <div class="col">
             <label>Personaje:</label>
-            <input pInputText type="text" placeholder="Ingresa el personaje"
-                [(ngModel)]="ContactoModels[first].Personaje" />
+            <input pInputText type="text" placeholder="Ingresa el personaje" disabled="true" [(ngModel)]="ContactoModels[first].Personaje" />
                 <hr>
         </div>
         <div class="col">
             <label>Folio:</label>
-            <input pInputText type="text" placeholder="Ingresa el folio" [(ngModel)]="ContactoModels[first].Folio" />
+            <input pInputText type="text" placeholder="Ingresa el folio" disabled="true" [(ngModel)]="ContactoModels[first].Folio" />
             <hr>
         </div>
 
@@ -80,6 +79,72 @@
            <label> Rubro D:</label>  
             <input pInputText type="text" [style]="{ width:'20%' }"
                 [(ngModel)]="ContactoModels[first].RubroD" />
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+           <label> Rubro E:</label>  
+            <input pInputText type="text" [style]="{ width:'20%' }"
+                [(ngModel)]="ContactoModels[first].RubroE" />
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+           <label> Rubro F:</label>  
+            <input pInputText type="text" [style]="{ width:'20%' }"
+                [(ngModel)]="ContactoModels[first].RubroF" />
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+           <label> Rubro G:</label>  
+            <input pInputText type="text" [style]="{ width:'20%' }"
+                [(ngModel)]="ContactoModels[first].RubroG" />
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+           <label> Rubro H:</label>  
+            <input pInputText type="text" [style]="{ width:'20%' }"
+                [(ngModel)]="ContactoModels[first].RubroH" />
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+           <label> Rubro I:</label>  
+            <input pInputText type="text" [style]="{ width:'20%' }"
+                [(ngModel)]="ContactoModels[first].RubroI" />
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+           <label> Rubro J:</label>  
+            <input pInputText type="text" [style]="{ width:'20%' }"
+                [(ngModel)]="ContactoModels[first].RubroJ" />
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+           <label> Rubro K:</label>  
+            <input pInputText type="text" [style]="{ width:'20%' }"
+                [(ngModel)]="ContactoModels[first].RubroK" />
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+           <label> Rubro L:</label>  
+            <input pInputText type="text" [style]="{ width:'20%' }"
+                [(ngModel)]="ContactoModels[first].RubroL" />
             <br>
         </div>
     </div>

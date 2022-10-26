@@ -45,8 +45,9 @@ export class InicioComponent {
     Juvenil: '',
     Lugar: '',
     Personaje: '',
-    Folio:''
-
+    Folio:'',
+    Puntaje:'',
+    Categoria: '',
   }
 
 
@@ -107,11 +108,11 @@ export class InicioComponent {
     })
   }
 
-  editar(registro: any) {
+  guardar(registro: any) {
     this.ContactoModel = { ...registro }
     this.firebaseService.updatecontacto(this.ContactoModel.id, this.ContactoModel.Lugar,
       this.ContactoModel.Personaje,this.ContactoModel.RubroA,this.ContactoModel.RubroB,this.ContactoModel.RubroC,
-      this.ContactoModel.RubroD,   this.ContactoModel.Folio,
+      this.ContactoModel.RubroD,this.ContactoModel.Folio,
     )
   }
 
@@ -282,25 +283,25 @@ export class InicioComponent {
 
         let csvRecord: CSVRecord = new CSVRecord();
 
-        csvRecord.id = data[0].trim();
-        csvRecord.date = data[1].trim();
-        csvRecord.status = data[2].trim();
-        csvRecord.submission = data[3].trim();
+        //csvRecord.id = data[0].trim();
+        //csvRecord.date = data[1].trim();
+        //csvRecord.status = data[2].trim();
+        //csvRecord.submission = data[3].trim();
         csvRecord.nombre = data[4].trim();
-        csvRecord.fechaNa = data[5].trim();
+        //csvRecord.fechaNa = data[5].trim();
         csvRecord.app = data[6].trim();
-        csvRecord.correo = data[7].trim();
+        //csvRecord.correo = data[7].trim();
         csvRecord.apm = data[8].trim();
-        csvRecord.telefono = data[9].trim();
-        csvRecord.adulto = data[10].trim();
-        csvRecord.facebook = data[11].trim();
-        csvRecord.instragram = data[12].trim();
-        csvRecord.nombreTutor = data[13].trim();
-        csvRecord.appTutor = data[14].trim();
-        csvRecord.apmTutor = data[15].trim();
-        csvRecord.Relacion = data[16].trim();
-        csvRecord.Infantil = data[17].trim();
-        csvRecord.Juvenil = data[18].trim();
+        //csvRecord.telefono = data[9].trim();
+        //csvRecord.adulto = data[10].trim();
+        //csvRecord.facebook = data[11].trim();
+        //csvRecord.instragram = data[12].trim();
+        //csvRecord.nombreTutor = data[13].trim();
+        //csvRecord.appTutor = data[14].trim();
+        //csvRecord.apmTutor = data[15].trim();
+        //csvRecord.Relacion = data[16].trim();
+        //csvRecord.Infantil = data[17].trim();
+        //csvRecord.Juvenil = data[18].trim();
         dataArr.push(csvRecord);
       }
     }
@@ -351,7 +352,7 @@ export class InicioComponent {
           RubroC: "",
           RubroD: "",
           Folio: "",
-
+          
         });
       }
     }
@@ -386,25 +387,25 @@ export class InicioComponent {
 
 export class CSVRecord {
 
-  public id: any;
-  public date: any;
-  public status: any;
+  //public id: any;
+  //public date: any;
+  //public status: any;
   public nombre: any;
-  public submission: any;
+  //public submission: any;
   public app: any;
-  public fechaNa: any;
-  public correo: any;
+  //public fechaNa: any;
+  //public correo: any;
   public apm: any;
-  public telefono: any;
-  public adulto: any;
-  public facebook: any;
-  public instragram: any;
-  public nombreTutor: any;
-  public appTutor: any;
-  public apmTutor: any;
-  public Relacion: any;
-  public Infantil: any;
-  public Juvenil: any;
+  //public telefono: any;
+  //public adulto: any;
+  //public facebook: any;
+  //public instragram: any;
+  //public nombreTutor: any;
+  //public appTutor: any;
+  //public apmTutor: any;
+  //public Relacion: any;
+  //public Infantil: any;
+  //public Juvenil: any;
 
   constructor(
 
