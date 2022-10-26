@@ -1,34 +1,36 @@
-<div class="container" ng-app="multiselect_app" ng-controller="multiselect_controller">
-    <h4>Categorias</h4>
-<p>
-    <select class="form-select" aria-label="Default select example" [(ngModel)]="categoria" (change)="setState()">
-    <option [value]="INFANTIL" >INFANTIL</option>
-    <option [value]="JUVENIL" >JUVENIL</option>
-    <option [value]="JUVENIL" >ADULTO</option>
-    </select>
-    </p>
-    <ul>
-      <li *ngFor="let state of ContactoModel" value ="state">
-        {{ContactoModel}}
-      </li>
-    </ul>
-</div>
+
+    <div class="container" >
+        <div class="row">
+          <div class="col-sm">
+            <h5>Filtrar por</h5>
+
+            <p-dropdown  placeholder="Seleccionar " [options]="catedata" [(ngModel)]="selectedCategoriaFilter" optionLabel="name"   [showClear]="true"></p-dropdown>
+          </div>
+          <div class="col-sm"  style="text-align: center;">
+         
+          </div>
+          <div class="col-sm">
+           
+          </div>
+        </div>
+      </div>
+   
+    <div class="container"  *ngIf="this.ContactoModels.length==0">
+        <div class="row">
+          <div class="col-sm">
+         
+          </div>
+          <div class="col-sm"  style="text-align: center;">
+            <p-progressSpinner [style]="{width: '50px', height: '50px'}" styleClass="custom-spinner" strokeWidth="8"
+            fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
+          </div>
+          <div class="col-sm">
+           
+          </div>
+        </div>
+      </div>
 
 
-<div class="container"  *ngIf="this.ContactoModels.length==0">
-    <div class="row">
-      <div class="col-sm">
-    
-      </div>
-      <div class="col-sm"  style="text-align: center;">
-        <p-progressSpinner [style]="{width: '50px', height: '50px'}" styleClass="custom-spinner" strokeWidth="8"
-        fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
-      </div>
-      <div class="col-sm">
-       
-      </div>
-    </div>
-  </div>
 
 
 <div class="container" *ngIf="this.ContactoModels.length!=0">

@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { ConfigService } from 'src/config/config.service';
 import {PaginatorModule} from 'primeng/paginator';
 import { ContactoModel } from 'src/app/models/contacto.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-categorias',
@@ -15,7 +16,10 @@ import { ContactoModel } from 'src/app/models/contacto.model';
 export class CategoriasComponent implements OnInit {
   ContactoModels: any[] = [];
   categoria : String;
-  
+  catedata: valuefilter[];
+  selectedCategoriaFilter: valuefilter;
+
+
 states = ["option1", "option2", "option3",]
   ContactoModel: ContactoModel;
   contactomodel = {
@@ -54,16 +58,24 @@ states = ["option1", "option2", "option3",]
   accion: string = "";
 INFANTIL: any;
 JUVENIL: any;
+ 
   constructor(
+    private toastr: ToastrService,
     private router: Router,
     public configService: ConfigService,
     private authService: ConfigService,
     private firebaseService: ContactoService,
   ) {
- 
+  
    }
 
   ngOnInit(): void {
+    this.catedata = [
+      {name: 'INFANTIL', code: 'INFANTIL'},
+      {name: 'JUVENIL', code: 'JUVENIL'},
+      {name: 'ADULTO', code: 'ADULTO'},
+   
+  ];
 
       this.get();
 
@@ -78,16 +90,26 @@ JUVENIL: any;
   }
 
   async get() {
-    const snapshot = await this.firebaseService.getContactos();
-    this.updateConvocatoriaCollection(snapshot);
+    // if(this.selectedCategoriaFilter==undefined){
+    //    this.toastr.warning('No se  agrego un filtro de busqueda!!', 'Error');}
+    //    else{
+        // aqui esta el valor afiltrar
+
+       // console.log(this.selectedCategoriaFilter.code)
+     // dataNominacion.evaluacion=this.selectedEvaluacion.code;
+     const snapshot = await this.firebaseService.getContactos();
+     this.updateConvocatoriaCollection(snapshot);
+      //  }
+   
   }
 
   updateConvocatoriaCollection(snapshot: QuerySnapshot<DocumentData>) {
     this.ContactoModels = [];
 
-    
+    // console.log( this.selectedCategoriaFilter.code)
     snapshot.docs.forEach((mensaje) => {
       this.ContactoModels.push({ ...mensaje.data(), id: mensaje.id });
+    
     })
   }
 
@@ -127,6 +149,11 @@ editar(registro: any) {
 }
 
 setState(){
+  console.log(this.categoria);
+  var select = document.getElementById("feedingHay");
+  var options=document.getElementsByTagName("option");
+  console.log( select);
+  console.log(options)
 
 if(this.categoria== "INFANTIL"){
 
@@ -155,4 +182,8 @@ if(this.categoria== "ADULTO"){
 
 
 
+}
+interface valuefilter {
+    name: string;
+    code: string;
 }
