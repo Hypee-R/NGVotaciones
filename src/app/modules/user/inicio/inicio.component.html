@@ -2,26 +2,20 @@
 
 <div class="card">
     <p-toolbar styleClass="mb-4">
+
         <ng-template pTemplate="left">
             <h3 style="text-align:center ;">Registro de Usuarios</h3>
-
-
         </ng-template>
+
         <ng-template pTemplate="left">
-
-            
-            <button pButton pRipple label="Nuevo" icon="pi pi-plus" class="p-button-success mr-2"
-                (click)="openNew()"></button>
-                <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"(click)="Excel()"></button>
+            <button pButton pRipple label="Nuevo" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+            <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"(click)="Excel()" style="margin-left: 10px;"></button>
         </ng-template>
+
         <ng-template pTemplate="right">
             <input class="form-control" type="file" id="formFileDisabled"   #fileImportInput name="File Upload"  id="txtFileUpload" (change)="fileChangeListener($event)" accept=".csv"/>
-           
-         
-        
         </ng-template>
        
-
     </p-toolbar>
 
     <p-table #dt [value]="ContactoModels" [rows]="10" [paginator]="true"
@@ -50,8 +44,8 @@
                 <th pSortableColumn="APELLIDO MATERNO">APELLIDO MATERNO
                     <p-sortIcon field="APELLIDO MATERNO"></p-sortIcon>
                 </th>
-                <th pSortableColumn="ADULTO">CATEGORIA
-                    <p-sortIcon field="ADULTO"></p-sortIcon>
+                <th pSortableColumn="CATEGORIA">CATEGORIA
+                    <p-sortIcon field="CATEGORIA"></p-sortIcon>
                 </th>
                 <th pSortableColumn="LUGAR">LUGAR
                     <p-sortIcon field="LUGAR"></p-sortIcon>
@@ -59,17 +53,10 @@
                 <th pSortableColumn="PERSONAJE">PERSONAJE
                     <p-sortIcon field="PERSONAJE"></p-sortIcon>
                 </th>
-                <th pSortableColumn="PUNTAJE">PUNTAJE
-                    <p-sortIcon field="PUNTAJE"></p-sortIcon>
-                </th>
                 <th>
                 </th>
             </tr>
         </ng-template>
-
-
-
-
 
         <ng-template pTemplate="body" let-ContactoModel>
             <tr>
@@ -80,17 +67,13 @@
                 <td>{{ContactoModel.categoria}}</td>
 
                 <th>
-                    <input pInputText type="text" placeholder="Ingresa el lugar" [style]="{  height:'10%' }"
-                     [(ngModel)]="ContactoModel.Lugar">
+                    <input pInputText type="text" placeholder="Ingresa el lugar" [style]="{  height:'10%' }" [(ngModel)]="ContactoModel.Lugar">
                 </th>
                 <th>
                     <input pInputText type="text" placeholder="Ingresa el personaje" [style]="{ height:'80%' }" [(ngModel)]="ContactoModel.Personaje"/>
                 </th>
-                <th>
-                    <input pInputText type="text" placeholder="Ingresa el puntaje" [style]="{ height:'80%' }" [(ngModel)]="ContactoModel.puntaje"/>
-                </th>
                 <td>
-                    <button pButton pRipple label="Guardar" class="p-button-rounded p-button-success mr-2" (click)="guardar(ContactoModel)"></button>
+                    <button pButton pRipple label="Guardar" icon="pi pi-upload" class="p-button-rounded p-button-success mr-2" (click)="guardar(ContactoModel)"></button>
                     <!--<button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="delete(ContactoModel)"></button>-->
                 </td>
 
