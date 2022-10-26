@@ -14,6 +14,9 @@ import { ContactoModel } from 'src/app/models/contacto.model';
 })
 export class CategoriasComponent implements OnInit {
   ContactoModels: any[] = [];
+  categoria : String;
+  
+states = ["option1", "option2", "option3",]
   ContactoModel: ContactoModel;
   contactomodel = {
     id: '',
@@ -50,6 +53,8 @@ export class CategoriasComponent implements OnInit {
   selectedCategoria: CategoriaModel;
   visibleSide: boolean = false;
   accion: string = "";
+INFANTIL: any;
+JUVENIL: any;
   constructor(
     private router: Router,
     public configService: ConfigService,
@@ -121,6 +126,34 @@ editar(registro: any) {
     
    )
 }
+
+setState(){
+
+if(this.categoria== "INFANTIL"){
+
+  this.ContactoModel.nombre;
+  
+
+
+}if(this.categoria== "JUVENIL"){
+
+  this.ContactoModel.nombre;
+  
+
+
+}
+if(this.categoria== "ADULTO"){
+
+  this.ContactoModels;
+  
+
+
+}
+
+
+
+}
+
 
 
 }

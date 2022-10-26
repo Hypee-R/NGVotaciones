@@ -1,3 +1,18 @@
+<div class="container" ng-app="multiselect_app" ng-controller="multiselect_controller">
+    <h4>Categorias</h4>
+<p>
+    <select  [(ngModel)]="categoria" (change)="setState()">
+    <option [value]="INFANTIL" >INFANTIL</option>
+    <option [value]="JUVENIL" >JUVENIL</option>
+    <option [value]="JUVENIL" >ADULTO</option>
+    </select>
+    </p>
+    <ul>
+      <li *ngFor="let state of ContactoModel" value ="state">
+        {{ContactoModel}}
+      </li>
+    </ul>
+</div>
 
 
 <div class="container"  *ngIf="this.ContactoModels.length==0">
