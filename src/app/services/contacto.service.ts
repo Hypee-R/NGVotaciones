@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Firestore, collectionData } from '@angular/fire/firestore';
-import {  collection, addDoc,  deleteDoc, doc, updateDoc, DocumentData, CollectionReference,  QuerySnapshot, getDocs, getFirestore, onSnapshot, setDoc, orderBy,query  } from 'firebase/firestore';
+import {  collection, addDoc,  deleteDoc, doc, updateDoc, DocumentData, CollectionReference,  QuerySnapshot, getDocs, getFirestore, onSnapshot, setDoc, orderBy,query, where  } from 'firebase/firestore';
 import { ContactoModel } from '../models/contacto.model';
 import { VariablesService } from './variablesGL.service';
 import { ToastrService } from 'ngx-toastr';
@@ -37,6 +37,11 @@ export class ContactoService {
   getVotaciones(){
     const contactosCollection = collection(this.firestore, 'regVotacines');
     return collectionData(query(contactosCollection, orderBy("id", "asc")));
+  }
+  getVotacionesFiltro(){
+    const contactosCollection = collection(this.firestore, 'regVotacines');
+    return collectionData(query(contactosCollection,where("Categoria", "==", "Infantil"), orderBy("id", "asc")));
+    // this.juesesCol = query(collection(this.db, 'usuarios'), where("rol", "==", "juez"))
   }
 
   async addVotacines(contacto: ContactoModel){
@@ -96,6 +101,20 @@ export class ContactoService {
 
     async getContactos() {
       const snapshot = await getDocs(this.contactoCol);
+      return snapshot;
+    }
+    getVotacionesFiltrotest(){
+      const contactosCollection = collection(this.firestore, 'regVotacines');
+      return collectionData(query(contactosCollection,where("Categoria", "==", "Infantil"), orderBy("id", "asc")));
+      // this.juesesCol = query(collection(this.db, 'usuarios'), where("rol", "==", "juez"))
+    }
+  
+    
+    async getContactosFiltro(filtro:any) {
+      const contactosCollection = collection(this.firestore, 'regVotacines');
+      const q = query(contactosCollection,where("Categoria", "==", filtro), orderBy("id", "asc"));
+      const snapshot = await getDocs(q);
+      
       return snapshot;
     }
     

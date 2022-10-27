@@ -86,13 +86,13 @@ states = ["option1", "option2", "option3",]
 
   ngOnInit(): void {
     this.catedata = [
-      {name: 'INFANTIL', code: 'INFANTIL'},
-      {name: 'JUVENIL', code: 'JUVENIL'},
-      {name: 'ADULTO', code: 'ADULTO'},
+      {name: 'INFANTIL', code: 'Infantil'},
+      {name: 'JUVENIL', code: 'Juvenil'},
+      {name: 'ADULTO', code: 'Adulto'},
    
   ];
 
-      this.get();
+      
 
     if (this.authService.Usuario){
       console.log("Autenticado")
@@ -104,17 +104,22 @@ states = ["option1", "option2", "option3",]
 
   }
 
-  async get() {
-    // if(this.selectedCategoriaFilter==undefined){
-    //    this.toastr.warning('No se  agrego un filtro de busqueda!!', 'Error');}
-    //    else{
-        // aqui esta el valor afiltrar
+  onChange(event) {
+   
+    this.get();
+      
+  }
 
-       // console.log(this.selectedCategoriaFilter.code)
-     // dataNominacion.evaluacion=this.selectedEvaluacion.code;
-     const snapshot = await this.firebaseService.getContactos();
+  async get() {
+   if(this.selectedCategoriaFilter==undefined){
+        this.toastr.warning('No se  agrego un filtro de busqueda!!', 'Error');}
+       else{
+  
+        console.log(this.selectedCategoriaFilter.code)
+
+     const snapshot = await this.firebaseService.getContactosFiltro(this.selectedCategoriaFilter.code);
      this.updateConvocatoriaCollection(snapshot);
-      //  }
+       }
    
   }
 
@@ -124,7 +129,7 @@ states = ["option1", "option2", "option3",]
     // console.log( this.selectedCategoriaFilter.code)
     snapshot.docs.forEach((mensaje) => {
       this.ContactoModels.push({ ...mensaje.data(), id: mensaje.id });
-    
+    console.log(mensaje.data());
     })
   }
 
@@ -146,6 +151,7 @@ onPageChange(event) {
 
     this.first = event.first;
 }
+
 
 //Refrescamos los registros para volver al primero 
 refresh() {
@@ -179,32 +185,8 @@ sumaRubros(){
 }
 
 setState(){
-  console.log(this.categoria);
-  var select = document.getElementById("feedingHay");
-  var options=document.getElementsByTagName("option");
-  console.log( select);
-  console.log(options)
+  console.log("estamos en el change");
 
-if(this.categoria== "INFANTIL"){
-
-  this.ContactoModel.nombre;
-  
-
-
-}if(this.categoria== "JUVENIL"){
-
-  this.ContactoModel.nombre;
-  
-
-
-}
-if(this.categoria== "ADULTO"){
-
-  this.ContactoModels;
-  
-
-
-}
 
 
 

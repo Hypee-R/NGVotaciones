@@ -4,7 +4,7 @@
           <div class="col-sm">
             <h5>Filtrar por</h5>
 
-            <p-dropdown  placeholder="Seleccionar " [options]="catedata" [(ngModel)]="selectedCategoriaFilter" optionLabel="name"   [showClear]="true"></p-dropdown>
+            <p-dropdown  placeholder="Seleccionar " [options]="catedata" [(ngModel)]="selectedCategoriaFilter" optionLabel="name"     (onChange)="onChange($event)" [showClear]="true"></p-dropdown>
           </div>
           <div class="col-sm"  style="text-align: center;">
          
