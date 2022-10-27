@@ -18,6 +18,7 @@ export class CategoriasComponent implements OnInit {
   categoria : String;
   catedata: valuefilter[];
   selectedCategoriaFilter: valuefilter;
+  total:number;
 
 
 states = ["option1", "option2", "option3",]
@@ -60,6 +61,8 @@ states = ["option1", "option2", "option3",]
     RubroB4: '',
     RubroC4: '',
     RubroD4: '',
+
+
   }
 
   categorias: any;
@@ -68,8 +71,8 @@ states = ["option1", "option2", "option3",]
   selectedCategoria: CategoriaModel;
   visibleSide: boolean = false;
   accion: string = "";
-INFANTIL: any;
-JUVENIL: any;
+  INFANTIL: any;
+  JUVENIL: any;
  
   constructor(
     private toastr: ToastrService,
@@ -162,6 +165,17 @@ editar(registro: any) {
     this.ContactoModel.RubroD4,
     
    )
+}
+
+sumaRubros(){
+  this.total = parseInt(this.ContactoModels[this.first].RubroA)+parseInt(this.ContactoModels[this.first].RubroB)
+  +parseInt(this.ContactoModels[this.first].RubroC)+parseInt(this.ContactoModels[this.first].RubroD)
+  +parseInt(this.ContactoModels[this.first].RubroA2)+parseInt(this.ContactoModels[this.first].RubroB2)
+  +parseInt(this.ContactoModels[this.first].RubroC2)+parseInt(this.ContactoModels[this.first].RubroD2)
+  +parseInt(this.ContactoModels[this.first].RubroA3)+parseInt(this.ContactoModels[this.first].RubroB3)
+  +parseInt(this.ContactoModels[this.first].RubroC3)+parseInt(this.ContactoModels[this.first].RubroD3)
+  +parseInt(this.ContactoModels[this.first].RubroA4)+parseInt(this.ContactoModels[this.first].RubroB4)
+  +parseInt(this.ContactoModels[this.first].RubroC4)+parseInt(this.ContactoModels[this.first].RubroD4);
 }
 
 setState(){
