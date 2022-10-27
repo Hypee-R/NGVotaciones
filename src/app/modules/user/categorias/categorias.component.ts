@@ -45,9 +45,21 @@ states = ["option1", "option2", "option3",]
     Personaje: '',
     RubroA: '',
     RubroB: '',
-    Rubroc: '',
+    RubroC: '',
     RubroD: '',
     Puntaje:'',
+    RubroA2: '',
+    RubroB2: '',
+    RubroC2: '',
+    RubroD2: '',
+    RubroA3: '',
+    RubroB3: '',
+    RubroC3: '',
+    RubroD3: '',
+    RubroA4: '',
+    RubroB4: '',
+    RubroC4: '',
+    RubroD4: '',
   }
 
   categorias: any;
@@ -142,8 +154,12 @@ editar(registro: any) {
 // Registro del usuario calificado
   console.log(registro)
    this.ContactoModel = { ...registro }
-   this.firebaseService.updatecontacto(this.ContactoModel.id, this.ContactoModel.Lugar, this.ContactoModel.Personaje, this.ContactoModel.RubroA,this.ContactoModel.RubroB,this.ContactoModel.RubroC,
-    this.ContactoModel.RubroD, this.ContactoModel.Folio
+   this.firebaseService.updatecontacto(this.ContactoModel.id, this.ContactoModel.Lugar, 
+    this.ContactoModel.Personaje, this.ContactoModel.RubroA,this.ContactoModel.RubroB,this.ContactoModel.RubroC,
+    this.ContactoModel.RubroD, this.ContactoModel.Folio, this.ContactoModel.RubroA2,this.ContactoModel.RubroB2,this.ContactoModel.RubroC2,
+    this.ContactoModel.RubroD2,this.ContactoModel.RubroA3,this.ContactoModel.RubroB3,this.ContactoModel.RubroC3,
+    this.ContactoModel.RubroD3,this.ContactoModel.RubroA4,this.ContactoModel.RubroB4,this.ContactoModel.RubroC4,
+    this.ContactoModel.RubroD4,
     
    )
 }

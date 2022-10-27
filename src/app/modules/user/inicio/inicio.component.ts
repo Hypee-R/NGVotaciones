@@ -52,7 +52,18 @@ export class InicioComponent {
     RubroB: '' ,
     RubroC:  '' ,
     RubroD:  '' ,
-  
+    RubroA2: '',
+    RubroB2: '',
+    RubroC2: '',
+    RubroD2: '',
+    RubroA3: '',
+    RubroB3: '',
+    RubroC3: '',
+    RubroD3: '',
+    RubroA4: '',
+    RubroB4: '',
+    RubroC4: '',
+    RubroD4: '',
 
 
 
@@ -120,7 +131,12 @@ export class InicioComponent {
     this.ContactoModel = { ...registro }
     this.firebaseService.updatecontacto(this.ContactoModel.id, this.ContactoModel.Lugar,
       this.ContactoModel.Personaje,this.ContactoModel.RubroA,this.ContactoModel.RubroB,this.ContactoModel.RubroC,
-      this.ContactoModel.RubroD,this.ContactoModel.Folio,
+      this.ContactoModel.RubroD,this.ContactoModel.Folio,this.ContactoModel.RubroA2,this.ContactoModel.RubroB2,this.ContactoModel.RubroC2,
+      this.ContactoModel.RubroD2,this.ContactoModel.RubroA3,this.ContactoModel.RubroB3,
+      this.ContactoModel.RubroC3,
+      this.ContactoModel.RubroD3,this.ContactoModel.RubroA4,this.ContactoModel.RubroB4,this.ContactoModel.RubroC4,
+      this.ContactoModel.RubroD4,
+      
     )
   }
 
@@ -150,15 +166,14 @@ export class InicioComponent {
       correo,
       apm,
       telefono,
-      adulto,
+     
       facebook,
       instragram,
       nombreTutor,
       appTutor,
       apmTutor,
       Relacion,
-      Infantil,
-      Juvenil,
+      
       Lugar,
       Personaje,
       RubroA,
@@ -167,6 +182,20 @@ export class InicioComponent {
      RubroD,
      Folio,
      Categoria,
+     RubroA2,
+     RubroB2,
+      RubroC2,
+   RubroD2,
+   RubroA3,
+   RubroB3,
+    RubroC3,
+ RubroD3,
+ RubroA4,
+ RubroB4,
+  RubroC4,
+RubroD4,
+
+
     } = this.contactomodel;
     this.contactoService.addVotacines({
 
@@ -180,15 +209,15 @@ export class InicioComponent {
       correo: correo,
       apm: apm,
       telefono: telefono,
-      adulto: adulto,
+      
       facebook: facebook,
       instragram: instragram,
       nombreTutor: nombreTutor,
       appTutor: appTutor,
       apmTutor: apmTutor,
       Relacion: Relacion,
-      Infantil: Infantil,
-      Juvenil: Juvenil,
+      
+     
       Lugar: Lugar,
       Personaje: Personaje,
       RubroA: RubroA,
@@ -197,6 +226,22 @@ export class InicioComponent {
       RubroD:  RubroD,
       Folio:Folio,
       Categoria:  Categoria,
+
+      RubroA2:RubroA2,
+      RubroB2:RubroB2,
+       RubroC2:RubroC2,
+    RubroD2:RubroD2,
+
+    RubroA3:RubroA3,
+    RubroB3:RubroB3,
+     RubroC3:RubroC3,
+  RubroD3:RubroD3,
+
+  RubroA4:RubroA4,
+  RubroB4:RubroB4,
+   RubroC4:RubroC4,
+RubroD4:RubroD4,
+
     });
     this.toastr.success('Se dio de alta correctamente!', 'Success');
   }
@@ -353,15 +398,16 @@ export class InicioComponent {
           correo: arr[i].correo,
           apm: arr[i].apm,
           telefono: arr[i].telefono,
-          adulto: arr[i].adulto,
+          //adulto: arr[i].adulto,
           facebook: arr[i].facebook,
           instragram: arr[i].instragram,
           nombreTutor: arr[i].nombreTutor,
           appTutor: arr[i].appTutor,
           apmTutor: arr[i].apmTutor,
           Relacion: arr[i].Relacion,
-          Infantil: arr[i].Infantil,
-          Juvenil: arr[i].Juvenil,
+    //      Infantil: arr[i].Infantil,
+     //     Juvenil: arr[i].Juvenil,
+         
           Lugar: "",
           Personaje: "",
           RubroA: "",
@@ -370,6 +416,18 @@ export class InicioComponent {
           RubroD: "",
           Folio: "",
           Categoria:"",
+          RubroA2: "",
+          RubroB2: "",
+          RubroC2: "",
+          RubroD2: "",
+          RubroA3: "",
+          RubroB3: "",
+          RubroC3: "",
+          RubroD3: "",
+          RubroA4: "",
+          RubroB4: "",
+          RubroC4: "",
+          RubroD4: "",
           
         });
       }
