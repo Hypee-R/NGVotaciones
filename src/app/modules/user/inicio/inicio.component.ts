@@ -394,7 +394,7 @@ Puntaje:0
           correo: arr[i].correo,
           apm: arr[i].apm,
           telefono: arr[i].telefono,
-          Categoria: arr[i].Categoria,
+          Categoria: arr[i].Categoria.replace(/["']/g, ""),
           facebook: arr[i].facebook,
           instragram: arr[i].instragram,
           nombreTutor: arr[i].nombreTutor,
