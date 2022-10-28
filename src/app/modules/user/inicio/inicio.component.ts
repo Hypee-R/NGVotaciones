@@ -27,27 +27,25 @@ export class InicioComponent {
     id: '',
     date: '',
     status: '',
-    nombre: '',
     submission: '',
-    app: '',
+    nombre: '',
     fechaNa: '',
+    app: '',
     correo: '',
     apm: '',
     telefono: '',
-    adulto: '',
+    Categoria: '',
     facebook: '',
     instragram: '',
     nombreTutor: '',
     appTutor: '',
     apmTutor: '',
     Relacion: '',
-    Infantil: '',
-    Juvenil: '',
     Lugar: '',
     Personaje: '',
     Folio:'',
     Puntaje:'',
-    Categoria: '',
+   
     RubroA:'' ,
     RubroB: '' ,
     RubroC:  '' ,
@@ -112,7 +110,7 @@ export class InicioComponent {
       id: ['', [Validators.required]],
       nombre: ['', [Validators.required]],
       app: ['', [Validators.required]],
-
+     
     })
   }
   async get() {
@@ -163,7 +161,7 @@ export class InicioComponent {
       correo,
       apm,
       telefono,
-     
+     Categoria,
       facebook,
       instragram,
       nombreTutor,
@@ -178,7 +176,7 @@ export class InicioComponent {
         RubroC,
      RubroD,
      Folio,
-     Categoria,
+     
      RubroA2,
      RubroB2,
       RubroC2,
@@ -199,14 +197,15 @@ RubroD4,
       id: id,
       date: date,
       status: status,
-      nombre: nombre,
       submission: submission,
-      app: app,
+      nombre: nombre,
       fechaNa: fechaNa,
+       app: app,
+      
       correo: correo,
       apm: apm,
       telefono: telefono,
-      
+      Categoria:Categoria,
       facebook: facebook,
       instragram: instragram,
       nombreTutor: nombreTutor,
@@ -222,7 +221,7 @@ RubroD4,
       RubroC:  RubroC,
       RubroD:  RubroD,
       Folio:Folio,
-      Categoria:  Categoria,
+    
 
       RubroA2:RubroA2,
       RubroB2:RubroB2,
@@ -343,25 +342,24 @@ Puntaje:0
 
         let csvRecord: CSVRecord = new CSVRecord();
 
-        //csvRecord.id = data[0].trim();
-        //csvRecord.date = data[1].trim();
-        //csvRecord.status = data[2].trim();
-        //csvRecord.submission = data[3].trim();
+        csvRecord.id = data[0].trim();
+        csvRecord.date = data[1].trim();
+        csvRecord.status = data[2].trim();
+        csvRecord.submission = data[3].trim();
         csvRecord.nombre = data[4].trim();
-        //csvRecord.fechaNa = data[5].trim();
+        csvRecord.fechaNa = data[5].trim();
         csvRecord.app = data[6].trim();
-        //csvRecord.correo = data[7].trim();
+        csvRecord.correo = data[7].trim();
         csvRecord.apm = data[8].trim();
-        //csvRecord.telefono = data[9].trim();
-        //csvRecord.adulto = data[10].trim();
-        //csvRecord.facebook = data[11].trim();
-        //csvRecord.instragram = data[12].trim();
-        //csvRecord.nombreTutor = data[13].trim();
-        //csvRecord.appTutor = data[14].trim();
-        //csvRecord.apmTutor = data[15].trim();
-        //csvRecord.Relacion = data[16].trim();
-        //csvRecord.Infantil = data[17].trim();
-        //csvRecord.Juvenil = data[18].trim();
+        csvRecord.telefono = data[9].trim();
+        csvRecord.Categoria = data[10].trim();
+        csvRecord.facebook = data[11].trim();
+        csvRecord.instragram = data[12].trim();
+        csvRecord.nombreTutor = data[13].trim();
+        csvRecord.appTutor = data[14].trim();
+        csvRecord.apmTutor = data[15].trim();
+        csvRecord.Relacion = data[16].trim();
+       
         dataArr.push(csvRecord);
       }
     }
@@ -396,7 +394,7 @@ Puntaje:0
           correo: arr[i].correo,
           apm: arr[i].apm,
           telefono: arr[i].telefono,
-          //adulto: arr[i].adulto,
+          Categoria: arr[i].Categoria,
           facebook: arr[i].facebook,
           instragram: arr[i].instragram,
           nombreTutor: arr[i].nombreTutor,
@@ -413,7 +411,6 @@ Puntaje:0
           RubroC: "",
           RubroD: "",
           Folio: "",
-          Categoria:"",
           RubroA2: "",
           RubroB2: "",
           RubroC2: "",
@@ -462,25 +459,24 @@ Puntaje:0
 
 export class CSVRecord {
 
-  //public id: any;
-  //public date: any;
-  //public status: any;
+  public id: any;
+  public date: any;
+  public status: any;
+  public submission: any;
   public nombre: any;
-  //public submission: any;
+  public fechaNa: any;
   public app: any;
-  //public fechaNa: any;
-  //public correo: any;
+  public correo: any;
   public apm: any;
-  //public telefono: any;
-  //public adulto: any;
-  //public facebook: any;
-  //public instragram: any;
-  //public nombreTutor: any;
-  //public appTutor: any;
-  //public apmTutor: any;
-  //public Relacion: any;
-  //public Infantil: any;
-  //public Juvenil: any;
+  public telefono: any;
+  public Categoria: any;
+  public facebook: any;
+  public instragram: any;
+  public nombreTutor: any;
+  public appTutor: any;
+  public apmTutor: any;
+  public Relacion: any;
+  
 
   constructor(
 

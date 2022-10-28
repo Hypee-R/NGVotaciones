@@ -9,6 +9,7 @@ export interface ContactoModel {
   correo: string;
   apm: string;
   telefono: string;
+  Categoria: string;
   facebook: string;
   instragram: string;
   nombreTutor: string;
@@ -34,7 +35,7 @@ export interface ContactoModel {
   RubroC4: string;
   RubroD4: string;
   Folio: string;
-  Categoria: string;
+  
 Puntaje: number
 
 
