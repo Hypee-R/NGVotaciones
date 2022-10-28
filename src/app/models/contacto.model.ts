@@ -18,22 +18,22 @@ export interface ContactoModel {
   Relacion: string;
   Lugar: string;
   Personaje: string;
-  RubroA: string;
-  RubroB: string;
-  RubroC: string;
-  RubroD: string;
-  RubroA2: string;
-  RubroB2: string;
-  RubroC2: string;
-  RubroD2: string;
-  RubroA3: string;
-  RubroB3: string;
-  RubroC3: string;
-  RubroD3: string;
-  RubroA4: string;
-  RubroB4: string;
-  RubroC4: string;
-  RubroD4: string;
+  RubroA: number;
+  RubroB: number;
+  RubroC: number;
+  RubroD: number;
+  RubroA2: number;
+  RubroB2: number;
+  RubroC2: number;
+  RubroD2: number;
+  RubroA3: number;
+  RubroB3: number;
+  RubroC3: number;
+  RubroD3: number;
+  RubroA4: number;
+  RubroB4: number;
+  RubroC4: number;
+  RubroD4: number;
   Folio: string;
   
 Puntaje: number

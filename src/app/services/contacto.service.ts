@@ -86,7 +86,7 @@ export class ContactoService {
    return    this.toastr.error('Registro Eliminado con exito!!','Advertencia');
   }
 
-  async updatecontacto(docId: string, Lugar: string,Personaje:string,RubroA:string,RubroB:string ,RubroC:string ,RubroD:string ,Folio:string,RubroA2:string,RubroB2:string ,RubroC2:string ,RubroD2:string,RubroA3:string,RubroB3:string ,RubroC3:string ,RubroD3:string,RubroA4:string,RubroB4:string ,RubroC4:string ,RubroD4:string,Puntaje:number) {
+  async updatecontacto(docId: string, Lugar: string,Personaje:string,RubroA:number,RubroB:number ,RubroC:number ,RubroD:number ,Folio:string,RubroA2:number,RubroB2:number ,RubroC2:number ,RubroD2:number,RubroA3:number,RubroB3:number ,RubroC3:number ,RubroD3:number,RubroA4:number,RubroB4:number ,RubroC4:number ,RubroD4:number,Puntaje:number) {
     console.log(Puntaje)
     const docRef = doc(this.db, 'regVotacines', docId);
     await updateDoc(docRef, { Lugar,Personaje,RubroA,RubroB,RubroC,RubroD,Folio,RubroA2,RubroB2,RubroC2,RubroD2,RubroA3,RubroB3,RubroC3,RubroD3,RubroA4,RubroB4,RubroC4,RubroD4,Puntaje})
