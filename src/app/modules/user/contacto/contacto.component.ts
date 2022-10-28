@@ -77,6 +77,8 @@ export class ContactoComponent implements OnInit {
     this.ContactoModels = [];
     snapshot.docs.forEach((mensaje) => {
       this.ContactoModels.push({ ...mensaje.data(), id: mensaje.id });
+      console.log(this.ContactoModels)
+  
     })
   }
 

@@ -238,6 +238,7 @@ RubroD4,
   RubroB4:RubroB4,
    RubroC4:RubroC4,
 RubroD4:RubroD4,
+Puntaje:0
 
     });
     this.toastr.success('Se dio de alta correctamente!', 'Success');
@@ -425,6 +426,7 @@ RubroD4:RubroD4,
           RubroB4: "",
           RubroC4: "",
           RubroD4: "",
+          Puntaje:0
           
         });
       }

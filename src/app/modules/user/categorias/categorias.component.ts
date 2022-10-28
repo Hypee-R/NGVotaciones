@@ -48,7 +48,7 @@ states = ["option1", "option2", "option3",]
     RubroB: '',
     RubroC: '',
     RubroD: '',
-    Puntaje:'',
+   
     RubroA2: '',
     RubroB2: '',
     RubroC2: '',
@@ -61,7 +61,7 @@ states = ["option1", "option2", "option3",]
     RubroB4: '',
     RubroC4: '',
     RubroD4: '',
-
+    Puntaje:0
 
   }
 
@@ -160,15 +160,28 @@ refresh() {
 }
 
 editar(registro: any) {
+  this.total = parseInt(this.ContactoModels[this.first].RubroA)+parseInt(this.ContactoModels[this.first].RubroB)
+  +parseInt(this.ContactoModels[this.first].RubroC)+parseInt(this.ContactoModels[this.first].RubroD)
+  +parseInt(this.ContactoModels[this.first].RubroA2)+parseInt(this.ContactoModels[this.first].RubroB2)
+  +parseInt(this.ContactoModels[this.first].RubroC2)+parseInt(this.ContactoModels[this.first].RubroD2)
+  +parseInt(this.ContactoModels[this.first].RubroA3)+parseInt(this.ContactoModels[this.first].RubroB3)
+  +parseInt(this.ContactoModels[this.first].RubroC3)+parseInt(this.ContactoModels[this.first].RubroD3)
+  +parseInt(this.ContactoModels[this.first].RubroA4)+parseInt(this.ContactoModels[this.first].RubroB4)
+  +parseInt(this.ContactoModels[this.first].RubroC4)+parseInt(this.ContactoModels[this.first].RubroD4);
+  
+
 // Registro del usuario calificado
-  console.log(registro)
+  console.log(registro.Puntaje=this.total)
+  console.log(registro.Puntaje);
+  // this.ContactoModel.Puntaje=this.total;
+  // console.log(this.ContactoModel.Puntaje)
    this.ContactoModel = { ...registro }
    this.firebaseService.updatecontacto(this.ContactoModel.id, this.ContactoModel.Lugar, 
     this.ContactoModel.Personaje, this.ContactoModel.RubroA,this.ContactoModel.RubroB,this.ContactoModel.RubroC,
     this.ContactoModel.RubroD, this.ContactoModel.Folio, this.ContactoModel.RubroA2,this.ContactoModel.RubroB2,this.ContactoModel.RubroC2,
     this.ContactoModel.RubroD2,this.ContactoModel.RubroA3,this.ContactoModel.RubroB3,this.ContactoModel.RubroC3,
     this.ContactoModel.RubroD3,this.ContactoModel.RubroA4,this.ContactoModel.RubroB4,this.ContactoModel.RubroC4,
-    this.ContactoModel.RubroD4,
+    this.ContactoModel.RubroD4,this.ContactoModel.Puntaje
     
    )
 }

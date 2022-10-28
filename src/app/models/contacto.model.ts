@@ -35,7 +35,7 @@ export interface ContactoModel {
   RubroD4: string;
   Folio: string;
   Categoria: string;
-
+Puntaje: number
 
 
 }
