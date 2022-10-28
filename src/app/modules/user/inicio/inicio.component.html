@@ -74,7 +74,7 @@
                     <input pInputText type="text" placeholder="Ingresa el personaje" [style]="{ height:'80%' }" [(ngModel)]="ContactoModel.Personaje"/>
                 </th>
                 <td>
-                    <button pButton pRipple label="Guardar" icon="pi pi-upload" class="p-button-rounded p-button-success mr-2" (click)="guardar(ContactoModel)"></button>
+                    <button pButton pRipple label="Guardar" icon="pi pi-upload" class="p-button-rounded p-button-success mr-2" (click)="guardar(this.ContactoModel)"></button>
                     <!--<button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="delete(ContactoModel)"></button>-->
                 </td>
 

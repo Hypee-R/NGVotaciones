@@ -92,6 +92,12 @@ export class ContactoService {
     return this.toastr.success('Registro Guardado con exito!!','Exito');
   }
 
+  async updatecontactoLugarPersonaje(docId: string, Lugar: string,Personaje:string ) {
+    const docRef = doc(this.db, 'regVotacines', docId);
+    await updateDoc(docRef, { Lugar,Personaje})
+    return this.toastr.success('Registro Guardado con exito!!','Exito');
+  }
+
     getcontactos(){
       const contactosCollection = collection(this.firestore, 'mensajesContacto');
       return collectionData(query(contactosCollection, orderBy("id", "asc")));

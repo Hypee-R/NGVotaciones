@@ -128,15 +128,12 @@ export class InicioComponent {
   }
 
   guardar(registro: any) {
+    console.log(registro)
     this.ContactoModel = { ...registro }
-    this.firebaseService.updatecontacto(this.ContactoModel.id, this.ContactoModel.Lugar,
-      this.ContactoModel.Personaje,this.ContactoModel.RubroA,this.ContactoModel.RubroB,this.ContactoModel.RubroC,
-      this.ContactoModel.RubroD,this.ContactoModel.Folio,this.ContactoModel.RubroA2,this.ContactoModel.RubroB2,this.ContactoModel.RubroC2,
-      this.ContactoModel.RubroD2,this.ContactoModel.RubroA3,this.ContactoModel.RubroB3,
-      this.ContactoModel.RubroC3,
-      this.ContactoModel.RubroD3,this.ContactoModel.RubroA4,this.ContactoModel.RubroB4,this.ContactoModel.RubroC4,
-      this.ContactoModel.RubroD4,
-      
+    this.firebaseService.updatecontactoLugarPersonaje(
+      this.ContactoModel.id, 
+      this.ContactoModel.Lugar,
+      this.ContactoModel.Personaje
     )
   }
 
