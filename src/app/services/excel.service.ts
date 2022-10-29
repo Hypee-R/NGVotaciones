@@ -64,7 +64,7 @@ ws['!cols'] = [
   con(convoc: any){
     console.log(convoc);
     
-  let ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(convoc, { header: ['id','date','status','submission','nombre','fechaNa','app','correo','apm','telefono','Categoria','facebook','instragram','nombreTutor','appTutor','apmTutor','Relacion','Lugar','Personaje','Interpretacion1','Creatividad1','ImagenCaracterizacion1','Extra1','Interpretacion2','Creatividad2','ImagenCaracterizacion2','Extra2','Interpretacion3','Creatividad3','ImagenCaracterizacion3','Extra3','Interpretacion4','Creatividad4','ImagenCaracterizacion4','Extra4','Puntaje'] })
+  let ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(convoc, { header: ['id','date','status','submission','nombre','fechaNa','app','correo','apm','telefono','Categoria','facebook','instragram','nombreTutor','appTutor','apmTutor','Relacion','Lugar','Personaje','Folio','Interpretacion1','Creatividad1','ImagenCaracterizacion1','Extra1','Interpretacion2','Creatividad2','ImagenCaracterizacion2','Extra2','Interpretacion3','Creatividad3','ImagenCaracterizacion3','Extra3','Interpretacion4','Creatividad4','ImagenCaracterizacion4','Extra4','Puntaje'] })
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'regVotaciones');
     XLSX.writeFile(wb, 'Partcipantes.xlsx')
