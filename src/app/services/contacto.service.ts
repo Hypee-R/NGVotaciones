@@ -86,10 +86,10 @@ export class ContactoService {
    return    this.toastr.error('Registro Eliminado con exito!!','Advertencia');
   }
 
-  async updatecontacto(docId: string, Lugar: string,Personaje:string,RubroA:number,RubroB:number ,RubroC:number ,RubroD:number ,Folio:string,RubroA2:number,RubroB2:number ,RubroC2:number ,RubroD2:number,RubroA3:number,RubroB3:number ,RubroC3:number ,RubroD3:number,RubroA4:number,RubroB4:number ,RubroC4:number ,RubroD4:number,Puntaje:number) {
+  async updatecontacto(docId: string, Lugar: string,Personaje:string,Interpretacion1:number, Creatividad1:number ,ImagenCaracterizacion1:number ,Extra1:number ,Folio:string,Interpretacion2:number, Creatividad2:number ,ImagenCaracterizacion2:number , Extra2:number,Interpretacion3:number,Creatividad3:number ,ImagenCaracterizacion3:number ,Extra3:number,Interpretacion4:number,Creatividad4:number ,ImagenCaracterizacion4:number , Extra4:number,Puntaje:number) {
     console.log(Puntaje)
     const docRef = doc(this.db, 'regVotacines', docId);
-    await updateDoc(docRef, { Lugar,Personaje,RubroA,RubroB,RubroC,RubroD,Folio,RubroA2,RubroB2,RubroC2,RubroD2,RubroA3,RubroB3,RubroC3,RubroD3,RubroA4,RubroB4,RubroC4,RubroD4,Puntaje})
+    await updateDoc(docRef, { Lugar,Personaje,Interpretacion1, Creatividad1,ImagenCaracterizacion1,Extra1,Folio,Interpretacion2, Creatividad2,ImagenCaracterizacion2, Extra2,Interpretacion3,Creatividad3,ImagenCaracterizacion3,Extra3,Interpretacion4,Creatividad4,ImagenCaracterizacion4, Extra4,Puntaje})
     return this.toastr.success('Registro Guardado con exito!!','Exito');
   }
 

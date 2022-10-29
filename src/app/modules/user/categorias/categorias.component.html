@@ -14,7 +14,7 @@
           </div>
         </div>
       </div>
-   
+     
     <div class="container"  *ngIf="this.ContactoModels.length==0">
         <div class="row">
           <div class="col-sm">
@@ -69,120 +69,122 @@
 
     <div class="row">
         <div class="col">
-           <label>Rubro A:</label> 
+           <label>Interpretación1</label> 
             <input pInputText type="number" [style]="{ width:'20%' }"
-                [(ngModel)]="ContactoModels[first].RubroA"    min="1" max="5"/>
+                [(ngModel)]="ContactoModels[first].Interpretacion1"  min="1" max="5"/>
                 <hr>
         </div>
         <div class="col">
-            <label>Rubro B:</label>
+            <label>Creatividad-1:</label>
             <input pInputText type="number" [style]="{ width:'20%' }"
-                [(ngModel)]="ContactoModels[first].RubroB"  min="1" max="5"/>
+                [(ngModel)]="ContactoModels[first].Creatividad1"  min="1" max="5"/>
                 <hr>
         </div>
-    </div>
-
-    <div class="row">
-        <div class="col">
-           <label>Rubro C:</label> 
-            <input pInputText type="number" [style]="{ width:'20%' }"
-                [(ngModel)]="ContactoModels[first].RubroC"  min="1" max="5"/>
-                <hr>
-        </div>
-        <div class="col">
-            <label>Rubro D:</label>
-            <input pInputText type="number" [style]="{ width:'20%' }"
-                [(ngModel)]="ContactoModels[first].RubroD"  min="1" max="5" />
-                <hr>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col">
-           <label>Rubro A2:</label> 
-            <input pInputText type="number" [style]="{ width:'20%' }"
-                [(ngModel)]="ContactoModels[first].RubroA2"  min="1" max="5"/>
-                <hr>
-        </div>
-        <div class="col">
-            <label>Rubro B2:</label>
-            <input pInputText type="number" [style]="{ width:'20%' }"
-                [(ngModel)]="ContactoModels[first].RubroB2"  min="1" max="5"/>
-                <hr>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col">
-           <label>Rubro C2:</label> 
-            <input pInputText type="number" [style]="{ width:'20%' }"
-                [(ngModel)]="ContactoModels[first].RubroC2"  min="1" max="5"/>
-                <hr>
-        </div>
-        <div class="col">
-            <label>Rubro D2:</label>
-            <input pInputText type="number" [style]="{ width:'20%' }"
-                [(ngModel)]="ContactoModels[first].RubroD2"  min="1" max="5"/>
-                <hr>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col">
-           <label>Rubro A3:</label> 
-            <input pInputText type="number" [style]="{ width:'20%' }"
-                [(ngModel)]="ContactoModels[first].RubroA3"  min="1" max="5"/>
-                <hr>
-        </div>
-        <div class="col">
-            <label>Rubro B3:</label>
-            <input pInputText type="number" [style]="{ width:'20%' }"
-                [(ngModel)]="ContactoModels[first].RubroB3"  min="1" max="5"/>
-                <hr>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col">
-           <label>Rubro C3:</label> 
-            <input pInputText type="number" [style]="{ width:'20%' }"
-                [(ngModel)]="ContactoModels[first].RubroC3"  min="1" max="5"/>
-                <hr>
-        </div>
-        <div class="col">
-            <label>Rubro D3:</label>
-            <input pInputText type="number" [style]="{ width:'20%' }"
-                [(ngModel)]="ContactoModels[first].RubroD3"  min="1" max="5"/>
-                <hr>
-        </div>
-    </div>
     
+
     <div class="row">
         <div class="col">
-           <label>Rubro A4:</label> 
+           <label>Imagen/Caracterización-1:</label> 
             <input pInputText type="number" [style]="{ width:'20%' }"
-                [(ngModel)]="ContactoModels[first].RubroA4"  min="1" max="5"/>
+                [(ngModel)]="ContactoModels[first].ImagenCaracterizacion1" min="1" max="5"/>
                 <hr>
         </div>
         <div class="col">
-            <label>Rubro B4:</label>
+            <label>EXTRA-1 sumarán puntos aquellos personajes que utilicen aplicaciones neones::</label>
             <input pInputText type="number" [style]="{ width:'20%' }"
-                [(ngModel)]="ContactoModels[first].RubroB4"  min="1" max="5"/>
+                [(ngModel)]="ContactoModels[first].Extra1"  min="1" max="5" />
+                <hr>
+        </div>
+    </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col">
+           <label>Interpretación-2:</label> 
+            <input pInputText type="number" [style]="{ width:'20%' }"
+                [(ngModel)]="ContactoModels[first].Interpretacion2"  min="1" max="5"/>
+                <hr>
+        </div>
+        <div class="col">
+            <label>Creatividad-2:</label>
+            <input pInputText type="number" [style]="{ width:'20%' }"
+                [(ngModel)]="ContactoModels[first].Creatividad2"  min="1" max="5"/>
                 <hr>
         </div>
     </div>
 
     <div class="row">
         <div class="col">
-           <label>Rubro C4:</label> 
+           <label>Imagen/Caracterización-2:</label> 
             <input pInputText type="number" [style]="{ width:'20%' }"
-                [(ngModel)]="ContactoModels[first].RubroC4"  min="1" max="5"/>
+                [(ngModel)]="ContactoModels[first].ImagenCaracterizacion2"  min="1" max="5"/>
                 <hr>
         </div>
         <div class="col">
-            <label>Rubro D4:</label>
+            <label>EXTRA-2: sumarán puntos aquellos personajes que utilicen aplicaciones neones:</label>
             <input pInputText type="number" [style]="{ width:'20%' }"
-                [(ngModel)]="ContactoModels[first].RubroD4"  min="1" max="5"/>
+                [(ngModel)]="ContactoModels[first].Extra2"  min="1" max="5"/>
+                <hr>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+           <label>Interpretación-3:</label> 
+            <input pInputText type="number" [style]="{ width:'20%' }"
+                [(ngModel)]="ContactoModels[first].Interpretacion3"  min="1" max="5"/>
+                <hr>
+        </div>
+        <div class="col">
+            <label>Creatividad-3:</label>
+            <input pInputText type="number" [style]="{ width:'20%' }"
+                [(ngModel)]="ContactoModels[first].Creatividad3"  min="1" max="5"/>
+                <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+           <label>Imagen/Caracterización-3:</label> 
+            <input pInputText type="number" [style]="{ width:'20%' }"
+                [(ngModel)]="ContactoModels[first].ImagenCaracterizacion3"  min="1" max="5"/>
+                <hr>
+        </div>
+        <div class="col">
+            <label>EXTRA-3 sumarán puntos aquellos personajes que utilicen aplicaciones neones::</label>
+            <input pInputText type="number" [style]="{ width:'20%' }"
+                [(ngModel)]="ContactoModels[first].Extra3"  min="1" max="5"/>
+                <hr>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+           <label>Interpretación-4:</label> 
+            <input pInputText type="number" [style]="{ width:'20%' }"
+                [(ngModel)]="ContactoModels[first].Interpretacion4"  min="1" max="5"/>
+                <hr>
+        </div>
+        <div class="col">
+            <label>Creatividad-4:</label>
+            <input pInputText type="number" [style]="{ width:'20%' }"
+                [(ngModel)]="ContactoModels[first].Creatividad4"  min="1" max="5"/>
+                <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+           <label>Imagen/Caracterización-4:</label> 
+            <input pInputText type="number" [style]="{ width:'20%' }"
+                [(ngModel)]="ContactoModels[first].ImagenCaracterizacion4"  min="1" max="5"/>
+                <hr>
+        </div>
+        <div class="col">
+            <label>EXTRA-4 sumarán puntos aquellos personajes que utilicen aplicaciones neones::</label>
+            <input pInputText type="number" [style]="{ width:'20%' }"
+                [(ngModel)]="ContactoModels[first].Extra4"  min="1" max="5"/>
                 <hr>
         </div>
     </div>
@@ -195,8 +197,10 @@
         <div class="col">
             <div style="text-align: center;">
                 <Label>Evaluacion:</Label>
+             
+         
             <input pInputText type="text" [style]="{ width:'20%' }"
-            [(ngModel)]="ContactoModels[first].Puntaje" disabled=""/>  
+            [(ngModel)]="ContactoModels[first].Puntaje" disabled=""/>
             </div>
             <!-- <div style="text-align: center;">
                 <button pButton pRipple label="Guardar suma de rubros" icon="pi pi-upload" class="p-button-success mr-2" (click)="sumaRubros()"></button>

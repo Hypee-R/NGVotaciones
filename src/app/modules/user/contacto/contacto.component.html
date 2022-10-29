@@ -8,7 +8,10 @@
             <!-- <button pButton pRipple label="Nuevo" icon="pi pi-plus" class="p-button-success mr-2" ></button> -->
 
         </ng-template>
-
+        <ng-template pTemplate="left">
+       
+            <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"(click)="Excel()" style="margin-left: 10px;"></button>
+        </ng-template>
         <ng-template pTemplate="right">
             <!--<p-fileUpload mode="basic"id="txtFileUpload" #fileImportInput  (change)="fileChangeListener($event)" accept=".csv" [maxFileSize]="1000000" label="Import" chooseLabel="Importar" class="mr-2 inline-block"></p-fileUpload>-->
             <!-- <button pButton pRipple label="Importar" icon="pi pi-upload" class="p-button-help" (click)="fileChangeListener($event)" accept=".csv"></button> -->

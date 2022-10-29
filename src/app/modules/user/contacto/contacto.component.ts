@@ -7,6 +7,7 @@ import { DocumentData, QuerySnapshot } from 'firebase/firestore';
 import { ContactoModel } from 'src/app/models/contacto.model';
 import { ConfigService } from 'src/config/config.service';
 import { Router, CanLoad, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ExcelService } from 'src/app/services/excel.service';
 
 @Component({
   selector: 'app-contacto',
@@ -50,6 +51,7 @@ export class ContactoComponent implements OnInit {
   constructor(
     private contactoService: ContactoService,
     private toastr: ToastrService,
+    private exporExcel: ExcelService,
       private firebaseService: ContactoService,
       private authService: ConfigService,
       private router: Router
@@ -79,6 +81,11 @@ export class ContactoComponent implements OnInit {
   
     })
   }
+  Excel() {
+    this.exporExcel.con(this.ContactoModels)
+
+  }
+
 
   
 

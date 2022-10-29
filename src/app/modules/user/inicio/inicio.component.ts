@@ -43,25 +43,25 @@ export class InicioComponent {
     Relacion: '',
     Lugar: '',
     Personaje: '',
-    Folio:'',
-    Puntaje:'',
-   
-    RubroA:0 ,
-    RubroB: 0 ,
-    RubroC:  0,
-    RubroD:  0 ,
-    RubroA2: 0,
-    RubroB2: 0,
-    RubroC2: 0,
-    RubroD2: 0,
-    RubroA3: 0,
-    RubroB3: 0,
-    RubroC3: 0,
-    RubroD3: 0,
-    RubroA4: 0,
-    RubroB4: 0,
-    RubroC4: 0,
-    RubroD4: 0,
+    Folio: '',
+    Puntaje: '',
+    Interpretacion1: 0,
+    Creatividad1: 0,
+    ImagenCaracterizacion1: 0,
+    Extra1: 0,
+
+    Interpretacion2: 0,
+    Creatividad2: 0,
+    ImagenCaracterizacion2: 0,
+    Extra2: 0,
+    Interpretacion3: 0,
+    Creatividad3: 0,
+    ImagenCaracterizacion3: 0,
+    Extra3: 0,
+    Interpretacion4: 0,
+    Creatividad4: 0,
+    ImagenCaracterizacion4: 0,
+    Extra4: 0,
 
 
 
@@ -110,7 +110,7 @@ export class InicioComponent {
       id: ['', [Validators.required]],
       nombre: ['', [Validators.required]],
       app: ['', [Validators.required]],
-     
+
     })
   }
   async get() {
@@ -129,7 +129,7 @@ export class InicioComponent {
     console.log(registro)
     this.ContactoModel = { ...registro }
     this.firebaseService.updatecontactoLugarPersonaje(
-      this.ContactoModel.id, 
+      this.ContactoModel.id,
       this.ContactoModel.Lugar,
       this.ContactoModel.Personaje
     )
@@ -161,34 +161,35 @@ export class InicioComponent {
       correo,
       apm,
       telefono,
-     Categoria,
+      Categoria,
       facebook,
       instragram,
       nombreTutor,
       appTutor,
       apmTutor,
       Relacion,
-      
+
       Lugar,
       Personaje,
-      RubroA,
-       RubroB,
-        RubroC,
-     RubroD,
-     Folio,
+      Folio,
      
-     RubroA2,
-     RubroB2,
-      RubroC2,
-   RubroD2,
-   RubroA3,
-   RubroB3,
-    RubroC3,
- RubroD3,
- RubroA4,
- RubroB4,
-  RubroC4,
-RubroD4,
+      Interpretacion1,
+      Creatividad1,
+      ImagenCaracterizacion1,
+      Extra1,
+
+      Interpretacion2,
+      Creatividad2,
+      ImagenCaracterizacion2,
+      Extra2,
+      Interpretacion3,
+      Creatividad3,
+      ImagenCaracterizacion3,
+      Extra3,
+      Interpretacion4,
+      Creatividad4,
+      ImagenCaracterizacion4,
+      Extra4,
 
 
     } = this.contactomodel;
@@ -200,44 +201,48 @@ RubroD4,
       submission: submission,
       nombre: nombre,
       fechaNa: fechaNa,
-       app: app,
-      
+      app: app,
+
       correo: correo,
       apm: apm,
       telefono: telefono,
-      Categoria:Categoria,
+      Categoria: Categoria,
       facebook: facebook,
       instragram: instragram,
       nombreTutor: nombreTutor,
       appTutor: appTutor,
       apmTutor: apmTutor,
       Relacion: Relacion,
-      
-     
+
+
       Lugar: Lugar,
       Personaje: Personaje,
-      RubroA: RubroA,
-      RubroB: RubroB,
-      RubroC:  RubroC,
-      RubroD:  RubroD,
-      Folio:Folio,
-    
+      Folio: Folio,
 
-      RubroA2:RubroA2,
-      RubroB2:RubroB2,
-       RubroC2:RubroC2,
-    RubroD2:RubroD2,
+      Interpretacion1: Interpretacion1,
+      Creatividad1: Creatividad1,
+      ImagenCaracterizacion1:  ImagenCaracterizacion1,
 
-    RubroA3:RubroA3,
-    RubroB3:RubroB3,
-     RubroC3:RubroC3,
-  RubroD3:RubroD3,
+      Extra1: Extra1,
 
-  RubroA4:RubroA4,
-  RubroB4:RubroB4,
-   RubroC4:RubroC4,
-RubroD4:RubroD4,
-Puntaje:0
+      Interpretacion2: Interpretacion2,
+      Creatividad2: Creatividad2,
+      ImagenCaracterizacion2: ImagenCaracterizacion2,
+      Extra2: Extra2,
+      Interpretacion3: Interpretacion3,
+      Creatividad3: Creatividad3,
+      ImagenCaracterizacion3: ImagenCaracterizacion3,
+      Extra3: Extra3,
+      Interpretacion4: Interpretacion4,
+      Creatividad4: Creatividad4,
+      ImagenCaracterizacion4: ImagenCaracterizacion4,
+      Extra4: Extra4,
+
+
+
+
+
+      Puntaje: 0,
 
     });
     this.toastr.success('Se dio de alta correctamente!', 'Success');
@@ -282,7 +287,7 @@ Puntaje:0
 
 
   Excel() {
-    this.exporExcel.convoc(this.ContactoModels)
+    this.exporExcel.con(this.ContactoModels)
 
   }
   hideDialog() {
@@ -359,7 +364,7 @@ Puntaje:0
         csvRecord.appTutor = data[14].trim();
         csvRecord.apmTutor = data[15].trim();
         csvRecord.Relacion = data[16].trim();
-       
+
         dataArr.push(csvRecord);
       }
     }
@@ -401,30 +406,32 @@ Puntaje:0
           appTutor: arr[i].appTutor.replace(/["']/g, ""),
           apmTutor: arr[i].apmTutor.replace(/["']/g, ""),
           Relacion: arr[i].Relacion.replace(/["']/g, ""),
-    //      Infantil: arr[i].Infantil,
-     //     Juvenil: arr[i].Juvenil,
-         
+          //      Infantil: arr[i].Infantil,
+          //     Juvenil: arr[i].Juvenil,
+
           Lugar: "",
           Personaje: "",
-          RubroA: 0,
-          RubroB: 0,
-          RubroC: 0,
-          RubroD: 0,
           Folio: "",
-          RubroA2: 0,
-          RubroB2: 0,
-          RubroC2: 0,
-          RubroD2: 0,
-          RubroA3: 0,
-          RubroB3: 0,
-          RubroC3: 0,
-          RubroD3: 0,
-          RubroA4: 0,
-          RubroB4: 0,
-          RubroC4: 0,
-          RubroD4: 0,
-          Puntaje:0
-          
+
+          Interpretacion1: 0,
+          Creatividad1:0,
+          ImagenCaracterizacion1: 0,
+          Extra1: 0,
+
+          Interpretacion2: 0,
+          Creatividad2: 0,
+          ImagenCaracterizacion2: 0,
+          Extra2: 0,
+          Interpretacion3: 0,
+          Creatividad3: 0,
+          ImagenCaracterizacion3: 0,
+          Extra3: 0,
+          Interpretacion4: 0,
+          Creatividad4: 0,
+          ImagenCaracterizacion4: 0,
+          Extra4: 0,
+          Puntaje: 0,
+
         });
       }
     }
@@ -476,7 +483,7 @@ export class CSVRecord {
   public appTutor: any;
   public apmTutor: any;
   public Relacion: any;
-  
+
 
   constructor(
 
